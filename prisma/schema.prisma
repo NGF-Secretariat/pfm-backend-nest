@@ -1,0 +1,373 @@
+// This is your Prisma schema file
+// https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Reference tables
+// ---------------------------------------------------------------------------
+
+/// Nigerian States + FCT
+model State {
+  id     Int    @id @default(autoincrement())
+  name   String @unique
+
+  zone   GeoPoliticalZone? @relation(fields: [zoneId], references: [id])
+  zoneId Int?
+
+  actualRevenues         ActualRevenue[]
+  actualExpenditures     ActualExpenditure[]
+  budgetRevenues         BudgetRevenue[]
+  budgetExpenditures     BudgetExpenditure[]
+  populations            Population[]
+  populationExpSummaries PopulationExpenditureSummary[]
+
+  publicFinanceActuals   PublicFinanceActual[]
+  publicFinanceBudgets   PublicFinanceBudget[]
+
+  profile StateProfile?
+
+  @@map("states")
+}
+
+/// Six geo-political zones
+model GeoPoliticalZone {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  states State[]
+
+  originalBudgets ZoneOriginalBudget[]
+
+  @@map("geo_political_zones")
+}
+
+// ---------------------------------------------------------------------------
+// Actual figures
+// ---------------------------------------------------------------------------
+
+model ActualRevenue {
+  id      Int   @id @default(autoincrement())
+  state   State @relation(fields: [stateId], references: [id])
+  stateId Int
+
+  year   Int
+  amount Decimal @db.Decimal(20, 2)
+
+  @@unique([stateId, year])
+  @@map("actual_revenues")
+}
+
+model ActualExpenditure {
+  id      Int   @id @default(autoincrement())
+  state   State @relation(fields: [stateId], references: [id])
+  stateId Int
+
+  year   Int
+  amount Decimal @db.Decimal(20, 2)
+
+  @@unique([stateId, year])
+  @@map("actual_expenditures")
+}
+
+// ---------------------------------------------------------------------------
+// Budget figures
+// ---------------------------------------------------------------------------
+
+model BudgetRevenue {
+  id      Int   @id @default(autoincrement())
+  state   State @relation(fields: [stateId], references: [id])
+  stateId Int
+
+  year   Int
+  amount Decimal @db.Decimal(20, 2)
+
+  @@unique([stateId, year])
+  @@map("budget_revenues")
+}
+
+model BudgetExpenditure {
+  id      Int   @id @default(autoincrement())
+  state   State @relation(fields: [stateId], references: [id])
+  stateId Int
+
+  year   Int
+  amount Decimal @db.Decimal(20, 2)
+
+  @@unique([stateId, year])
+  @@map("budget_expenditures")
+}
+
+// ---------------------------------------------------------------------------
+// National aggregate
+// ---------------------------------------------------------------------------
+
+model NationalAggregate {
+  id   Int @id @default(autoincrement())
+  year Int @unique
+
+  originalRevenue     Decimal? @db.Decimal(20, 2)
+  originalExpenditure Decimal? @db.Decimal(20, 2)
+
+  actualRevenue       Decimal? @db.Decimal(20, 2)
+  actualExpenditure   Decimal? @db.Decimal(20, 2)
+
+  @@map("national_aggregates")
+}
+
+// ---------------------------------------------------------------------------
+// Geo-political zone original budgets
+// ---------------------------------------------------------------------------
+
+model ZoneOriginalBudget {
+  id     Int @id @default(autoincrement())
+
+  zone   GeoPoliticalZone @relation(fields: [zoneId], references: [id])
+  zoneId Int
+
+  stateName String
+
+  year Int @default(2026)
+
+  originalBudget Decimal @db.Decimal(20, 2)
+
+  @@unique([zoneId, stateName, year])
+  @@map("zone_original_budgets")
+}
+
+// ---------------------------------------------------------------------------
+// Expenditure by function
+// ---------------------------------------------------------------------------
+
+model ExpenditureByFunction {
+  id Int @id @default(autoincrement())
+
+  year     Int
+  function BudgetFunction
+
+  recurrent Decimal @db.Decimal(20, 2)
+  capital   Decimal @db.Decimal(20, 2)
+  total     Decimal @db.Decimal(20, 2)
+
+  @@unique([year, function])
+  @@map("expenditure_by_function")
+}
+
+enum BudgetFunction {
+  GENERAL_PUBLIC_SERVICE
+  PUBLIC_ORDER_AND_SAFETY
+  ECONOMIC_AFFAIRS
+  ENVIRONMENTAL_PROTECTION
+  HOUSING_AND_COMMUNITY_AMENITIES
+  HEALTH
+  RECREATION_AND_CULTURE
+  EDUCATION
+  SOCIAL_PROTECTION
+}
+
+// ---------------------------------------------------------------------------
+// Expenditure by programme
+// ---------------------------------------------------------------------------
+
+model ExpenditureByProgramme {
+  id Int @id @default(autoincrement())
+
+  year      Int
+  programme BudgetProgramme
+
+  recurrent Decimal @db.Decimal(20, 2)
+  capital   Decimal @db.Decimal(20, 2)
+  total     Decimal @db.Decimal(20, 2)
+
+  @@unique([year, programme])
+  @@map("expenditure_by_programme")
+}
+
+enum BudgetProgramme {
+  AGRICULTURE
+  SOCIETAL_REORIENTATION
+  POVERTY_ALLEVIATION
+  HEALTH
+  EDUCATION
+  HOUSING_AND_URBAN_DEVELOPMENT
+  GENDER
+  YOUTH
+  ENVIRONMENTAL_IMPROVEMENT
+  WATER_RESOURCES_AND_RURAL_DEVELOPMENT
+  INFORMATION_COMMUNICATION_AND_TECHNOLOGY
+  GROWING_THE_PRIVATE_SECTOR
+  REFORM_OF_GOVERNMENT_AND_GOVERNANCE
+  POWER
+  RAIL
+  WATER_WAYS
+  ROAD
+  AIRWAYS
+  COVID_19
+  CLIMATE_CHANGE
+  OIL_AND_GAS_INFRASTRUCTURE
+  SOLID_MINERALS
+}
+
+// ---------------------------------------------------------------------------
+// Population
+// ---------------------------------------------------------------------------
+
+model Population {
+  id Int @id @default(autoincrement())
+
+  state   State @relation(fields: [stateId], references: [id])
+  stateId Int
+
+  year Int
+
+  population Decimal @db.Decimal(18, 2)
+
+  @@unique([stateId, year])
+  @@map("populations")
+}
+
+// ---------------------------------------------------------------------------
+// Population vs Expenditure summary
+// ---------------------------------------------------------------------------
+
+model PopulationExpenditureSummary {
+  id Int @id @default(autoincrement())
+
+  state   State @relation(fields: [stateId], references: [id])
+  stateId Int @unique
+
+  population2024 Decimal @db.Decimal(18, 2)
+
+  actualTotalExpenditure2023 Decimal @db.Decimal(20, 2)
+
+  perCapitaExpenditure2023 Decimal? @db.Decimal(20, 2)
+
+  @@map("population_expenditure_summaries")
+}
+
+// ---------------------------------------------------------------------------
+// Public Finance Models (BudgetModule)
+// ---------------------------------------------------------------------------
+
+model PublicFinanceItem {
+  id          Int      @id @default(autoincrement())
+  code        String?  // e.g. "11010000". Optional because some rows like "Opening Balance" have no code
+  description String   @unique
+
+  actuals     PublicFinanceActual[]
+  budgets     PublicFinanceBudget[]
+
+  @@map("public_finance_items")
+}
+
+model PublicFinanceActual {
+  id      Int    @id @default(autoincrement())
+  stateId Int
+  year    Int
+  itemId  Int
+  amount  Decimal @db.Decimal(20, 2)
+
+  state   State             @relation(fields: [stateId], references: [id])
+  item    PublicFinanceItem @relation(fields: [itemId], references: [id])
+
+  @@unique([stateId, year, itemId])
+  @@index([year])
+  @@map("public_finance_actuals")
+}
+
+model PublicFinanceBudget {
+  id      Int    @id @default(autoincrement())
+  stateId Int
+  year    Int
+  itemId  Int
+  amount  Decimal @db.Decimal(20, 2)
+
+  state   State             @relation(fields: [stateId], references: [id])
+  item    PublicFinanceItem @relation(fields: [itemId], references: [id])
+
+  @@unique([stateId, year, itemId])
+  @@index([year])
+  @@map("public_finance_budgets")
+}
+
+// ---------------------------------------------------------------------------
+// State Profiles
+// ---------------------------------------------------------------------------
+
+model StateProfile {
+  id          Int     @id @default(autoincrement())
+  
+  stateId     Int     @unique
+  state       State   @relation(fields: [stateId], references: [id], onDelete: Cascade)
+  
+  slug        String  @unique
+  about       String  @db.Text
+  population  Decimal? @db.Decimal(18, 2)
+  area        String?
+  coordinates String?
+
+  @@map("state_profiles")
+}
+// ---------------------------------------------------------------------------
+// Newsletter Subscribers
+// ---------------------------------------------------------------------------
+
+model Subscriber {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  createdAt DateTime @default(now())
+
+  @@map("subscribers")
+}
+
+// ---------------------------------------------------------------------------
+// Contact Us Messages
+// ---------------------------------------------------------------------------
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  firstName String   @map("first_name")
+  lastName  String   @map("last_name")
+  email     String
+  message   String   @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("contacts")
+}
+
+model BlogPost {
+  id        Int      @id @default(autoincrement())
+  slug      String   @unique
+  title     String
+  image     String
+  date      String
+  excerpt   String   @db.Text
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("blog_posts")
+}
+
+// ---------------------------------------------------------------------------
+// Users (Admin Portal)
+// ---------------------------------------------------------------------------
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("Viewer")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
