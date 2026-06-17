@@ -151,24 +151,33 @@ export class StateProfileService {
       : [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 
     const timeSeries = {
-      years,
-      original: { revenue: [] as number[], expenditure: [] as number[], capital: [] as number[], recurrent: [] as number[] },
-      actual: { revenue: [] as number[], expenditure: [] as number[], capital: [] as number[], recurrent: [] as number[] }
+      original: {
+        revenue: [] as { year: number, value: number }[],
+        expenditure: [] as { year: number, value: number }[],
+        capital: [] as { year: number, value: number }[],
+        recurrent: [] as { year: number, value: number }[]
+      },
+      actual: {
+        revenue: [] as { year: number, value: number }[],
+        expenditure: [] as { year: number, value: number }[],
+        capital: [] as { year: number, value: number }[],
+        recurrent: [] as { year: number, value: number }[]
+      }
     };
 
     for (const year of years) {
       const actYear = actuals.filter(a => a.year === year);
       const budYear = budgets.filter(b => b.year === year);
 
-      timeSeries.actual.revenue.push(actYear.find(a => revIds.includes(a.itemId))?.amount.toNumber() || 0);
-      timeSeries.actual.expenditure.push(actYear.find(a => expIds.includes(a.itemId))?.amount.toNumber() || 0);
-      timeSeries.actual.capital.push(actYear.find(a => capIds.includes(a.itemId))?.amount.toNumber() || 0);
-      timeSeries.actual.recurrent.push(actYear.find(a => recIds.includes(a.itemId))?.amount.toNumber() || 0);
+      timeSeries.actual.revenue.push({ year, value: actYear.find(a => revIds.includes(a.itemId))?.amount.toNumber() || 0 });
+      timeSeries.actual.expenditure.push({ year, value: actYear.find(a => expIds.includes(a.itemId))?.amount.toNumber() || 0 });
+      timeSeries.actual.capital.push({ year, value: actYear.find(a => capIds.includes(a.itemId))?.amount.toNumber() || 0 });
+      timeSeries.actual.recurrent.push({ year, value: actYear.find(a => recIds.includes(a.itemId))?.amount.toNumber() || 0 });
 
-      timeSeries.original.revenue.push(budYear.find(b => revIds.includes(b.itemId))?.amount.toNumber() || 0);
-      timeSeries.original.expenditure.push(budYear.find(b => expIds.includes(b.itemId))?.amount.toNumber() || 0);
-      timeSeries.original.capital.push(budYear.find(b => capIds.includes(b.itemId))?.amount.toNumber() || 0);
-      timeSeries.original.recurrent.push(budYear.find(b => recIds.includes(b.itemId))?.amount.toNumber() || 0);
+      timeSeries.original.revenue.push({ year, value: budYear.find(b => revIds.includes(b.itemId))?.amount.toNumber() || 0 });
+      timeSeries.original.expenditure.push({ year, value: budYear.find(b => expIds.includes(b.itemId))?.amount.toNumber() || 0 });
+      timeSeries.original.capital.push({ year, value: budYear.find(b => capIds.includes(b.itemId))?.amount.toNumber() || 0 });
+      timeSeries.original.recurrent.push({ year, value: budYear.find(b => recIds.includes(b.itemId))?.amount.toNumber() || 0 });
     }
 
     return { success: true, data: { ...profile, timeSeries } };
