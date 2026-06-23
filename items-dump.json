@@ -1,0 +1,4462 @@
+[
+  {
+    "id": 1,
+    "code": null,
+    "description": "Revenue by Economic"
+  },
+  {
+    "id": 2,
+    "code": null,
+    "description": "Total Revenue (including Opening Balance)"
+  },
+  {
+    "id": 3,
+    "code": null,
+    "description": "Opening Balance"
+  },
+  {
+    "id": 4,
+    "code": "10000000",
+    "description": "Total Revenue"
+  },
+  {
+    "id": 5,
+    "code": "11010000",
+    "description": "Government Share of Federation Revenue (FAAC)"
+  },
+  {
+    "id": 6,
+    "code": "11010100",
+    "description": "State Government of Statutory Allocation"
+  },
+  {
+    "id": 7,
+    "code": "11010101",
+    "description": "Statutory Allocation"
+  },
+  {
+    "id": 8,
+    "code": "11010102",
+    "description": "Oil/Gas Derivation"
+  },
+  {
+    "id": 9,
+    "code": "11010200",
+    "description": "Government Share of Value Added Tax (VAT)"
+  },
+  {
+    "id": 10,
+    "code": "11010300",
+    "description": "Government Share of Other Federation Revenues"
+  },
+  {
+    "id": 11,
+    "code": "12000000",
+    "description": "Independent Revenue (Internally Generated Revenue)"
+  },
+  {
+    "id": 12,
+    "code": "12010000",
+    "description": "Tax Revenue"
+  },
+  {
+    "id": 13,
+    "code": "12010100",
+    "description": "Personal Taxes"
+  },
+  {
+    "id": 14,
+    "code": "12010101",
+    "description": "Personal Income Tax (PAYE)"
+  },
+  {
+    "id": 15,
+    "code": "12010104",
+    "description": "Personnal Income Tax (Direct Assessment Taxes)"
+  },
+  {
+    "id": 16,
+    "code": "12010105",
+    "description": "Penalty For Offences & Interest"
+  },
+  {
+    "id": 17,
+    "code": "12010106",
+    "description": "Other Personal Tax N.E.C"
+  },
+  {
+    "id": 18,
+    "code": "12010300",
+    "description": "Other Taxes"
+  },
+  {
+    "id": 19,
+    "code": "12010301",
+    "description": "Sales Tax"
+  },
+  {
+    "id": 20,
+    "code": "12010302",
+    "description": "Lottery Tax/Licence"
+  },
+  {
+    "id": 21,
+    "code": "12010303",
+    "description": "Property Tax"
+  },
+  {
+    "id": 22,
+    "code": "12010304",
+    "description": "Capital Gain Taxes"
+  },
+  {
+    "id": 23,
+    "code": "12010305",
+    "description": "Withholding Tax"
+  },
+  {
+    "id": 24,
+    "code": "12010306",
+    "description": "Other Taxes N.E.C"
+  },
+  {
+    "id": 25,
+    "code": "12020000",
+    "description": "Non-Tax Revenue"
+  },
+  {
+    "id": 26,
+    "code": "12020100",
+    "description": "Licences General"
+  },
+  {
+    "id": 27,
+    "code": "12020400",
+    "description": "Fees – General"
+  },
+  {
+    "id": 28,
+    "code": "12020500",
+    "description": "Fines – General"
+  },
+  {
+    "id": 29,
+    "code": "12020600",
+    "description": "Sales – General"
+  },
+  {
+    "id": 30,
+    "code": "12020700",
+    "description": "Earnings – General"
+  },
+  {
+    "id": 31,
+    "code": "12020800",
+    "description": "Rent On Government Buildings – General"
+  },
+  {
+    "id": 32,
+    "code": "12020900",
+    "description": "Rent on Land and Others – General"
+  },
+  {
+    "id": 33,
+    "code": "12021000",
+    "description": "Repayments"
+  },
+  {
+    "id": 34,
+    "code": "12021100",
+    "description": "Investment Income"
+  },
+  {
+    "id": 35,
+    "code": "12021200",
+    "description": "Interest Earned"
+  },
+  {
+    "id": 36,
+    "code": "12021300",
+    "description": "Reimbursement"
+  },
+  {
+    "id": 37,
+    "code": "12021400",
+    "description": "Miscellaneous Income"
+  },
+  {
+    "id": 38,
+    "code": "13000000",
+    "description": "Aids and Grants"
+  },
+  {
+    "id": 39,
+    "code": "13010100",
+    "description": "Domestic Aids"
+  },
+  {
+    "id": 40,
+    "code": "13010200",
+    "description": "Foreign Aids"
+  },
+  {
+    "id": 41,
+    "code": "13020100",
+    "description": "Domestic Grants"
+  },
+  {
+    "id": 42,
+    "code": "13020200",
+    "description": "Foreign Grants"
+  },
+  {
+    "id": 43,
+    "code": "14000000",
+    "description": "Capital Development Fund (CDF) Receipts"
+  },
+  {
+    "id": 44,
+    "code": "14020201",
+    "description": "Other Capital Receipts to CDF"
+  },
+  {
+    "id": 45,
+    "code": "14020202",
+    "description": "Sale Of Fixed Assets"
+  },
+  {
+    "id": 46,
+    "code": "14030301",
+    "description": "Domestic Loans/ Borrowings From Financial Institutions"
+  },
+  {
+    "id": 47,
+    "code": "14030302",
+    "description": "Domestic Loans/ Borrowings From Other Government Entities"
+  },
+  {
+    "id": 48,
+    "code": "14030303",
+    "description": "Domestic Loans/ Borrowings From Other  Entities/ Organisations"
+  },
+  {
+    "id": 49,
+    "code": "14030201",
+    "description": "International Loans/ Borrowings From Financial Institutions"
+  },
+  {
+    "id": 50,
+    "code": "14030202",
+    "description": "International Loans/ Borrowings From Other Government Entities"
+  },
+  {
+    "id": 51,
+    "code": "14030203",
+    "description": "International Loans/ Borrowings From Other  Entities/ Organisations"
+  },
+  {
+    "id": 52,
+    "code": "14040101",
+    "description": "Foreign Debt Forgiveness"
+  },
+  {
+    "id": 53,
+    "code": "14040201",
+    "description": "Domestic Debt Forgiveness"
+  },
+  {
+    "id": 54,
+    "code": "14050101",
+    "description": "Gain On Disposal Of Asset – PPE"
+  },
+  {
+    "id": 55,
+    "code": "14050201",
+    "description": "Gain On Disposal Of Asset - Investment Property"
+  },
+  {
+    "id": 56,
+    "code": "14060101",
+    "description": "Minority Interest Share Of Surplus"
+  },
+  {
+    "id": 57,
+    "code": "14070101",
+    "description": "Extraordinary Items"
+  },
+  {
+    "id": 58,
+    "code": "14070102",
+    "description": "Unspecified Revenue"
+  },
+  {
+    "id": 59,
+    "code": "20000000",
+    "description": "TOTAL EXPENDITURE"
+  },
+  {
+    "id": 60,
+    "code": "21000000",
+    "description": "Personnel Expenditure"
+  },
+  {
+    "id": 61,
+    "code": "21010000",
+    "description": "Personnel Cost"
+  },
+  {
+    "id": 62,
+    "code": "21010100",
+    "description": "Salaries and Wages – General"
+  },
+  {
+    "id": 63,
+    "code": "21010101",
+    "description": "Salaries"
+  },
+  {
+    "id": 64,
+    "code": "21010102",
+    "description": "Overtime Payments"
+  },
+  {
+    "id": 65,
+    "code": "21010103",
+    "description": "Consolidated Revenue Charges"
+  },
+  {
+    "id": 66,
+    "code": "21020100",
+    "description": "Allowances"
+  },
+  {
+    "id": 67,
+    "code": "21020200",
+    "description": "Social Contribution"
+  },
+  {
+    "id": 68,
+    "code": "21020201",
+    "description": "NHIS Contribution"
+  },
+  {
+    "id": 69,
+    "code": "21020202",
+    "description": "Contributory Pension"
+  },
+  {
+    "id": 70,
+    "code": "21020203",
+    "description": "Group Life Insurance"
+  },
+  {
+    "id": 71,
+    "code": "21020204",
+    "description": "Employee Compensation Fund"
+  },
+  {
+    "id": 72,
+    "code": "21020205",
+    "description": "Housing Fund Contribution"
+  },
+  {
+    "id": 73,
+    "code": "21030100",
+    "description": "Social Benefit"
+  },
+  {
+    "id": 74,
+    "code": "21030101",
+    "description": "Gratuity"
+  },
+  {
+    "id": 75,
+    "code": "21030102",
+    "description": "Pension"
+  },
+  {
+    "id": 76,
+    "code": "21030103",
+    "description": "Death Benefit"
+  },
+  {
+    "id": 77,
+    "code": "21030104",
+    "description": "Grauitity Arrears"
+  },
+  {
+    "id": 78,
+    "code": "21010105",
+    "description": "Pension Arrears"
+  },
+  {
+    "id": 79,
+    "code": "21030106",
+    "description": "Severance Gratuity for all Political Office Holders"
+  },
+  {
+    "id": 80,
+    "code": "21030107",
+    "description": "Contribution to LG Pension"
+  },
+  {
+    "id": 81,
+    "code": "21030108",
+    "description": "Payment of Benefits to past Governors/Deputies/Political Office Holders"
+  },
+  {
+    "id": 82,
+    "code": "22000000",
+    "description": "Other Recurrent Expenditure"
+  },
+  {
+    "id": 83,
+    "code": "22020000",
+    "description": "Overhead Costs"
+  },
+  {
+    "id": 84,
+    "code": "22020100",
+    "description": "Transport and Travelling General"
+  },
+  {
+    "id": 85,
+    "code": "22020200",
+    "description": "Utilities General"
+  },
+  {
+    "id": 86,
+    "code": "22020300",
+    "description": "Materials and Supplies General"
+  },
+  {
+    "id": 87,
+    "code": "22020400",
+    "description": "Maintenance Services General"
+  },
+  {
+    "id": 88,
+    "code": "22020500",
+    "description": "Training – General"
+  },
+  {
+    "id": 89,
+    "code": "22020600",
+    "description": "Other Services General"
+  },
+  {
+    "id": 90,
+    "code": "22020700",
+    "description": "Consulting and Professional Services General"
+  },
+  {
+    "id": 91,
+    "code": "22020800",
+    "description": "Fuel and Lubricant General"
+  },
+  {
+    "id": 92,
+    "code": "22020900",
+    "description": "Financial General"
+  },
+  {
+    "id": 93,
+    "code": "22021000",
+    "description": "Miscellaneous General"
+  },
+  {
+    "id": 94,
+    "code": "22030000",
+    "description": "Loans and Advances"
+  },
+  {
+    "id": 95,
+    "code": "22030100",
+    "description": "Staff Loans and Allowances"
+  },
+  {
+    "id": 96,
+    "code": "22040000",
+    "description": "Grants and Contribution General"
+  },
+  {
+    "id": 97,
+    "code": "22040101",
+    "description": "Grants to other States"
+  },
+  {
+    "id": 98,
+    "code": "22040103",
+    "description": "Grants to Local Governments"
+  },
+  {
+    "id": 99,
+    "code": "22040105",
+    "description": "Grants to Government Owned Companies"
+  },
+  {
+    "id": 100,
+    "code": "22040107",
+    "description": "Grants to Private Companies"
+  },
+  {
+    "id": 101,
+    "code": "22040109",
+    "description": "Grants to Communities/NGOs/FBOs/CBOs"
+  },
+  {
+    "id": 102,
+    "code": "22050000",
+    "description": "Subsidies General"
+  },
+  {
+    "id": 103,
+    "code": "22050101",
+    "description": "Subsidy to Government Owned Companies, Boards & Parastatals"
+  },
+  {
+    "id": 104,
+    "code": "22050102",
+    "description": "Meal Subsidy to Government Schools"
+  },
+  {
+    "id": 105,
+    "code": "22050201",
+    "description": "Subsidy to Private Companies"
+  },
+  {
+    "id": 106,
+    "code": "22060000",
+    "description": "Public Debt Charges"
+  },
+  {
+    "id": 107,
+    "code": "22060100",
+    "description": "Foreign Debt Interest"
+  },
+  {
+    "id": 108,
+    "code": "22060101",
+    "description": "Foreign Interest / Discount - Treasury Bill/Long Term Borrowing"
+  },
+  {
+    "id": 109,
+    "code": "22060102",
+    "description": "Foreign Interest / Discount - Short Term Borrowings"
+  },
+  {
+    "id": 110,
+    "code": "22060200",
+    "description": "Domestic Debt Interest"
+  },
+  {
+    "id": 111,
+    "code": "22060201",
+    "description": "Domestic Interest / Discount - Treasury Bill/Long Term Borrowing"
+  },
+  {
+    "id": 112,
+    "code": "22060202",
+    "description": "Domestic Interest /Discount - Short Term Borrowings"
+  },
+  {
+    "id": 113,
+    "code": "22060300",
+    "description": "Foreign Debt Principal"
+  },
+  {
+    "id": 114,
+    "code": "22060301",
+    "description": "Foreign Principal - Treasury Bill/Long Term Borrowing"
+  },
+  {
+    "id": 115,
+    "code": "22060302",
+    "description": "Foreign Principal - Short Term Borrowings"
+  },
+  {
+    "id": 116,
+    "code": "22060400",
+    "description": "Domestic Debt Principal"
+  },
+  {
+    "id": 117,
+    "code": "22060401",
+    "description": "Domestic Principal - Treasury Bill/Long Term Borrowing"
+  },
+  {
+    "id": 118,
+    "code": "22060402",
+    "description": "Domestic Principal - Short Term Borrowings"
+  },
+  {
+    "id": 119,
+    "code": "22070000",
+    "description": "Transfers-Payments"
+  },
+  {
+    "id": 120,
+    "code": "22070100",
+    "description": "Transfer to Fund Recurrent Expenditure-Payment"
+  },
+  {
+    "id": 121,
+    "code": "23000000",
+    "description": "Capital Expenditure"
+  },
+  {
+    "id": 122,
+    "code": "23010100",
+    "description": "Fixed Assets Purchased"
+  },
+  {
+    "id": 123,
+    "code": "23020100",
+    "description": "Construction/Provision"
+  },
+  {
+    "id": 124,
+    "code": "23030100",
+    "description": "Rehabilitation/Repairs"
+  },
+  {
+    "id": 125,
+    "code": "23040100",
+    "description": "Preservation Of The Environment"
+  },
+  {
+    "id": 126,
+    "code": "23050100",
+    "description": "Other Capital Projects"
+  },
+  {
+    "id": 127,
+    "code": null,
+    "description": "Total Recurrent Expenditure"
+  },
+  {
+    "id": 128,
+    "code": "010000000000",
+    "description": "Administration Sector (Recurrent Expenditure)"
+  },
+  {
+    "id": 129,
+    "code": "011100000000",
+    "description": "Governor’s Office (Recurrent Expenditure)"
+  },
+  {
+    "id": 130,
+    "code": "01610000000",
+    "description": "Secretary to the State Government (Recurrent Expenditure)"
+  },
+  {
+    "id": 131,
+    "code": "011200000000",
+    "description": "State Assembly (Recurrent Expenditure)"
+  },
+  {
+    "id": 132,
+    "code": "012300000000",
+    "description": "Ministry of Information (Recurrent Expenditure)"
+  },
+  {
+    "id": 133,
+    "code": "012400000000",
+    "description": "Ministry of Internal Security and Home Affairs (Recurrent Expenditure)"
+  },
+  {
+    "id": 134,
+    "code": "012500000000",
+    "description": "Office of the Head of Service (Recurrent Expenditure)"
+  },
+  {
+    "id": 135,
+    "code": "014000000000",
+    "description": "Office of the Auditor General State (Recurrent Expenditure)"
+  },
+  {
+    "id": 136,
+    "code": "014100000000",
+    "description": "Office of the Auditor General for Local Government (Recurrent Expenditure)"
+  },
+  {
+    "id": 137,
+    "code": "014700000000",
+    "description": "Civil Service Commission (Recurrent Expenditure)"
+  },
+  {
+    "id": 138,
+    "code": "014900000000",
+    "description": "Local Government Service Commission (Recurrent Expenditure)"
+  },
+  {
+    "id": 139,
+    "code": "014800000000",
+    "description": "State Independent Electoral Commission (Recurrent Expenditure)"
+  },
+  {
+    "id": 140,
+    "code": "020000000000",
+    "description": "Economic Sector (Recurrent Expenditure)"
+  },
+  {
+    "id": 141,
+    "code": "021500000000",
+    "description": "Ministry of Agriculture & Natural Resources (Recurrent Expenditure)"
+  },
+  {
+    "id": 142,
+    "code": "022000000000",
+    "description": "Ministry of Finance (Recurrent Expenditure)"
+  },
+  {
+    "id": 143,
+    "code": "022200000000",
+    "description": "Ministry of Commerce/Trade/Business/Industry/Investment (Recurrent Expenditure)"
+  },
+  {
+    "id": 144,
+    "code": "022700000000",
+    "description": "Ministry of Labour and Productivity (Recurrent Expenditure)"
+  },
+  {
+    "id": 145,
+    "code": "022800000000",
+    "description": "Ministry of Science and Technology (Recurrent Expenditure)"
+  },
+  {
+    "id": 146,
+    "code": "022900000000",
+    "description": "Ministry of Transport (Recurrent Expenditure)"
+  },
+  {
+    "id": 147,
+    "code": "023100000000",
+    "description": "Ministry of Energy (Recurrent Expenditure)"
+  },
+  {
+    "id": 148,
+    "code": "023400000000",
+    "description": "Ministry of Works (Recurrent Expenditure)"
+  },
+  {
+    "id": 149,
+    "code": "023600000000",
+    "description": "Ministry of Culture and Tourism (Recurrent Expenditure)"
+  },
+  {
+    "id": 150,
+    "code": "023800000000",
+    "description": "State Planning Commission/Ministry of Budget and Economic Planning (Recurrent Expenditure)"
+  },
+  {
+    "id": 151,
+    "code": "025000000000",
+    "description": "Fiscal Responsibility Commission (Recurrent Expenditure)"
+  },
+  {
+    "id": 152,
+    "code": "025200100100",
+    "description": "Ministry of Water Resources (Recurrent Expenditure)"
+  },
+  {
+    "id": 153,
+    "code": "025300000000",
+    "description": "Ministry of Housing and Urban Development (Recurrent Expenditure)"
+  },
+  {
+    "id": 154,
+    "code": "026000000000",
+    "description": "Ministry of Land and Survey (Recurrent Expenditure)"
+  },
+  {
+    "id": 155,
+    "code": "030000000000",
+    "description": "Law and Justice Sector (Recurrent Expenditure)"
+  },
+  {
+    "id": 156,
+    "code": "031800000000",
+    "description": "Judiciary (Recurrent Expenditure)"
+  },
+  {
+    "id": 157,
+    "code": "032600000000",
+    "description": "Ministry of Justice (Recurrent Expenditure)"
+  },
+  {
+    "id": 158,
+    "code": "040000000000",
+    "description": "Regional Sector (Recurrent Expenditure)"
+  },
+  {
+    "id": 159,
+    "code": "046400000000",
+    "description": "Oil Producing Communities Development Agency/Commission (Recurrent Expenditure)"
+  },
+  {
+    "id": 160,
+    "code": "046300000000",
+    "description": "State Capital Development Agency/Ministry (Recurrent Expenditure)"
+  },
+  {
+    "id": 161,
+    "code": "050000000000",
+    "description": "Social Sector (Recurrent Expenditure)"
+  },
+  {
+    "id": 162,
+    "code": "051300000000",
+    "description": "Ministry of Youth Development (Recurrent Expenditure)"
+  },
+  {
+    "id": 163,
+    "code": "051400000000",
+    "description": "Ministry of Women Affairs (Recurrent Expenditure)"
+  },
+  {
+    "id": 164,
+    "code": "051700000000",
+    "description": "Ministry of Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 165,
+    "code": "052100000000",
+    "description": "Ministry of Health (Recurrent Expenditure)"
+  },
+  {
+    "id": 166,
+    "code": "053500000000",
+    "description": "Ministry of Environment (Recurrent Expenditure)"
+  },
+  {
+    "id": 167,
+    "code": "053900000000",
+    "description": "Ministry of Sport Development (Recurrent Expenditure)"
+  },
+  {
+    "id": 168,
+    "code": "054400000000",
+    "description": "Ministry of Humanitarian Affairs"
+  },
+  {
+    "id": 169,
+    "code": "055100000000",
+    "description": "Ministry of Local Government (Recurrent Expenditure)"
+  },
+  {
+    "id": 170,
+    "code": null,
+    "description": "Total Capital Expenditure"
+  },
+  {
+    "id": 171,
+    "code": "010000000000",
+    "description": "Administration Sector (Capital Expenditure)"
+  },
+  {
+    "id": 172,
+    "code": "011100000000",
+    "description": "Governor’s Office (Capital Expenditure)"
+  },
+  {
+    "id": 173,
+    "code": "01610000000",
+    "description": "Secretary to the State Government (Capital Expenditure)"
+  },
+  {
+    "id": 174,
+    "code": "011200000000",
+    "description": "State Assembly (Capital Expenditure)"
+  },
+  {
+    "id": 175,
+    "code": "012300000000",
+    "description": "Ministry of Information (Capital Expenditure)"
+  },
+  {
+    "id": 176,
+    "code": "012400000000",
+    "description": "Ministry of Internal Security and Home Affairs (Capital Expenditure)"
+  },
+  {
+    "id": 177,
+    "code": "012500000000",
+    "description": "Office of the Head of Service (Capital Expenditure)"
+  },
+  {
+    "id": 178,
+    "code": "014000000000",
+    "description": "Office of the Auditor General State (Capital Expenditure)"
+  },
+  {
+    "id": 179,
+    "code": "014100000000",
+    "description": "Office of the Auditor General Local Government (Capital Expenditure)"
+  },
+  {
+    "id": 180,
+    "code": "014700000000",
+    "description": "Civil Service Commission (Capital Expenditure)"
+  },
+  {
+    "id": 181,
+    "code": "014900000000",
+    "description": "Local Government Service Commission (Capital Expenditure)"
+  },
+  {
+    "id": 182,
+    "code": "014800000000",
+    "description": "State Independent Electoral Commission (Capital Expenditure)"
+  },
+  {
+    "id": 183,
+    "code": "020000000000",
+    "description": "Economic Sector (Capital Expenditure)"
+  },
+  {
+    "id": 184,
+    "code": "021500000000",
+    "description": "Ministry of Agriculture & Natural Resources (Capital Expenditure)"
+  },
+  {
+    "id": 185,
+    "code": "022000000000",
+    "description": "Ministry of Finance (Capital Expenditure)"
+  },
+  {
+    "id": 186,
+    "code": "022200000000",
+    "description": "Ministry of Commerce/Trade/Business/Industry/Investment (Capital Expenditure)"
+  },
+  {
+    "id": 187,
+    "code": "022700000000",
+    "description": "Ministry of Labour and Productivity (Capital Expenditure)"
+  },
+  {
+    "id": 188,
+    "code": "022800000000",
+    "description": "Ministry of Science and Technology (Capital Expenditure)"
+  },
+  {
+    "id": 189,
+    "code": "022900000000",
+    "description": "Ministry of Transport (Capital Expenditure)"
+  },
+  {
+    "id": 190,
+    "code": "023100000000",
+    "description": "Ministry of Energy (Capital Expenditure)"
+  },
+  {
+    "id": 191,
+    "code": "023400000000",
+    "description": "Ministry of Works (Capital Expenditure)"
+  },
+  {
+    "id": 192,
+    "code": "023600000000",
+    "description": "Ministry of Culture and Tourism (Capital Expenditure)"
+  },
+  {
+    "id": 193,
+    "code": "023800000000",
+    "description": "State Planning Commission/Ministry of Budget and Economic Planning (Capital Expenditure)"
+  },
+  {
+    "id": 194,
+    "code": "025000000000",
+    "description": "Fiscal Responsibility Commission (Capital Expenditure)"
+  },
+  {
+    "id": 195,
+    "code": "025200100100",
+    "description": "Ministry of Water Resources (Capital Expenditure)"
+  },
+  {
+    "id": 196,
+    "code": "025300000000",
+    "description": "Ministry of Housing and Urban Development (Capital Expenditure)"
+  },
+  {
+    "id": 197,
+    "code": "026000000000",
+    "description": "Ministry of Land and Survey (Capital Expenditure)"
+  },
+  {
+    "id": 198,
+    "code": "030000000000",
+    "description": "Law and Justice Sector (Capital Expenditure)"
+  },
+  {
+    "id": 199,
+    "code": "031800000000",
+    "description": "Judiciary (Capital Expenditure)"
+  },
+  {
+    "id": 200,
+    "code": "032600000000",
+    "description": "Ministry of Justice (Capital Expenditure)"
+  },
+  {
+    "id": 201,
+    "code": "040000000000",
+    "description": "Regional Sector (Capital Expenditure)"
+  },
+  {
+    "id": 202,
+    "code": "046400000000",
+    "description": "Oil Producing Communities Development Agency/Commission (Capital Expenditure)"
+  },
+  {
+    "id": 203,
+    "code": "046300000000",
+    "description": "State Capital Development Agency/Ministry (Capital Expenditure)"
+  },
+  {
+    "id": 204,
+    "code": "050000000000",
+    "description": "Social Sector (Capital Expenditure)"
+  },
+  {
+    "id": 205,
+    "code": "051300000000",
+    "description": "Ministry of Youth Development (Capital Expenditure)"
+  },
+  {
+    "id": 206,
+    "code": "051400000000",
+    "description": "Ministry of Women Affairs (Capital Expenditure)"
+  },
+  {
+    "id": 207,
+    "code": "051700000000",
+    "description": "Ministry of Education (Capital Expenditure)"
+  },
+  {
+    "id": 208,
+    "code": "052100000000",
+    "description": "Ministry of Health (Capital Expenditure)"
+  },
+  {
+    "id": 209,
+    "code": "053500000000",
+    "description": "Ministry of Environment (Capital Expenditure)"
+  },
+  {
+    "id": 210,
+    "code": "053900000000",
+    "description": "Ministry of Sport Development (Capital Expenditure)"
+  },
+  {
+    "id": 211,
+    "code": "055100000000",
+    "description": "Ministry of Local Government (Capital Expenditure)"
+  },
+  {
+    "id": 212,
+    "code": null,
+    "description": "Expenditure by Functions (Recurrent)"
+  },
+  {
+    "id": 213,
+    "code": "701",
+    "description": "General Public Service (Recurrent Expenditure)"
+  },
+  {
+    "id": 214,
+    "code": "7011",
+    "description": "Executive & Legislative Organ, Financial Affairs and External Affairs (Recurrent Expenditure)"
+  },
+  {
+    "id": 215,
+    "code": "70111",
+    "description": "Executive Organ and Legislative Organs (Recurrent Expenditure)"
+  },
+  {
+    "id": 216,
+    "code": "70112",
+    "description": "Financial and Fiscal Affairs (Recurrent Expenditure)"
+  },
+  {
+    "id": 217,
+    "code": "7012",
+    "description": "Foreign and Economic Aid (Recurrent Expenditure)"
+  },
+  {
+    "id": 218,
+    "code": "70121",
+    "description": "Economic Aid to Developing Countries and Countries in Transition (Recurrent Expenditure)"
+  },
+  {
+    "id": 219,
+    "code": "70122",
+    "description": "Economic Aid routed through International Organisations (Recurrent Expenditure)"
+  },
+  {
+    "id": 220,
+    "code": "7013",
+    "description": "General Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 221,
+    "code": "70131",
+    "description": "General Personnel Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 222,
+    "code": "70132",
+    "description": "Overall Planning and Statistical Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 223,
+    "code": "70133",
+    "description": "Other General Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 224,
+    "code": "70140",
+    "description": "Basic Research (Recurrent Expenditure)"
+  },
+  {
+    "id": 225,
+    "code": "70150",
+    "description": "R&D General Public Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 226,
+    "code": "70160",
+    "description": "General Public Services N.E.C (Recurrent Expenditure)"
+  },
+  {
+    "id": 227,
+    "code": "70170",
+    "description": "Public Debt Transactions (Recurrent Expenditure)"
+  },
+  {
+    "id": 228,
+    "code": "70180",
+    "description": "Transfer of a General Character between Different Levels of Government (Recurrent Expenditure)"
+  },
+  {
+    "id": 229,
+    "code": "703",
+    "description": "Public Order and Safety (Recurrent Expenditure)"
+  },
+  {
+    "id": 230,
+    "code": "7031",
+    "description": "Police Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 231,
+    "code": "70310",
+    "description": "State Expenditure to Support Police Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 232,
+    "code": "70320",
+    "description": "Fire Protection Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 233,
+    "code": "70330",
+    "description": "Justice & Law Courts (Recurrent Expenditure)"
+  },
+  {
+    "id": 234,
+    "code": "704",
+    "description": "Economic Affairs (Recurrent Expenditure)"
+  },
+  {
+    "id": 235,
+    "code": "7041",
+    "description": "General Economic, Commercial and Labour Affairs (Recurrent Expenditure)"
+  },
+  {
+    "id": 236,
+    "code": "70411",
+    "description": "General Economic and Commercial Affairs (Recurrent Expenditure)"
+  },
+  {
+    "id": 237,
+    "code": "70412",
+    "description": "General Labour Affairs (Recurrent Expenditure)"
+  },
+  {
+    "id": 238,
+    "code": "7042",
+    "description": "Agriculture, Forestry, Fishing and Hunting (Recurrent Expenditure)"
+  },
+  {
+    "id": 239,
+    "code": "70421",
+    "description": "Agriculture (Recurrent Expenditure)"
+  },
+  {
+    "id": 240,
+    "code": "70422",
+    "description": "Forestry (Recurrent Expenditure)"
+  },
+  {
+    "id": 241,
+    "code": "70423",
+    "description": "Fishing and Hunting (Recurrent Expenditure)"
+  },
+  {
+    "id": 242,
+    "code": "7043",
+    "description": "Fuel and Energy (Recurrent Expenditure)"
+  },
+  {
+    "id": 243,
+    "code": "70431",
+    "description": "Coal and Solid Mineral Fuel (Recurrent Expenditure)"
+  },
+  {
+    "id": 244,
+    "code": "70435",
+    "description": "Electricity (Recurrent Expenditure)"
+  },
+  {
+    "id": 245,
+    "code": "70436",
+    "description": "Non Electricity Energy (Recurrent Expenditure)"
+  },
+  {
+    "id": 246,
+    "code": "7044",
+    "description": "Mining, Manufacturing and Construction (Recurrent Expenditure)"
+  },
+  {
+    "id": 247,
+    "code": "70441",
+    "description": "State Support to Mining Resources other than mineral fuels (Recurrent Expenditure)"
+  },
+  {
+    "id": 248,
+    "code": "70442",
+    "description": "Manufacturing (Recurrent Expenditure)"
+  },
+  {
+    "id": 249,
+    "code": "70443",
+    "description": "Construction (Recurrent Expenditure)"
+  },
+  {
+    "id": 250,
+    "code": "7045",
+    "description": "Transport (Recurrent Expenditure)"
+  },
+  {
+    "id": 251,
+    "code": "70451",
+    "description": "Road Transport (Recurrent Expenditure)"
+  },
+  {
+    "id": 252,
+    "code": "70452",
+    "description": "Water Transport (Recurrent Expenditure)"
+  },
+  {
+    "id": 253,
+    "code": "70453",
+    "description": "Railway Transport (Recurrent Expenditure)"
+  },
+  {
+    "id": 254,
+    "code": "70454",
+    "description": "Air Transport (Recurrent Expenditure)"
+  },
+  {
+    "id": 255,
+    "code": "70460",
+    "description": "Communication (Recurrent Expenditure)"
+  },
+  {
+    "id": 256,
+    "code": "7047",
+    "description": "Other Industries (Recurrent Expenditure)"
+  },
+  {
+    "id": 257,
+    "code": "70471",
+    "description": "Distributive Trade, Storage and Warehousing (Recurrent Expenditure)"
+  },
+  {
+    "id": 258,
+    "code": "70472",
+    "description": "Hotel and Restaurants (Recurrent Expenditure)"
+  },
+  {
+    "id": 259,
+    "code": "70473",
+    "description": "Tourism (Recurrent Expenditure)"
+  },
+  {
+    "id": 260,
+    "code": "70474",
+    "description": "Multipurpose Development Projects (Recurrent Expenditure)"
+  },
+  {
+    "id": 261,
+    "code": "7048",
+    "description": "R&D Economic Affairs (Recurrent Expenditure)"
+  },
+  {
+    "id": 262,
+    "code": "70481",
+    "description": "R&D General Economic, Commercial and Labour Affairs (Recurrent Expenditure)"
+  },
+  {
+    "id": 263,
+    "code": "70482",
+    "description": "R&D Agriculture, Forestry, Fishing and Hunting (Recurrent Expenditure)"
+  },
+  {
+    "id": 264,
+    "code": "70483",
+    "description": "R&D Fuel and Energy (Recurrent Expenditure)"
+  },
+  {
+    "id": 265,
+    "code": "70484",
+    "description": "R&D Mining, Manufacturing and Construction (Recurrent Expenditure)"
+  },
+  {
+    "id": 266,
+    "code": "70485",
+    "description": "R&D Transport (Recurrent Expenditure)"
+  },
+  {
+    "id": 267,
+    "code": "70486",
+    "description": "R&D Communication (Recurrent Expenditure)"
+  },
+  {
+    "id": 268,
+    "code": "70487",
+    "description": "R&D Other Industries (Recurrent Expenditure)"
+  },
+  {
+    "id": 269,
+    "code": "70490",
+    "description": "Economic Affairs N. E. C (Recurrent Expenditure)"
+  },
+  {
+    "id": 270,
+    "code": "705",
+    "description": "Environmental Protection (Recurrent Expenditure)"
+  },
+  {
+    "id": 271,
+    "code": "70510",
+    "description": "Waste Management (Recurrent Expenditure)"
+  },
+  {
+    "id": 272,
+    "code": "70520",
+    "description": "Waste Water Management (Recurrent Expenditure)"
+  },
+  {
+    "id": 273,
+    "code": "70530",
+    "description": "Pollution Abatement (Recurrent Expenditure)"
+  },
+  {
+    "id": 274,
+    "code": "70540",
+    "description": "Protection of Biodiversity and Landscape (Recurrent Expenditure)"
+  },
+  {
+    "id": 275,
+    "code": "70550",
+    "description": "R&D Environmental Protection (Recurrent Expenditure)"
+  },
+  {
+    "id": 276,
+    "code": "70560",
+    "description": "Environmental Protection N.E.C. (Recurrent Expenditure)"
+  },
+  {
+    "id": 277,
+    "code": "706",
+    "description": "Housing and Community Amenities (Recurrent Expenditure)"
+  },
+  {
+    "id": 278,
+    "code": "70610",
+    "description": "Housing Development (Recurrent Expenditure)"
+  },
+  {
+    "id": 279,
+    "code": "70620",
+    "description": "Community Development (Recurrent Expenditure)"
+  },
+  {
+    "id": 280,
+    "code": "70630",
+    "description": "Water Supply (Recurrent Expenditure)"
+  },
+  {
+    "id": 281,
+    "code": "7064",
+    "description": "Street Lighting (Recurrent Expenditure)"
+  },
+  {
+    "id": 282,
+    "code": "70640",
+    "description": "Street lighting (Recurrent Expenditure)"
+  },
+  {
+    "id": 283,
+    "code": "70650",
+    "description": "R&D Housing and Community Amenities (Recurrent Expenditure)"
+  },
+  {
+    "id": 284,
+    "code": "70660",
+    "description": "Housing and Community Amenities N. E. C (Recurrent Expenditure)"
+  },
+  {
+    "id": 285,
+    "code": "707",
+    "description": "Health (Recurrent Expenditure)"
+  },
+  {
+    "id": 286,
+    "code": "7071",
+    "description": "Medical Products, Appliances and Equipment (Recurrent Expenditure)"
+  },
+  {
+    "id": 287,
+    "code": "70711",
+    "description": "Pharmaceutical Products (Recurrent Expenditure)"
+  },
+  {
+    "id": 288,
+    "code": "70712",
+    "description": "Other Medical Products (Recurrent Expenditure)"
+  },
+  {
+    "id": 289,
+    "code": "70713",
+    "description": "Therapeutic Appliances and Equipment (Recurrent Expenditure)"
+  },
+  {
+    "id": 290,
+    "code": "7072",
+    "description": "Outpatient Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 291,
+    "code": "70721",
+    "description": "General Medical Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 292,
+    "code": "70722",
+    "description": "Specialized Medical Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 293,
+    "code": "70723",
+    "description": "Dental Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 294,
+    "code": "70724",
+    "description": "Paramedical Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 295,
+    "code": "7073",
+    "description": "Hospital Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 296,
+    "code": "70731",
+    "description": "General Hospital Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 297,
+    "code": "70732",
+    "description": "Specialized Hospital Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 298,
+    "code": "70733",
+    "description": "Medical and Maternity Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 299,
+    "code": "70734",
+    "description": "Nursing and Convalescent Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 300,
+    "code": "70740",
+    "description": "Public Health Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 301,
+    "code": "70750",
+    "description": "R&D Health (Recurrent Expenditure)"
+  },
+  {
+    "id": 302,
+    "code": "70760",
+    "description": "Health N. E. C (Recurrent Expenditure)"
+  },
+  {
+    "id": 303,
+    "code": "708",
+    "description": "Recreation, Culture and Religion (Recurrent Expenditure)"
+  },
+  {
+    "id": 304,
+    "code": "70810",
+    "description": "Recreational and Sporting Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 305,
+    "code": "70820",
+    "description": "Cultural Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 306,
+    "code": "70830",
+    "description": "Broadcasting and Publishing Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 307,
+    "code": "70840",
+    "description": "Religious and Other Community Services (Recurrent Expenditure)"
+  },
+  {
+    "id": 308,
+    "code": "70850",
+    "description": "R&D Recreation, Culture and Religion (Recurrent Expenditure)"
+  },
+  {
+    "id": 309,
+    "code": "70860",
+    "description": "Recreation, Culture and Religion N. E. C (Recurrent Expenditure)"
+  },
+  {
+    "id": 310,
+    "code": "709",
+    "description": "Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 311,
+    "code": "7091",
+    "description": "Pre-Primary and Primary Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 312,
+    "code": "70911",
+    "description": "Pre-Primary Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 313,
+    "code": "70912",
+    "description": "Primary Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 314,
+    "code": "7092",
+    "description": "Secondary Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 315,
+    "code": "70921",
+    "description": "Junior Secondary (Recurrent Expenditure)"
+  },
+  {
+    "id": 316,
+    "code": "70922",
+    "description": "Senior Secondary (Recurrent Expenditure)"
+  },
+  {
+    "id": 317,
+    "code": "70930",
+    "description": "Post-Secondary and Non Tertiary Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 318,
+    "code": "7094",
+    "description": "Tertiary Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 319,
+    "code": "70941",
+    "description": "First Stage of Tertiary Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 320,
+    "code": "70942",
+    "description": "Second Stage of Tertiary Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 321,
+    "code": "70950",
+    "description": "Education Not Definable by Level (Recurrent Expenditure)"
+  },
+  {
+    "id": 322,
+    "code": "70960",
+    "description": "Subsidiary Services to Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 323,
+    "code": "70970",
+    "description": "R&D Education (Recurrent Expenditure)"
+  },
+  {
+    "id": 324,
+    "code": "70980",
+    "description": "Education N. E. C (Recurrent Expenditure)"
+  },
+  {
+    "id": 325,
+    "code": "710",
+    "description": "Social Protection (Recurrent Expenditure)"
+  },
+  {
+    "id": 326,
+    "code": "7101",
+    "description": "Sickness and Disability (Recurrent Expenditure)"
+  },
+  {
+    "id": 327,
+    "code": "71011",
+    "description": "Sickness (Recurrent Expenditure)"
+  },
+  {
+    "id": 328,
+    "code": "71012",
+    "description": "Disability (Recurrent Expenditure)"
+  },
+  {
+    "id": 329,
+    "code": "71020",
+    "description": "Old Age (Recurrent Expenditure)"
+  },
+  {
+    "id": 330,
+    "code": "71030",
+    "description": "Survivors (Recurrent Expenditure)"
+  },
+  {
+    "id": 331,
+    "code": "71040",
+    "description": "Family and Children (Recurrent Expenditure)"
+  },
+  {
+    "id": 332,
+    "code": "71050",
+    "description": "Unemployment (Recurrent Expenditure)"
+  },
+  {
+    "id": 333,
+    "code": "71060",
+    "description": "Housing (Recurrent Expenditure)"
+  },
+  {
+    "id": 334,
+    "code": "71070",
+    "description": "Social Exclusion N. E. C (Recurrent Expenditure)"
+  },
+  {
+    "id": 335,
+    "code": "71080",
+    "description": "R&D Social Protection (Recurrent Expenditure)"
+  },
+  {
+    "id": 336,
+    "code": "71091",
+    "description": "Social Protection N. E. C (Recurrent Expenditure)"
+  },
+  {
+    "id": 337,
+    "code": null,
+    "description": "Expenditure by Functions (Capital)"
+  },
+  {
+    "id": 338,
+    "code": "701",
+    "description": "General Public Service (Capital Expenditure)"
+  },
+  {
+    "id": 339,
+    "code": "7011",
+    "description": "Executive & Legislative Organ, Financial Affairs and External Affairs (Capital Expenditure)"
+  },
+  {
+    "id": 340,
+    "code": "70111",
+    "description": "Executive Organ and Legislative Organs (Capital Expenditure)"
+  },
+  {
+    "id": 341,
+    "code": "70112",
+    "description": "Financial and Fiscal Affairs (Capital Expenditure)"
+  },
+  {
+    "id": 342,
+    "code": "7012",
+    "description": "Foreign and Economic Aid (Capital Expenditure)"
+  },
+  {
+    "id": 343,
+    "code": "70121",
+    "description": "Economic Aid to Developing Countries and Countries in Transition (Capital Expenditure)"
+  },
+  {
+    "id": 344,
+    "code": "70122",
+    "description": "Economic Aid routed through International Organisations (Capital Expenditure)"
+  },
+  {
+    "id": 345,
+    "code": "7013",
+    "description": "General Services (Capital Expenditure)"
+  },
+  {
+    "id": 346,
+    "code": "70131",
+    "description": "General Personnel Services (Capital Expenditure)"
+  },
+  {
+    "id": 347,
+    "code": "70132",
+    "description": "Overall Planning and Statistical Services (Capital Expenditure)"
+  },
+  {
+    "id": 348,
+    "code": "70133",
+    "description": "Other General Services (Capital Expenditure)"
+  },
+  {
+    "id": 349,
+    "code": "70140",
+    "description": "Basic Research (Capital Expenditure)"
+  },
+  {
+    "id": 350,
+    "code": "70150",
+    "description": "R&D General Public Services (Capital Expenditure)"
+  },
+  {
+    "id": 351,
+    "code": "70160",
+    "description": "General Public Services N.E.C (Capital Expenditure)"
+  },
+  {
+    "id": 352,
+    "code": "70170",
+    "description": "Public Debt Transactions (Capital Expenditure)"
+  },
+  {
+    "id": 353,
+    "code": "70180",
+    "description": "Transfer of a General Character between Different Levels of Government (Capital Expenditure)"
+  },
+  {
+    "id": 354,
+    "code": "703",
+    "description": "Public Order and Safety (Capital Expenditure)"
+  },
+  {
+    "id": 355,
+    "code": "7031",
+    "description": "Police Services (Capital Expenditure)"
+  },
+  {
+    "id": 356,
+    "code": "70310",
+    "description": "State Expenditure to Support Police Services (Capital Expenditure)"
+  },
+  {
+    "id": 357,
+    "code": "70320",
+    "description": "Fire Protection Services (Capital Expenditure)"
+  },
+  {
+    "id": 358,
+    "code": "70330",
+    "description": "Justice & Law Courts (Capital Expenditure)"
+  },
+  {
+    "id": 359,
+    "code": "704",
+    "description": "Economic Affairs (Capital Expenditure)"
+  },
+  {
+    "id": 360,
+    "code": "7041",
+    "description": "General Economic, Commercial and Labour Affairs (Capital Expenditure)"
+  },
+  {
+    "id": 361,
+    "code": "70411",
+    "description": "General Economic and Commercial Affairs (Capital Expenditure)"
+  },
+  {
+    "id": 362,
+    "code": "70412",
+    "description": "General Labour Affairs (Capital Expenditure)"
+  },
+  {
+    "id": 363,
+    "code": "7042",
+    "description": "Agriculture, Forestry, Fishing and Hunting (Capital Expenditure)"
+  },
+  {
+    "id": 364,
+    "code": "70421",
+    "description": "Agriculture (Capital Expenditure)"
+  },
+  {
+    "id": 365,
+    "code": "70422",
+    "description": "Forestry (Capital Expenditure)"
+  },
+  {
+    "id": 366,
+    "code": "70423",
+    "description": "Fishing and Hunting (Capital Expenditure)"
+  },
+  {
+    "id": 367,
+    "code": "7043",
+    "description": "Fuel and Energy (Capital Expenditure)"
+  },
+  {
+    "id": 368,
+    "code": "70431",
+    "description": "Coal and Solid Mineral Fuel (Capital Expenditure)"
+  },
+  {
+    "id": 369,
+    "code": "70435",
+    "description": "Electricity (Capital Expenditure)"
+  },
+  {
+    "id": 370,
+    "code": "70436",
+    "description": "Non Electricity Energy (Capital Expenditure)"
+  },
+  {
+    "id": 371,
+    "code": "7044",
+    "description": "Mining, Manufacturing and Construction (Capital Expenditure)"
+  },
+  {
+    "id": 372,
+    "code": "70441",
+    "description": "State Support to Mining Resources other than mineral fuels (Capital Expenditure)"
+  },
+  {
+    "id": 373,
+    "code": "70442",
+    "description": "Manufacturing (Capital Expenditure)"
+  },
+  {
+    "id": 374,
+    "code": "70443",
+    "description": "Construction (Capital Expenditure)"
+  },
+  {
+    "id": 375,
+    "code": "7045",
+    "description": "Transport (Capital Expenditure)"
+  },
+  {
+    "id": 376,
+    "code": "70451",
+    "description": "Road Transport (Capital Expenditure)"
+  },
+  {
+    "id": 377,
+    "code": "70452",
+    "description": "Water Transport (Capital Expenditure)"
+  },
+  {
+    "id": 378,
+    "code": "70453",
+    "description": "Railway Transport (Capital Expenditure)"
+  },
+  {
+    "id": 379,
+    "code": "70454",
+    "description": "Air Transport (Capital Expenditure)"
+  },
+  {
+    "id": 380,
+    "code": "70460",
+    "description": "Communication (Capital Expenditure)"
+  },
+  {
+    "id": 381,
+    "code": "7047",
+    "description": "Other Industries (Capital Expenditure)"
+  },
+  {
+    "id": 382,
+    "code": "70471",
+    "description": "Distributive Trade, Storage and Warehousing (Capital Expenditure)"
+  },
+  {
+    "id": 383,
+    "code": "70472",
+    "description": "Hotel and Restaurants (Capital Expenditure)"
+  },
+  {
+    "id": 384,
+    "code": "70473",
+    "description": "Tourism (Capital Expenditure)"
+  },
+  {
+    "id": 385,
+    "code": "70474",
+    "description": "Multipurpose Development Projects (Capital Expenditure)"
+  },
+  {
+    "id": 386,
+    "code": "7048",
+    "description": "R&D Economic Affairs (Capital Expenditure)"
+  },
+  {
+    "id": 387,
+    "code": "70481",
+    "description": "R&D General Economic, Commercial and Labour Affairs (Capital Expenditure)"
+  },
+  {
+    "id": 388,
+    "code": "70482",
+    "description": "R&D Agriculture, Forestry, Fishing and Hunting (Capital Expenditure)"
+  },
+  {
+    "id": 389,
+    "code": "70483",
+    "description": "R&D Fuel and Energy (Capital Expenditure)"
+  },
+  {
+    "id": 390,
+    "code": "70484",
+    "description": "R&D Mining, Manufacturing and Construction (Capital Expenditure)"
+  },
+  {
+    "id": 391,
+    "code": "70485",
+    "description": "R&D Transport (Capital Expenditure)"
+  },
+  {
+    "id": 392,
+    "code": "70486",
+    "description": "R&D Communication (Capital Expenditure)"
+  },
+  {
+    "id": 393,
+    "code": "70487",
+    "description": "R&D Other Industries (Capital Expenditure)"
+  },
+  {
+    "id": 394,
+    "code": "70490",
+    "description": "Economic Affairs N. E. C (Capital Expenditure)"
+  },
+  {
+    "id": 395,
+    "code": "705",
+    "description": "Environmental Protection (Capital Expenditure)"
+  },
+  {
+    "id": 396,
+    "code": "70510",
+    "description": "Waste Management (Capital Expenditure)"
+  },
+  {
+    "id": 397,
+    "code": "70520",
+    "description": "Waste Water Management (Capital Expenditure)"
+  },
+  {
+    "id": 398,
+    "code": "70530",
+    "description": "Pollution Abatement (Capital Expenditure)"
+  },
+  {
+    "id": 399,
+    "code": "70540",
+    "description": "Protection of Biodiversity and Landscape (Capital Expenditure)"
+  },
+  {
+    "id": 400,
+    "code": "70550",
+    "description": "R&D Environmental Protection (Capital Expenditure)"
+  },
+  {
+    "id": 401,
+    "code": "70560",
+    "description": "Environmental Protection N.E.C. (Capital Expenditure)"
+  },
+  {
+    "id": 402,
+    "code": "706",
+    "description": "Housing and Community Amenities (Capital Expenditure)"
+  },
+  {
+    "id": 403,
+    "code": "70610",
+    "description": "Housing Development (Capital Expenditure)"
+  },
+  {
+    "id": 404,
+    "code": "70620",
+    "description": "Community Development (Capital Expenditure)"
+  },
+  {
+    "id": 405,
+    "code": "70630",
+    "description": "Water Supply (Capital Expenditure)"
+  },
+  {
+    "id": 406,
+    "code": "7064",
+    "description": "Street Lighting (Capital Expenditure)"
+  },
+  {
+    "id": 407,
+    "code": "70640",
+    "description": "Street lighting (Capital Expenditure)"
+  },
+  {
+    "id": 408,
+    "code": "70650",
+    "description": "R&D Housing and Community Amenities (Capital Expenditure)"
+  },
+  {
+    "id": 409,
+    "code": "70660",
+    "description": "Housing and Community Amenities N. E. C (Capital Expenditure)"
+  },
+  {
+    "id": 410,
+    "code": "707",
+    "description": "Health (Capital Expenditure)"
+  },
+  {
+    "id": 411,
+    "code": "7071",
+    "description": "Medical Products, Appliances and Equipment (Capital Expenditure)"
+  },
+  {
+    "id": 412,
+    "code": "70711",
+    "description": "Pharmaceutical Products (Capital Expenditure)"
+  },
+  {
+    "id": 413,
+    "code": "70712",
+    "description": "Other Medical Products (Capital Expenditure)"
+  },
+  {
+    "id": 414,
+    "code": "70713",
+    "description": "Therapeutic Appliances and Equipment (Capital Expenditure)"
+  },
+  {
+    "id": 415,
+    "code": "7072",
+    "description": "Outpatient Services (Capital Expenditure)"
+  },
+  {
+    "id": 416,
+    "code": "70721",
+    "description": "General Medical Services (Capital Expenditure)"
+  },
+  {
+    "id": 417,
+    "code": "70722",
+    "description": "Specialized Medical Services (Capital Expenditure)"
+  },
+  {
+    "id": 418,
+    "code": "70723",
+    "description": "Dental Services (Capital Expenditure)"
+  },
+  {
+    "id": 419,
+    "code": "70724",
+    "description": "Paramedical Services (Capital Expenditure)"
+  },
+  {
+    "id": 420,
+    "code": "7073",
+    "description": "Hospital Services (Capital Expenditure)"
+  },
+  {
+    "id": 421,
+    "code": "70731",
+    "description": "General Hospital Services (Capital Expenditure)"
+  },
+  {
+    "id": 422,
+    "code": "70732",
+    "description": "Specialized Hospital Services (Capital Expenditure)"
+  },
+  {
+    "id": 423,
+    "code": "70733",
+    "description": "Medical and Maternity Services (Capital Expenditure)"
+  },
+  {
+    "id": 424,
+    "code": "70734",
+    "description": "Nursing and Convalescent Services (Capital Expenditure)"
+  },
+  {
+    "id": 425,
+    "code": "70740",
+    "description": "Public Health Services (Capital Expenditure)"
+  },
+  {
+    "id": 426,
+    "code": "70750",
+    "description": "R&D Health (Capital Expenditure)"
+  },
+  {
+    "id": 427,
+    "code": "70760",
+    "description": "Health N. E. C (Capital Expenditure)"
+  },
+  {
+    "id": 428,
+    "code": "708",
+    "description": "Recreation, Culture and Religion (Capital Expenditure)"
+  },
+  {
+    "id": 429,
+    "code": "70810",
+    "description": "Recreational and Sporting Services (Capital Expenditure)"
+  },
+  {
+    "id": 430,
+    "code": "70820",
+    "description": "Cultural Services (Capital Expenditure)"
+  },
+  {
+    "id": 431,
+    "code": "70830",
+    "description": "Broadcasting and Publishing Services (Capital Expenditure)"
+  },
+  {
+    "id": 432,
+    "code": "70840",
+    "description": "Religious and Other Community Services (Capital Expenditure)"
+  },
+  {
+    "id": 433,
+    "code": "70850",
+    "description": "R&D Recreation, Culture and Religion (Capital Expenditure)"
+  },
+  {
+    "id": 434,
+    "code": "70860",
+    "description": "Recreation, Culture and Religion N. E. C (Capital Expenditure)"
+  },
+  {
+    "id": 435,
+    "code": "709",
+    "description": "Education (Capital Expenditure)"
+  },
+  {
+    "id": 436,
+    "code": "7091",
+    "description": "Pre-Primary and Primary Education (Capital Expenditure)"
+  },
+  {
+    "id": 437,
+    "code": "70911",
+    "description": "Pre-Primary Education (Capital Expenditure)"
+  },
+  {
+    "id": 438,
+    "code": "70912",
+    "description": "Primary Education (Capital Expenditure)"
+  },
+  {
+    "id": 439,
+    "code": "7092",
+    "description": "Secondary Education (Capital Expenditure)"
+  },
+  {
+    "id": 440,
+    "code": "70921",
+    "description": "Junior Secondary (Capital Expenditure)"
+  },
+  {
+    "id": 441,
+    "code": "70922",
+    "description": "Senior Secondary (Capital Expenditure)"
+  },
+  {
+    "id": 442,
+    "code": "70930",
+    "description": "Post-Secondary and Non Tertiary Education (Capital Expenditure)"
+  },
+  {
+    "id": 443,
+    "code": "7094",
+    "description": "Tertiary Education (Capital Expenditure)"
+  },
+  {
+    "id": 444,
+    "code": "70941",
+    "description": "First Stage of Tertiary Education (Capital Expenditure)"
+  },
+  {
+    "id": 445,
+    "code": "70942",
+    "description": "Second Stage of Tertiary Education (Capital Expenditure)"
+  },
+  {
+    "id": 446,
+    "code": "70950",
+    "description": "Education Not Definable by Level (Capital Expenditure)"
+  },
+  {
+    "id": 447,
+    "code": "70960",
+    "description": "Subsidiary Services to Education (Capital Expenditure)"
+  },
+  {
+    "id": 448,
+    "code": "70970",
+    "description": "R&D Education (Capital Expenditure)"
+  },
+  {
+    "id": 449,
+    "code": "70980",
+    "description": "Education N. E. C (Capital Expenditure)"
+  },
+  {
+    "id": 450,
+    "code": "710",
+    "description": "Social Protection (Capital Expenditure)"
+  },
+  {
+    "id": 451,
+    "code": "7101",
+    "description": "Sickness and Disability (Capital Expenditure)"
+  },
+  {
+    "id": 452,
+    "code": "71011",
+    "description": "Sickness (Capital Expenditure)"
+  },
+  {
+    "id": 453,
+    "code": "71012",
+    "description": "Disability (Capital Expenditure)"
+  },
+  {
+    "id": 454,
+    "code": "71020",
+    "description": "Old Age (Capital Expenditure)"
+  },
+  {
+    "id": 455,
+    "code": "71030",
+    "description": "Survivors (Capital Expenditure)"
+  },
+  {
+    "id": 456,
+    "code": "71040",
+    "description": "Family and Children (Capital Expenditure)"
+  },
+  {
+    "id": 457,
+    "code": "71050",
+    "description": "Unemployment (Capital Expenditure)"
+  },
+  {
+    "id": 458,
+    "code": "71060",
+    "description": "Housing (Capital Expenditure)"
+  },
+  {
+    "id": 459,
+    "code": "71070",
+    "description": "Social Exclusion N. E. C (Capital Expenditure)"
+  },
+  {
+    "id": 460,
+    "code": "71080",
+    "description": "R&D Social Protection (Capital Expenditure)"
+  },
+  {
+    "id": 461,
+    "code": "71091",
+    "description": "Social Protection N. E. C (Capital Expenditure)"
+  },
+  {
+    "id": 462,
+    "code": null,
+    "description": "Expenditure by Programme (Recurrent)"
+  },
+  {
+    "id": 463,
+    "code": null,
+    "description": "Total Expenditure"
+  },
+  {
+    "id": 464,
+    "code": "01",
+    "description": "Agriculture"
+  },
+  {
+    "id": 465,
+    "code": "0101",
+    "description": "Effective governance of the Agriculture Sector"
+  },
+  {
+    "id": 466,
+    "code": "050101",
+    "description": "Legal, policy, regulations and standards, guidelines and protocols development and reviews"
+  },
+  {
+    "id": 467,
+    "code": "010102",
+    "description": "Agriculture sector coordination mechanisms"
+  },
+  {
+    "id": 468,
+    "code": "0102",
+    "description": "Development of the livestock value chain"
+  },
+  {
+    "id": 469,
+    "code": "010201",
+    "description": "Ruminant (cattle, sheep & goats) production and marketing"
+  },
+  {
+    "id": 470,
+    "code": "010202",
+    "description": "Meat processing and marketing"
+  },
+  {
+    "id": 471,
+    "code": "010203",
+    "description": "Poultry, pig, and micro livestock production"
+  },
+  {
+    "id": 472,
+    "code": "010204",
+    "description": "Dairy development"
+  },
+  {
+    "id": 473,
+    "code": "010205",
+    "description": "Animal health and livestock diseases management"
+  },
+  {
+    "id": 474,
+    "code": "010206",
+    "description": "Livestock feeds development"
+  },
+  {
+    "id": 475,
+    "code": "0103",
+    "description": "Enhancement of food production and productivity"
+  },
+  {
+    "id": 476,
+    "code": "010301",
+    "description": "Crop value chains and food systems promotion (food and cash crops of state’s comparative advantage)"
+  },
+  {
+    "id": 477,
+    "code": "010302",
+    "description": "Intensive crop and vegetable production (irrigation, crop diversification etc.)"
+  },
+  {
+    "id": 478,
+    "code": "010303",
+    "description": "Farm inputs supply and service delivery system (improved seeds, fertilizer, agro-chemicals etc.)"
+  },
+  {
+    "id": 479,
+    "code": "0104",
+    "description": "Reduction of post-harvest losses"
+  },
+  {
+    "id": 480,
+    "code": "010401",
+    "description": "Modern technology for post-harvest storage and value addition"
+  },
+  {
+    "id": 481,
+    "code": "010402",
+    "description": "Buffer stocking and commodity warehousing"
+  },
+  {
+    "id": 482,
+    "code": "010403",
+    "description": "Market linkage"
+  },
+  {
+    "id": 483,
+    "code": "010404",
+    "description": "Agricultural produce and quality control"
+  },
+  {
+    "id": 484,
+    "code": "0105",
+    "description": "Enhancement of fisheries resources development (aquaculture, marine, inland, artisanal)"
+  },
+  {
+    "id": 485,
+    "code": "010501",
+    "description": "Commercial aquaculture development (fish production, feed mills development, fishing inputs etc.)"
+  },
+  {
+    "id": 486,
+    "code": "010502",
+    "description": "Commercial coastal and inland fishing"
+  },
+  {
+    "id": 487,
+    "code": "010503",
+    "description": "Fish processing and post-harvest management"
+  },
+  {
+    "id": 488,
+    "code": "010504",
+    "description": "Marine industrial fishing"
+  },
+  {
+    "id": 489,
+    "code": "0106",
+    "description": "Promotion of forest resource conservation and preservation of biodiversity"
+  },
+  {
+    "id": 490,
+    "code": "010601",
+    "description": "Forest regeneration and conservation"
+  },
+  {
+    "id": 491,
+    "code": "010602",
+    "description": "Eco-tourism development"
+  },
+  {
+    "id": 492,
+    "code": "010603",
+    "description": "Non-farm forestry livelihood economics empowerment promotion (apiculture, sericulture etc.) programme"
+  },
+  {
+    "id": 493,
+    "code": "0107",
+    "description": "Promotion of enabling environment for increased agricultural development"
+  },
+  {
+    "id": 494,
+    "code": "010701",
+    "description": "Integrated rural development (agricultural land development, farm mechanization, & rural infrastructures"
+  },
+  {
+    "id": 495,
+    "code": "010702",
+    "description": "Youth and women In agriculture empowerment & smallholder agricultural credit strengthening"
+  },
+  {
+    "id": 496,
+    "code": "010703",
+    "description": "Agricultural data and statistic management and institutionalisation of information and communication technology (ICT)"
+  },
+  {
+    "id": 497,
+    "code": "010704",
+    "description": "Adaptive research, unified and all-inclusive extension services delivery"
+  },
+  {
+    "id": 498,
+    "code": "010705",
+    "description": "Public Private Partnerships (corporate private sector, NGOs, donors & development partners, farmers organizations)"
+  },
+  {
+    "id": 499,
+    "code": "010706",
+    "description": "Capacity building for stakeholders and professional human resources development"
+  },
+  {
+    "id": 500,
+    "code": "0110",
+    "description": "Agriculture Sector Expenditures Not Elsewhere Classified"
+  },
+  {
+    "id": 501,
+    "code": "011001",
+    "description": "Agriculture Programme Not Elsewhere Classified"
+  },
+  {
+    "id": 502,
+    "code": "02",
+    "description": "Societal Re-orientation"
+  },
+  {
+    "id": 503,
+    "code": "021001",
+    "description": "Societal Re-orientation - General"
+  },
+  {
+    "id": 504,
+    "code": "03",
+    "description": "Poverty Alleviation"
+  },
+  {
+    "id": 505,
+    "code": "031001",
+    "description": "Poverty Alleviation - General"
+  },
+  {
+    "id": 506,
+    "code": "04",
+    "description": "Health"
+  },
+  {
+    "id": 507,
+    "code": "0401",
+    "description": "Effective governance of the health system"
+  },
+  {
+    "id": 508,
+    "code": "050102",
+    "description": "Human and institutional capacity performance management"
+  },
+  {
+    "id": 509,
+    "code": "040103",
+    "description": "Health sector coordination mechanisms"
+  },
+  {
+    "id": 510,
+    "code": "050104",
+    "description": "Integrated supportive supervision"
+  },
+  {
+    "id": 511,
+    "code": "0402",
+    "description": "Community engagement and participation in health"
+  },
+  {
+    "id": 512,
+    "code": "040201",
+    "description": "Community interventions"
+  },
+  {
+    "id": 513,
+    "code": "040202",
+    "description": "Community structures"
+  },
+  {
+    "id": 514,
+    "code": "0403",
+    "description": "Enhancement of the delivery of Essential Package of Health Services (EPHS) to all citizens"
+  },
+  {
+    "id": 515,
+    "code": "040301",
+    "description": "Reproductive, maternal and neonatal health"
+  },
+  {
+    "id": 516,
+    "code": "040302",
+    "description": "Child health"
+  },
+  {
+    "id": 517,
+    "code": "040303",
+    "description": "Adolescent health"
+  },
+  {
+    "id": 518,
+    "code": "040304",
+    "description": "Communicable diseases"
+  },
+  {
+    "id": 519,
+    "code": "040305",
+    "description": "Non-communicable diseases"
+  },
+  {
+    "id": 520,
+    "code": "040306",
+    "description": "Nutrition"
+  },
+  {
+    "id": 521,
+    "code": "040307",
+    "description": "Emergency services"
+  },
+  {
+    "id": 522,
+    "code": "0404",
+    "description": "Provision of the right number and right skill mix of competent, motivated, and productive Human Resources for Health (HRH)"
+  },
+  {
+    "id": 523,
+    "code": "040401",
+    "description": "Pre-service training"
+  },
+  {
+    "id": 524,
+    "code": "040402",
+    "description": "HRH Performance management"
+  },
+  {
+    "id": 525,
+    "code": "040403",
+    "description": "In service training (continuing education)"
+  },
+  {
+    "id": 526,
+    "code": "0405",
+    "description": "Provision of adequate and modern health infrastructure for health services delivery"
+  },
+  {
+    "id": 527,
+    "code": "040501",
+    "description": "Functional health facilities"
+  },
+  {
+    "id": 528,
+    "code": "040502",
+    "description": "Planned Preventive Maintenance (PPM)"
+  },
+  {
+    "id": 529,
+    "code": "040503",
+    "description": "Facility electrification, water and sanitation"
+  },
+  {
+    "id": 530,
+    "code": "0406",
+    "description": "Provision of quality, affordable, available, and safe medicines, vaccines, and other health commodities"
+  },
+  {
+    "id": 531,
+    "code": "040601",
+    "description": "Sustainable drug supply"
+  },
+  {
+    "id": 532,
+    "code": "040602",
+    "description": "Vaccines supply chain"
+  },
+  {
+    "id": 533,
+    "code": "0407",
+    "description": "Evidence generation and utilisation"
+  },
+  {
+    "id": 534,
+    "code": "040701",
+    "description": "Routine information system"
+  },
+  {
+    "id": 535,
+    "code": "040702",
+    "description": "Surveys and facility assessments"
+  },
+  {
+    "id": 536,
+    "code": "040703",
+    "description": "Research and development (Institutional Review Board, Clinical Trials)"
+  },
+  {
+    "id": 537,
+    "code": "040704",
+    "description": "Monitoring and Evaluation (M&E)"
+  },
+  {
+    "id": 538,
+    "code": "0408",
+    "description": "Institution and maintenance of a responsive public health emergency preparedness system"
+  },
+  {
+    "id": 539,
+    "code": "040801",
+    "description": "Integrated national disease surveillance"
+  },
+  {
+    "id": 540,
+    "code": "040802",
+    "description": "Public health laboratories"
+  },
+  {
+    "id": 541,
+    "code": "040803",
+    "description": "Emergency Operation Centres (EOC)"
+  },
+  {
+    "id": 542,
+    "code": "0409",
+    "description": "Provision of universal health coverage and financial risk protection for citizens"
+  },
+  {
+    "id": 543,
+    "code": "040901",
+    "description": "Mobilising equity contributions and vulnerable group funds"
+  },
+  {
+    "id": 544,
+    "code": "040902",
+    "description": "Mobilising employers’ contributions to the State Social Health Insurance Scheme"
+  },
+  {
+    "id": 545,
+    "code": "0410",
+    "description": "Health Sector Expenditures Not Elsewhere Classified"
+  },
+  {
+    "id": 546,
+    "code": "041001",
+    "description": "Health Not Elsewhere Classified"
+  },
+  {
+    "id": 547,
+    "code": "05",
+    "description": "Education"
+  },
+  {
+    "id": 548,
+    "code": "0501",
+    "description": "Effective governance of the education system"
+  },
+  {
+    "id": 549,
+    "code": "050103",
+    "description": "Education sector coordination mechanisms"
+  },
+  {
+    "id": 550,
+    "code": "0502",
+    "description": "Increase in access, retention, and completion rate at all levels"
+  },
+  {
+    "id": 551,
+    "code": "050201",
+    "description": "Early Childhood Care, Development and Education (ECCDE)"
+  },
+  {
+    "id": 552,
+    "code": "050202",
+    "description": "Advocacy and sensitization"
+  },
+  {
+    "id": 553,
+    "code": "050203",
+    "description": "School feeding"
+  },
+  {
+    "id": 554,
+    "code": "050204",
+    "description": "School-based health"
+  },
+  {
+    "id": 555,
+    "code": "050205",
+    "description": "Parental and community support"
+  },
+  {
+    "id": 556,
+    "code": "050206",
+    "description": "Tertiary institutions’ new courses accreditation"
+  },
+  {
+    "id": 557,
+    "code": "0503",
+    "description": "Equity and inclusiveness in the provision of educational services"
+  },
+  {
+    "id": 558,
+    "code": "050301",
+    "description": "Inclusive Education"
+  },
+  {
+    "id": 559,
+    "code": "050302",
+    "description": "Special education"
+  },
+  {
+    "id": 560,
+    "code": "050303",
+    "description": "Nomadic and migrants’ education"
+  },
+  {
+    "id": 561,
+    "code": "050304",
+    "description": "Second chance education"
+  },
+  {
+    "id": 562,
+    "code": "050305",
+    "description": "Girls/Boys child education"
+  },
+  {
+    "id": 563,
+    "code": "050306",
+    "description": "Emergency Response"
+  },
+  {
+    "id": 564,
+    "code": "0504",
+    "description": "Improved quality of teaching and learning outcomes"
+  },
+  {
+    "id": 565,
+    "code": "050401",
+    "description": "All levels of education quality assurance"
+  },
+  {
+    "id": 566,
+    "code": "050402",
+    "description": "Instructional and learning materials"
+  },
+  {
+    "id": 567,
+    "code": "050403",
+    "description": "Teaching and non-teaching staff capacity building"
+  },
+  {
+    "id": 568,
+    "code": "050404",
+    "description": "Curriculum review and development"
+  },
+  {
+    "id": 569,
+    "code": "050405",
+    "description": "Teachers’ recruitment and deployment"
+  },
+  {
+    "id": 570,
+    "code": "050406",
+    "description": "School examination and MLA"
+  },
+  {
+    "id": 571,
+    "code": "0505",
+    "description": "Adequate infrastructure at all levels"
+  },
+  {
+    "id": 572,
+    "code": "050501",
+    "description": "Schools’ infrastructure construction and rehabilitation"
+  },
+  {
+    "id": 573,
+    "code": "050502",
+    "description": "Furnishing"
+  },
+  {
+    "id": 574,
+    "code": "050503",
+    "description": "Libraries and laboratories"
+  },
+  {
+    "id": 575,
+    "code": "050504",
+    "description": "Water, sanitation and hygiene"
+  },
+  {
+    "id": 576,
+    "code": "050505",
+    "description": "School safety"
+  },
+  {
+    "id": 577,
+    "code": "0506",
+    "description": "Improved education information management system (EIMS)"
+  },
+  {
+    "id": 578,
+    "code": "050601",
+    "description": "ICT equipment, software and expertise"
+  },
+  {
+    "id": 579,
+    "code": "050602",
+    "description": "Research and development"
+  },
+  {
+    "id": 580,
+    "code": "050603",
+    "description": "Data and data management"
+  },
+  {
+    "id": 581,
+    "code": "0510",
+    "description": "Education Sector Expenditures Not Elsewhere Classified"
+  },
+  {
+    "id": 582,
+    "code": "051001",
+    "description": "Education Not Elsewhere Classified"
+  },
+  {
+    "id": 583,
+    "code": "06",
+    "description": "Housing and Urban Development"
+  },
+  {
+    "id": 584,
+    "code": "061001",
+    "description": "Housing and Urban Development - General"
+  },
+  {
+    "id": 585,
+    "code": "07",
+    "description": "Gender"
+  },
+  {
+    "id": 586,
+    "code": "071001",
+    "description": "Gender - General"
+  },
+  {
+    "id": 587,
+    "code": "08",
+    "description": "Youth"
+  },
+  {
+    "id": 588,
+    "code": "081001",
+    "description": "Youth - General"
+  },
+  {
+    "id": 589,
+    "code": "09",
+    "description": "Environmental Improvement"
+  },
+  {
+    "id": 590,
+    "code": "091001",
+    "description": "Environmental Improvement - General"
+  },
+  {
+    "id": 591,
+    "code": "10",
+    "description": "Water Resources and Rural Development"
+  },
+  {
+    "id": 592,
+    "code": "101001",
+    "description": "Water Resources and Rural Deve - General"
+  },
+  {
+    "id": 593,
+    "code": "11",
+    "description": "Information Communication and Technology"
+  },
+  {
+    "id": 594,
+    "code": "111001",
+    "description": "Information Communication and Technology - General"
+  },
+  {
+    "id": 595,
+    "code": "12",
+    "description": "Growing the Private Sector"
+  },
+  {
+    "id": 596,
+    "code": "121001",
+    "description": "Growing the Private Sector - General"
+  },
+  {
+    "id": 597,
+    "code": "13",
+    "description": "Reform of Government and Governance"
+  },
+  {
+    "id": 598,
+    "code": "131001",
+    "description": "Reform of Government and Governance - General"
+  },
+  {
+    "id": 599,
+    "code": "14",
+    "description": "Power"
+  },
+  {
+    "id": 600,
+    "code": "141001",
+    "description": "Power - General"
+  },
+  {
+    "id": 601,
+    "code": "15",
+    "description": "Rail"
+  },
+  {
+    "id": 602,
+    "code": "151001",
+    "description": "Rail - General"
+  },
+  {
+    "id": 603,
+    "code": "16",
+    "description": "Water Ways"
+  },
+  {
+    "id": 604,
+    "code": "161001",
+    "description": "Water Ways - General"
+  },
+  {
+    "id": 605,
+    "code": "17",
+    "description": "Road"
+  },
+  {
+    "id": 606,
+    "code": "171001",
+    "description": "Road - General"
+  },
+  {
+    "id": 607,
+    "code": "18",
+    "description": "Airways"
+  },
+  {
+    "id": 608,
+    "code": "181001",
+    "description": "Airways - General"
+  },
+  {
+    "id": 609,
+    "code": "19",
+    "description": "COVID-19"
+  },
+  {
+    "id": 610,
+    "code": "191001",
+    "description": "COVID-19 - General"
+  },
+  {
+    "id": 611,
+    "code": "20",
+    "description": "CLIMATE CHANGE"
+  },
+  {
+    "id": 612,
+    "code": "201001",
+    "description": "CLIMATE CHANGE - General"
+  },
+  {
+    "id": 613,
+    "code": "21",
+    "description": "Oil and Gas Infrastructure"
+  },
+  {
+    "id": 614,
+    "code": "211001",
+    "description": "Oil and Gas Infrastructure - General"
+  },
+  {
+    "id": 615,
+    "code": null,
+    "description": "Expenditure by Programme (Capital)"
+  },
+  {
+    "id": 3036,
+    "code": "10000000",
+    "description": "Revenue"
+  },
+  {
+    "id": 3037,
+    "code": "11010000",
+    "description": "Government Share of Federation Accounts (FAAC)"
+  },
+  {
+    "id": 3041,
+    "code": "11010200",
+    "description": "Government Share Of VAT"
+  },
+  {
+    "id": 3042,
+    "code": "11010300",
+    "description": "Government Share of Other FAAC Transfers"
+  },
+  {
+    "id": 3091,
+    "code": "20000000",
+    "description": "EXPENDITURE"
+  },
+  {
+    "id": 3092,
+    "code": "21000000",
+    "description": "Personnel"
+  },
+  {
+    "id": 3095,
+    "code": "21010101",
+    "description": "Salary"
+  },
+  {
+    "id": 3098,
+    "code": "21020100",
+    "description": "ALLOWANCES"
+  },
+  {
+    "id": 3099,
+    "code": "21020200",
+    "description": "SOCIAL CONTRIBUTION"
+  },
+  {
+    "id": 3114,
+    "code": "22000000",
+    "description": "Other Recurrent Cost"
+  },
+  {
+    "id": 3126,
+    "code": "22030000",
+    "description": "LOANS AND ADVANCES"
+  },
+  {
+    "id": 3127,
+    "code": "22030100",
+    "description": "STAFF LOANS & ADVANCES"
+  },
+  {
+    "id": 3129,
+    "code": "22040101",
+    "description": "Grants to other States/Fed Government"
+  },
+  {
+    "id": 3159,
+    "code": "010000000000",
+    "description": "Administration Sector"
+  },
+  {
+    "id": 3160,
+    "code": "011100000000",
+    "description": "Governor’s Office"
+  },
+  {
+    "id": 3161,
+    "code": "01610000000",
+    "description": "Secretary to the State Government"
+  },
+  {
+    "id": 3162,
+    "code": "011200000000",
+    "description": "State Assembly"
+  },
+  {
+    "id": 3163,
+    "code": "012300000000",
+    "description": "Ministry of Information"
+  },
+  {
+    "id": 3164,
+    "code": "012400000000",
+    "description": "Ministry of Internal Security and Home Affairs"
+  },
+  {
+    "id": 3165,
+    "code": "012500000000",
+    "description": "Office of the Head of Service"
+  },
+  {
+    "id": 3166,
+    "code": "014000000000",
+    "description": "Office of the Auditor General State"
+  },
+  {
+    "id": 3167,
+    "code": "014100000000",
+    "description": "Office of the Auditor General Local Government"
+  },
+  {
+    "id": 3168,
+    "code": "014700000000",
+    "description": "Civil Service Commission"
+  },
+  {
+    "id": 3169,
+    "code": "014900000000",
+    "description": "Local Government Service Commission"
+  },
+  {
+    "id": 3170,
+    "code": "014800000000",
+    "description": "State Independent Electoral Commission"
+  },
+  {
+    "id": 3171,
+    "code": "020000000000",
+    "description": "Economic Sector"
+  },
+  {
+    "id": 3172,
+    "code": "021500000000",
+    "description": "Ministry of Agriculture & Natural Resources"
+  },
+  {
+    "id": 3173,
+    "code": "022000000000",
+    "description": "Ministry of Finance"
+  },
+  {
+    "id": 3174,
+    "code": "022200000000",
+    "description": "Ministry of Commerce/Trade/Business/Industry/Investment"
+  },
+  {
+    "id": 3175,
+    "code": "022700000000",
+    "description": "Ministry of Labour and Productivity"
+  },
+  {
+    "id": 3176,
+    "code": "022800000000",
+    "description": "Ministry of Science and Technology"
+  },
+  {
+    "id": 3177,
+    "code": "022900000000",
+    "description": "Ministry of Transport"
+  },
+  {
+    "id": 3178,
+    "code": "023100000000",
+    "description": "Ministry of Energy"
+  },
+  {
+    "id": 3179,
+    "code": "023400000000",
+    "description": "Ministry of Works"
+  },
+  {
+    "id": 3180,
+    "code": "023600000000",
+    "description": "Ministry of Culture and Tourism"
+  },
+  {
+    "id": 3181,
+    "code": "023800000000",
+    "description": "State Planning Commission/Ministry of Budget and Economic Planning"
+  },
+  {
+    "id": 3182,
+    "code": "025000000000",
+    "description": "Fiscal Responsibility Commission"
+  },
+  {
+    "id": 3183,
+    "code": "025200100100",
+    "description": "Ministry of Water Resources"
+  },
+  {
+    "id": 3184,
+    "code": "025300000000",
+    "description": "Ministry of Housing and Urban Development"
+  },
+  {
+    "id": 3185,
+    "code": "026000000000",
+    "description": "Ministry of Land and Survey"
+  },
+  {
+    "id": 3186,
+    "code": "030000000000",
+    "description": "Law and Justice Sector"
+  },
+  {
+    "id": 3187,
+    "code": "031800000000",
+    "description": "Judiciary"
+  },
+  {
+    "id": 3188,
+    "code": "032600000000",
+    "description": "Ministry of Justice"
+  },
+  {
+    "id": 3189,
+    "code": "040000000000",
+    "description": "Regional Sector"
+  },
+  {
+    "id": 3190,
+    "code": "046400000000",
+    "description": "Oil Producing Communities Development Agency/Commission"
+  },
+  {
+    "id": 3191,
+    "code": "046300000000",
+    "description": "State Capital Development Adency/Ministry"
+  },
+  {
+    "id": 3192,
+    "code": "050000000000",
+    "description": "Social Sector"
+  },
+  {
+    "id": 3193,
+    "code": "051300000000",
+    "description": "Ministry of Youth Development"
+  },
+  {
+    "id": 3194,
+    "code": "051400000000",
+    "description": "Ministry of Women Affairs"
+  },
+  {
+    "id": 3195,
+    "code": "051700000000",
+    "description": "Ministry of Education"
+  },
+  {
+    "id": 3196,
+    "code": "052100000000",
+    "description": "Ministry of Health"
+  },
+  {
+    "id": 3197,
+    "code": "053500000000",
+    "description": "Ministry of Environment"
+  },
+  {
+    "id": 3198,
+    "code": "053900000000",
+    "description": "Ministry of Sport Development"
+  },
+  {
+    "id": 3200,
+    "code": "055100000000",
+    "description": "Ministry of Local Government"
+  },
+  {
+    "id": 5391,
+    "code": "22050101",
+    "description": "Subsidy to Government Owned Companies"
+  },
+  {
+    "id": 5407,
+    "code": "22070000",
+    "description": "Transfers-Payment"
+  },
+  {
+    "id": 5949,
+    "code": "22040101",
+    "description": "Grants to other States/ Federal Government"
+  },
+  {
+    "id": 7836,
+    "code": "701",
+    "description": "General Public Service"
+  },
+  {
+    "id": 7837,
+    "code": "7011",
+    "description": "Executive & Legislative Organ, Financial Affairs and External Affairs"
+  },
+  {
+    "id": 7838,
+    "code": "70111",
+    "description": "Executive Organ and Legislative Organs"
+  },
+  {
+    "id": 7839,
+    "code": "70112",
+    "description": "Financial and Fiscal Affairs"
+  },
+  {
+    "id": 7840,
+    "code": "7012",
+    "description": "Foreign and Economic Aid"
+  },
+  {
+    "id": 7841,
+    "code": "70121",
+    "description": "Economic Aid to Developing Countries and Countries in Transition"
+  },
+  {
+    "id": 7842,
+    "code": "70122",
+    "description": "Economic Aid routed through International Organisations"
+  },
+  {
+    "id": 7843,
+    "code": "7013",
+    "description": "General Services"
+  },
+  {
+    "id": 7844,
+    "code": "70131",
+    "description": "General Personnel Services"
+  },
+  {
+    "id": 7845,
+    "code": "70132",
+    "description": "Overall Planning and Statistical Services"
+  },
+  {
+    "id": 7846,
+    "code": "70133",
+    "description": "Other General Services"
+  },
+  {
+    "id": 7847,
+    "code": "70140",
+    "description": "Basic Research"
+  },
+  {
+    "id": 7848,
+    "code": "70150",
+    "description": "R&D General Public Services"
+  },
+  {
+    "id": 7849,
+    "code": "70160",
+    "description": "General Public Services N.E.C"
+  },
+  {
+    "id": 7850,
+    "code": "70170",
+    "description": "Public Debt Transactions"
+  },
+  {
+    "id": 7851,
+    "code": "70180",
+    "description": "Transfer of a General Character between Different Levels of Government"
+  },
+  {
+    "id": 7852,
+    "code": "703",
+    "description": "Public Order and Safety"
+  },
+  {
+    "id": 7853,
+    "code": "7031",
+    "description": "Police Services"
+  },
+  {
+    "id": 7854,
+    "code": "70310",
+    "description": "State Expenditure to Support Police Services"
+  },
+  {
+    "id": 7855,
+    "code": "70320",
+    "description": "Fire Protection Services"
+  },
+  {
+    "id": 7856,
+    "code": "70330",
+    "description": "Justice & Law Courts"
+  },
+  {
+    "id": 7857,
+    "code": "704",
+    "description": "Economic Affairs"
+  },
+  {
+    "id": 7858,
+    "code": "7041",
+    "description": "General Economic, Commercial and Labour Affairs"
+  },
+  {
+    "id": 7859,
+    "code": "70411",
+    "description": "General Economic and Commercial Affairs"
+  },
+  {
+    "id": 7860,
+    "code": "70412",
+    "description": "General Labour Affairs"
+  },
+  {
+    "id": 7861,
+    "code": "7042",
+    "description": "Agriculture, Forestry, Fishing and Hunting"
+  },
+  {
+    "id": 7863,
+    "code": "70422",
+    "description": "Forestry"
+  },
+  {
+    "id": 7864,
+    "code": "70423",
+    "description": "Fishing and Hunting"
+  },
+  {
+    "id": 7865,
+    "code": "7043",
+    "description": "Fuel and Energy"
+  },
+  {
+    "id": 7866,
+    "code": "70431",
+    "description": "Coal and Solid Mineral Fuel"
+  },
+  {
+    "id": 7867,
+    "code": "70435",
+    "description": "Electricity"
+  },
+  {
+    "id": 7868,
+    "code": "70436",
+    "description": "Non Electricity Energy"
+  },
+  {
+    "id": 7869,
+    "code": "7044",
+    "description": "Mining, Manufacturing and Construction"
+  },
+  {
+    "id": 7870,
+    "code": "70441",
+    "description": "State Support to Mining Resources other than mineral fuels"
+  },
+  {
+    "id": 7871,
+    "code": "70442",
+    "description": "Manufacturing"
+  },
+  {
+    "id": 7872,
+    "code": "70443",
+    "description": "Construction"
+  },
+  {
+    "id": 7873,
+    "code": "7045",
+    "description": "Transport"
+  },
+  {
+    "id": 7874,
+    "code": "70451",
+    "description": "Road Transport"
+  },
+  {
+    "id": 7875,
+    "code": "70452",
+    "description": "Water Transport"
+  },
+  {
+    "id": 7876,
+    "code": "70453",
+    "description": "Railway Transport"
+  },
+  {
+    "id": 7877,
+    "code": "70454",
+    "description": "Air Transport"
+  },
+  {
+    "id": 7878,
+    "code": "70460",
+    "description": "Communication"
+  },
+  {
+    "id": 7879,
+    "code": "7047",
+    "description": "Other Industries"
+  },
+  {
+    "id": 7880,
+    "code": "70471",
+    "description": "Distributive Trade, Storage and Warehousing"
+  },
+  {
+    "id": 7881,
+    "code": "70472",
+    "description": "Hotel and Restaurants"
+  },
+  {
+    "id": 7882,
+    "code": "70473",
+    "description": "Tourism"
+  },
+  {
+    "id": 7883,
+    "code": "70474",
+    "description": "Multipurpose Development Projects"
+  },
+  {
+    "id": 7884,
+    "code": "7048",
+    "description": "R&D Economic Affairs"
+  },
+  {
+    "id": 7885,
+    "code": "70481",
+    "description": "R&D General Economic, Commercial and Labour Affairs"
+  },
+  {
+    "id": 7886,
+    "code": "70482",
+    "description": "R&D Agriculture, Forestry, Fishing and Hunting"
+  },
+  {
+    "id": 7887,
+    "code": "70483",
+    "description": "R&D Fuel and Energy"
+  },
+  {
+    "id": 7888,
+    "code": "70484",
+    "description": "R&D Mining, Manufacturing and Construction"
+  },
+  {
+    "id": 7889,
+    "code": "70485",
+    "description": "R&D Transport"
+  },
+  {
+    "id": 7890,
+    "code": "70486",
+    "description": "R&D Communication"
+  },
+  {
+    "id": 7891,
+    "code": "70487",
+    "description": "R&D Other Industries"
+  },
+  {
+    "id": 7892,
+    "code": "70490",
+    "description": "Economic Affairs N. E. C"
+  },
+  {
+    "id": 7893,
+    "code": "705",
+    "description": "Environmental Protection"
+  },
+  {
+    "id": 7894,
+    "code": "70510",
+    "description": "Waste Management"
+  },
+  {
+    "id": 7895,
+    "code": "70521",
+    "description": "Waste Water Management"
+  },
+  {
+    "id": 7896,
+    "code": "70531",
+    "description": "Pollution Abatement"
+  },
+  {
+    "id": 7897,
+    "code": "70541",
+    "description": "Protection of Biodiversity and Landscape"
+  },
+  {
+    "id": 7898,
+    "code": "70551",
+    "description": "R&D Environmental Protection"
+  },
+  {
+    "id": 7899,
+    "code": "70561",
+    "description": "Environmental Protection N.E.C."
+  },
+  {
+    "id": 7900,
+    "code": "706",
+    "description": "Housing and Community Amenities"
+  },
+  {
+    "id": 7901,
+    "code": "70610",
+    "description": "Housing Development"
+  },
+  {
+    "id": 7902,
+    "code": "70620",
+    "description": "Community Development"
+  },
+  {
+    "id": 7903,
+    "code": "70630",
+    "description": "Water Supply"
+  },
+  {
+    "id": 7904,
+    "code": "7064",
+    "description": "Street Lighting"
+  },
+  {
+    "id": 7905,
+    "code": "70640",
+    "description": "Street lighting"
+  },
+  {
+    "id": 7906,
+    "code": "70650",
+    "description": "R&D Housing and Community Amenities"
+  },
+  {
+    "id": 7907,
+    "code": "70660",
+    "description": "Housing and Community Amenities N. E. C"
+  },
+  {
+    "id": 7909,
+    "code": "7071",
+    "description": "Medical Products, Appliances and Equipment"
+  },
+  {
+    "id": 7910,
+    "code": "70711",
+    "description": "Pharmaceutical Products"
+  },
+  {
+    "id": 7911,
+    "code": "70712",
+    "description": "Other Medical Products"
+  },
+  {
+    "id": 7912,
+    "code": "70713",
+    "description": "Therapeutic Appliances and Equipment"
+  },
+  {
+    "id": 7913,
+    "code": "7072",
+    "description": "Outpatient Services"
+  },
+  {
+    "id": 7914,
+    "code": "70721",
+    "description": "General Medical Services"
+  },
+  {
+    "id": 7915,
+    "code": "70722",
+    "description": "Specialized Medical Services"
+  },
+  {
+    "id": 7916,
+    "code": "70723",
+    "description": "Dental Services"
+  },
+  {
+    "id": 7917,
+    "code": "70724",
+    "description": "Paramedical Services"
+  },
+  {
+    "id": 7918,
+    "code": "7073",
+    "description": "Hospital Services"
+  },
+  {
+    "id": 7919,
+    "code": "70731",
+    "description": "General Hospital Services"
+  },
+  {
+    "id": 7920,
+    "code": "70732",
+    "description": "Specialized Hospital Services"
+  },
+  {
+    "id": 7921,
+    "code": "70733",
+    "description": "Medical and Maternity Services"
+  },
+  {
+    "id": 7922,
+    "code": "70734",
+    "description": "Nursing and Convalescent Services"
+  },
+  {
+    "id": 7923,
+    "code": "70740",
+    "description": "Public Health Services"
+  },
+  {
+    "id": 7924,
+    "code": "70750",
+    "description": "R&D Health"
+  },
+  {
+    "id": 7925,
+    "code": "70760",
+    "description": "Health N. E. C"
+  },
+  {
+    "id": 7926,
+    "code": "708",
+    "description": "Recreation, Culture and Religion"
+  },
+  {
+    "id": 7927,
+    "code": "70810",
+    "description": "Recreational and Sporting Services"
+  },
+  {
+    "id": 7928,
+    "code": "70820",
+    "description": "Cultural Services"
+  },
+  {
+    "id": 7929,
+    "code": "70830",
+    "description": "Broadcasting and Publishing Services"
+  },
+  {
+    "id": 7930,
+    "code": "70840",
+    "description": "Religious and Other Community Services"
+  },
+  {
+    "id": 7931,
+    "code": "70850",
+    "description": "R&D Recreation, Culture and Religion"
+  },
+  {
+    "id": 7932,
+    "code": "70860",
+    "description": "Recreation, Culture and Religion N. E. C"
+  },
+  {
+    "id": 7934,
+    "code": "7091",
+    "description": "Pre-Primary and Primary Education"
+  },
+  {
+    "id": 7935,
+    "code": "70911",
+    "description": "Pre-Primary Education"
+  },
+  {
+    "id": 7936,
+    "code": "70912",
+    "description": "Primary Education"
+  },
+  {
+    "id": 7937,
+    "code": "7092",
+    "description": "Secondary Education"
+  },
+  {
+    "id": 7938,
+    "code": "70921",
+    "description": "Junior Secondary"
+  },
+  {
+    "id": 7939,
+    "code": "70922",
+    "description": "Senior Secondary"
+  },
+  {
+    "id": 7940,
+    "code": "70930",
+    "description": "Post-Secondary and Non Tertiary Education"
+  },
+  {
+    "id": 7941,
+    "code": "7094",
+    "description": "Tertiary Education"
+  },
+  {
+    "id": 7942,
+    "code": "70941",
+    "description": "First Stage of Tertiary Education"
+  },
+  {
+    "id": 7943,
+    "code": "70942",
+    "description": "Second Stage of Tertiary Education"
+  },
+  {
+    "id": 7944,
+    "code": "70950",
+    "description": "Education Not Definable by Level"
+  },
+  {
+    "id": 7945,
+    "code": "70960",
+    "description": "Subsidiary Services to Education"
+  },
+  {
+    "id": 7946,
+    "code": "70970",
+    "description": "R&D Education"
+  },
+  {
+    "id": 7947,
+    "code": "70980",
+    "description": "Education N. E. C"
+  },
+  {
+    "id": 7948,
+    "code": "710",
+    "description": "Social Protection"
+  },
+  {
+    "id": 7949,
+    "code": "7101",
+    "description": "Sickness and Disability"
+  },
+  {
+    "id": 7950,
+    "code": "71011",
+    "description": "Sickness"
+  },
+  {
+    "id": 7951,
+    "code": "71012",
+    "description": "Disability"
+  },
+  {
+    "id": 7952,
+    "code": "71020",
+    "description": "Old Age"
+  },
+  {
+    "id": 7953,
+    "code": "71030",
+    "description": "Survivors"
+  },
+  {
+    "id": 7954,
+    "code": "71040",
+    "description": "Family and Children"
+  },
+  {
+    "id": 7955,
+    "code": "71050",
+    "description": "Unemployment"
+  },
+  {
+    "id": 7956,
+    "code": "71060",
+    "description": "Housing"
+  },
+  {
+    "id": 7957,
+    "code": "71070",
+    "description": "Social Exclusion N. E. C"
+  },
+  {
+    "id": 7958,
+    "code": "71080",
+    "description": "R&D Social Protection"
+  },
+  {
+    "id": 7959,
+    "code": "71091",
+    "description": "Social Protection N. E. C"
+  },
+  {
+    "id": 9172,
+    "code": "7042",
+    "description": "60552440010.3804"
+  },
+  {
+    "id": 9173,
+    "code": "70421",
+    "description": "56048605029.53041"
+  },
+  {
+    "id": 9174,
+    "code": "70422",
+    "description": "3845847862.54"
+  },
+  {
+    "id": 9175,
+    "code": "70423",
+    "description": "657987118.31"
+  },
+  {
+    "id": 9219,
+    "code": "707",
+    "description": "569751021740.5897"
+  },
+  {
+    "id": 9220,
+    "code": "7071",
+    "description": "6406309663.56"
+  },
+  {
+    "id": 9221,
+    "code": "70711",
+    "description": "6298309663.56"
+  },
+  {
+    "id": 9222,
+    "code": "70712",
+    "description": "108000000"
+  },
+  {
+    "id": 9224,
+    "code": "7072",
+    "description": "31329230155.530003"
+  },
+  {
+    "id": 9225,
+    "code": "70721",
+    "description": "24722749106.370003"
+  },
+  {
+    "id": 9226,
+    "code": "70722",
+    "description": "6544680989.16"
+  },
+  {
+    "id": 9228,
+    "code": "70724",
+    "description": "61800060"
+  },
+  {
+    "id": 9229,
+    "code": "7073",
+    "description": "311911380505.00415"
+  },
+  {
+    "id": 9230,
+    "code": "70731",
+    "description": "247228923272.98404"
+  },
+  {
+    "id": 9231,
+    "code": "70732",
+    "description": "64013969232.02"
+  },
+  {
+    "id": 9232,
+    "code": "70733",
+    "description": "3788000"
+  },
+  {
+    "id": 9233,
+    "code": "70734",
+    "description": "664700000"
+  },
+  {
+    "id": 9234,
+    "code": "70740",
+    "description": "129964053722.84"
+  },
+  {
+    "id": 9235,
+    "code": "70750",
+    "description": "594379865.38"
+  },
+  {
+    "id": 9236,
+    "code": "70760",
+    "description": "89545667828.27548"
+  },
+  {
+    "id": 9244,
+    "code": "709",
+    "description": "1172890945016.7158"
+  },
+  {
+    "id": 9245,
+    "code": "70912",
+    "description": "88314025394.06999"
+  },
+  {
+    "id": 9247,
+    "code": "7092",
+    "description": "413895027498.12506"
+  },
+  {
+    "id": 9248,
+    "code": "70921",
+    "description": "200000000"
+  },
+  {
+    "id": 9249,
+    "code": "70922",
+    "description": "413695027498.12506"
+  },
+  {
+    "id": 9250,
+    "code": "70930",
+    "description": "962414447.56"
+  },
+  {
+    "id": 9251,
+    "code": "7094",
+    "description": "484232107471.17554"
+  },
+  {
+    "id": 9252,
+    "code": "70941",
+    "description": "148444666730.64938"
+  },
+  {
+    "id": 9253,
+    "code": "70942",
+    "description": "335787440740.5261"
+  },
+  {
+    "id": 9254,
+    "code": "70950",
+    "description": "15469200932.784"
+  },
+  {
+    "id": 9255,
+    "code": "70960",
+    "description": "26643811934.365"
+  },
+  {
+    "id": 9256,
+    "code": "70970",
+    "description": "2712066581.86"
+  },
+  {
+    "id": 9257,
+    "code": "70980",
+    "description": "140662290756.7763"
+  },
+  {
+    "id": 9258,
+    "code": "710",
+    "description": "741498133845.6931"
+  },
+  {
+    "id": 9259,
+    "code": "71012",
+    "description": "1602142623.25"
+  },
+  {
+    "id": 9261,
+    "code": "71020",
+    "description": "644890581728.78"
+  },
+  {
+    "id": 9262,
+    "code": "71030",
+    "description": "13890940525.36"
+  },
+  {
+    "id": 9263,
+    "code": "71040",
+    "description": "34056515685.856503"
+  },
+  {
+    "id": 9264,
+    "code": "71050",
+    "description": "18509874168.3608"
+  },
+  {
+    "id": 9265,
+    "code": "71060",
+    "description": "126422852.95"
+  },
+  {
+    "id": 9266,
+    "code": "71070",
+    "description": "3074394326.6449203"
+  },
+  {
+    "id": 9267,
+    "code": "71080",
+    "description": "28750000"
+  },
+  {
+    "id": 9268,
+    "code": "71091",
+    "description": "25318511934.4905"
+  },
+  {
+    "id": 9269,
+    "code": "70361",
+    "description": "Public Order and Safety N.E.C"
+  },
+  {
+    "id": 9270,
+    "code": "7042",
+    "description": "471441472174.8599"
+  },
+  {
+    "id": 9271,
+    "code": "70421",
+    "description": "452216563661.3399"
+  },
+  {
+    "id": 9272,
+    "code": "70422",
+    "description": "11892414513.52"
+  },
+  {
+    "id": 9273,
+    "code": "70423",
+    "description": "7332494000"
+  },
+  {
+    "id": 9274,
+    "code": "707",
+    "description": "790328714325.95"
+  },
+  {
+    "id": 9275,
+    "code": "7071",
+    "description": "13690540046.740002"
+  },
+  {
+    "id": 9276,
+    "code": "70711",
+    "description": "12931540046.740002"
+  },
+  {
+    "id": 9277,
+    "code": "70712",
+    "description": "759000000"
+  },
+  {
+    "id": 9278,
+    "code": "7072",
+    "description": "34446780386.86"
+  },
+  {
+    "id": 9279,
+    "code": "70721",
+    "description": "16946527798.71"
+  },
+  {
+    "id": 9280,
+    "code": "70722",
+    "description": "17215229034.15"
+  },
+  {
+    "id": 9281,
+    "code": "70723",
+    "description": "60000000"
+  },
+  {
+    "id": 9282,
+    "code": "70724",
+    "description": "225023554"
+  },
+  {
+    "id": 9283,
+    "code": "7073",
+    "description": "99134478739.14"
+  },
+  {
+    "id": 9284,
+    "code": "70731",
+    "description": "54415638015.670006"
+  },
+  {
+    "id": 9285,
+    "code": "70732",
+    "description": "43896840723.47"
+  },
+  {
+    "id": 9286,
+    "code": "70733",
+    "description": "150000000"
+  },
+  {
+    "id": 9287,
+    "code": "70734",
+    "description": "672000000"
+  },
+  {
+    "id": 9288,
+    "code": "70740",
+    "description": "268107426601.45"
+  },
+  {
+    "id": 9289,
+    "code": "70750",
+    "description": "605000000"
+  },
+  {
+    "id": 9290,
+    "code": "70760",
+    "description": "374344488551.76"
+  },
+  {
+    "id": 9291,
+    "code": "709",
+    "description": "1262635362721.8025"
+  },
+  {
+    "id": 9292,
+    "code": "7091",
+    "description": "197698339024.23"
+  },
+  {
+    "id": 9293,
+    "code": "70911",
+    "description": "1771680502.96"
+  },
+  {
+    "id": 9294,
+    "code": "70912",
+    "description": "195926658521.27002"
+  },
+  {
+    "id": 9295,
+    "code": "7092",
+    "description": "101986579095.44"
+  },
+  {
+    "id": 9296,
+    "code": "70921",
+    "description": "1435833333"
+  },
+  {
+    "id": 9297,
+    "code": "70922",
+    "description": "100550745762.44"
+  },
+  {
+    "id": 9298,
+    "code": "70930",
+    "description": "41211519.45"
+  },
+  {
+    "id": 9299,
+    "code": "7094",
+    "description": "236674032437.47"
+  },
+  {
+    "id": 9300,
+    "code": "70941",
+    "description": "112725969067.38998"
+  },
+  {
+    "id": 9301,
+    "code": "70942",
+    "description": "123948063370.08"
+  },
+  {
+    "id": 9302,
+    "code": "70950",
+    "description": "177867427324.0374"
+  },
+  {
+    "id": 9303,
+    "code": "70960",
+    "description": "34375746706.3349"
+  },
+  {
+    "id": 9304,
+    "code": "70970",
+    "description": "5988430469.940001"
+  },
+  {
+    "id": 9305,
+    "code": "70980",
+    "description": "508003596144.89996"
+  },
+  {
+    "id": 9306,
+    "code": "710",
+    "description": "202420619620.44"
+  },
+  {
+    "id": 9307,
+    "code": "71012",
+    "description": "1626568608.65"
+  },
+  {
+    "id": 9308,
+    "code": "71020",
+    "description": "1109304157.21"
+  },
+  {
+    "id": 9309,
+    "code": "71030",
+    "description": "1558858953.22"
+  },
+  {
+    "id": 9310,
+    "code": "71040",
+    "description": "65162540268.95"
+  },
+  {
+    "id": 9311,
+    "code": "71050",
+    "description": "50892166470.95"
+  },
+  {
+    "id": 9312,
+    "code": "71060",
+    "description": "64223165.42"
+  },
+  {
+    "id": 9313,
+    "code": "71070",
+    "description": "8182814207.85"
+  },
+  {
+    "id": 9314,
+    "code": "71080",
+    "description": "2477939881.36"
+  },
+  {
+    "id": 9315,
+    "code": "71091",
+    "description": "71346203906.83"
+  },
+  {
+    "id": 9467,
+    "code": "22",
+    "description": "Solid Minerals"
+  },
+  {
+    "id": 9468,
+    "code": "2210",
+    "description": "Solid Mineral Infrastructure - General"
+  },
+  {
+    "id": 9469,
+    "code": "221001",
+    "description": "Solid Minerals Infrastructure - General"
+  },
+  {
+    "id": 9625,
+    "code": "046300000000",
+    "description": "State Capital Development Agency/Ministry"
+  },
+  {
+    "id": 9912,
+    "code": null,
+    "description": "Health Sector Capital Expenditure by Level"
+  },
+  {
+    "id": 9913,
+    "code": null,
+    "description": "Primary"
+  },
+  {
+    "id": 9914,
+    "code": null,
+    "description": "Secondary"
+  },
+  {
+    "id": 9915,
+    "code": null,
+    "description": "Tertiary"
+  },
+  {
+    "id": 9916,
+    "code": null,
+    "description": "Other/Multiple Level of Health Care"
+  }
+]

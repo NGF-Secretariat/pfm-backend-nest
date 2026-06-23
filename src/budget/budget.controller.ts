@@ -60,4 +60,21 @@ export class BudgetController {
     }
     return this.budgetService.uploadLocalSheet(body.filePath, body.sheetName);
   }
+
+  @Get('fetch')
+  async fetch(
+    @Query('year') year: string,
+    @Query('type') type: string,
+    @Query('state') state?: string | string[],
+  ) {
+    return this.budgetService.fetch(year, type, state);
+  }
+
+  @Get('fetch-pi')
+  async fetchPi(
+    @Query('year') year: string,
+    @Query('state') state?: string | string[],
+  ) {
+    return this.budgetService.fetchPi(year, state);
+  }
 }
