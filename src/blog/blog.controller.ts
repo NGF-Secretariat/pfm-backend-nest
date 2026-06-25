@@ -1,9 +1,19 @@
-import { Controller, Get, Param, Patch, Body, Post } from '@nestjs/common';
+import { Controller, Get, Param, Patch, Body, Post, UseInterceptors, UploadedFile, BadRequestException } from '@nestjs/common';
 import { BlogService } from './blog.service';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('blogs')
 export class BlogController {
   constructor(private readonly blogService: BlogService) {}
+
+  @Post('upload')
+  @UseInterceptors(FileInterceptor('file'))
+  async uploadImage(@UploadedFile() file: Express.Multer.File) {
+    if (!file) {
+      throw new BadRequestException('No file provided');
+    }
+    return this.blogService.uploadBlogImage(file);
+  }
 
   @Post()
   create(@Body() createData: any) {
