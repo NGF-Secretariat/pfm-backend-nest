@@ -1,5 +1,3 @@
-// src/prisma/prisma.module.ts
-
 import { Global, Module } from '@nestjs/common';
 import { PrismaService } from './prisma.service';
 import { PrismaController } from './prisma.controller';
@@ -10,4 +8,4 @@ import { PrismaController } from './prisma.controller';
   exports: [PrismaService],
   controllers: [PrismaController],
 })
-export class PrismaModule {}
+export class PrismaModule { }
