@@ -54,6 +54,36 @@ export class BudgetService {
     return { message: `${type} processed successfully for year ${year}` };
   }
 
+  async uploadExcelSheetDirect(file: Express.Multer.File, type: 'PI' | 'REVISED') {
+    if (!file?.buffer) throw new BadRequestException('No file provided');
+
+    const originalName = file.originalname.split('.')[0];
+    const yearMatch = originalName.match(/\d{4}/);
+    if (!yearMatch) {
+      throw new BadRequestException('File name must contain a 4-digit year (e.g., PI2019, R2020)');
+    }
+    const year = yearMatch[0];
+
+    const targetSheetName = type === 'PI' ? `PI${year}` : `B${year}R`;
+
+    const workbookPath = require('path').join(process.cwd(), 'Public Finance Database (2018-2026) + Indicators.xlsx');
+    const workbook = XLSX.readFile(workbookPath);
+
+    const uploadedWorkbook = XLSX.read(file.buffer, { type: 'buffer' });
+    const firstUploadedSheetName = uploadedWorkbook.SheetNames[0];
+    const uploadedSheet = uploadedWorkbook.Sheets[firstUploadedSheetName];
+
+    const normalizedName = workbook.SheetNames.find(s => s.trim().toUpperCase() === targetSheetName.toUpperCase()) || targetSheetName;
+    workbook.Sheets[normalizedName] = uploadedSheet;
+    if (!workbook.SheetNames.includes(normalizedName)) {
+      workbook.SheetNames.push(normalizedName);
+    }
+
+    XLSX.writeFile(workbook, workbookPath);
+
+    return { message: `${type} processed successfully for year ${year}` };
+  }
+
   async uploadLocalSheet(filePath: string, sheetName: string) {
     if (!filePath || !sheetName) {
       throw new BadRequestException('File path and sheet name are required');
@@ -324,8 +354,8 @@ export class BudgetService {
     // 3. Fetch data from DB or sheet
     let records: { stateId: number; itemId: number; amount: number }[] = [];
     
-    if (type === 'revised' && year === 2020) {
-      records = await this.readSheetOnTheFly('B2020R', stateNameMap);
+    if (type === 'revised') {
+      records = await this.readSheetOnTheFly(`B${year}R`, stateNameMap);
     } else if (type === 'actual') {
       const data = await this.prisma.publicFinanceActual.findMany({
         where: {
@@ -576,7 +606,15 @@ export class BudgetService {
   private async readSheetOnTheFly(sheetName: string, stateNameMap: Map<string, number>) {
     const workbookPath = require('path').join(process.cwd(), 'Public Finance Database (2018-2026) + Indicators.xlsx');
     const workbook = XLSX.readFile(workbookPath);
-    const normalizedSheetName = workbook.SheetNames.find(s => s.trim() === sheetName.trim()) || sheetName;
+    
+    const yearMatch = sheetName.match(/\d{4}/);
+    const year = yearMatch ? yearMatch[0] : '';
+    const normalizedSheetName = workbook.SheetNames.find(s => {
+      const name = s.trim().toUpperCase();
+      return name === sheetName.toUpperCase() || 
+             (year && (name === `B${year}R` || name === `R${year}`));
+    }) || sheetName;
+
     const sheet = workbook.Sheets[normalizedSheetName];
     if (!sheet) return [];
 

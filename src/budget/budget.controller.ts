@@ -53,6 +53,24 @@ export class BudgetController {
     return this.budgetService.uploadSpecific(file, 'BUDGET');
   }
 
+  @Post('upload/pi')
+  @UseInterceptors(FileInterceptor('file', {
+    limits: { fileSize: 50 * 1024 * 1024 },
+  }))
+  uploadPi(@UploadedFile() file: Express.Multer.File) {
+    if (!file) throw new BadRequestException('File is required');
+    return this.budgetService.uploadExcelSheetDirect(file, 'PI');
+  }
+
+  @Post('upload/revised')
+  @UseInterceptors(FileInterceptor('file', {
+    limits: { fileSize: 50 * 1024 * 1024 },
+  }))
+  uploadRevised(@UploadedFile() file: Express.Multer.File) {
+    if (!file) throw new BadRequestException('File is required');
+    return this.budgetService.uploadExcelSheetDirect(file, 'REVISED');
+  }
+
   @Post('upload/local-sheet')
   async uploadLocalSheet(@Body() body: { filePath: string; sheetName: string }) {
     if (!body.filePath || !body.sheetName) {

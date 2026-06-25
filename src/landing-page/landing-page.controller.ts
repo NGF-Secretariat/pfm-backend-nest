@@ -22,6 +22,18 @@ export class LandingPageController {
     return this.landingPageService.subscribe(email);
   }
 
+  @Get('subscribers')
+  async getSubscribers() {
+    try {
+      return await this.landingPageService.getSubscribers();
+    } catch (error: any) {
+      throw new HttpException(
+        `Failed to retrieve subscribers: ${error.message}`,
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+  }
+
   @Post('upload')
   @UseInterceptors(FileInterceptor("file", {
     limits: {

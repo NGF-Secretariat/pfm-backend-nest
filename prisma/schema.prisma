@@ -371,3 +371,17 @@ model User {
 
   @@map("users")
 }
+
+// ---------------------------------------------------------------------------
+// Traffic logs
+// ---------------------------------------------------------------------------
+
+model TrafficLog {
+  id        Int      @id @default(autoincrement())
+  visitorId String
+  section   String
+  page      String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("traffic_logs")
+}

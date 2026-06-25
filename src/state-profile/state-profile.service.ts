@@ -184,14 +184,41 @@ export class StateProfileService {
   }
 
   async updateProfileBySlug(slug: string, updateData: any) {
-    const existing = await this.prisma.stateProfile.findUnique({ where: { slug } });
+    let existing = await this.prisma.stateProfile.findUnique({ where: { slug } });
+    
+    const formattedData: any = { ...updateData };
+    if (formattedData.population !== undefined) {
+      formattedData.population = formattedData.population ? parseFloat(formattedData.population) : null;
+    }
+
     if (!existing) {
-      throw new HttpException('State profile not found', HttpStatus.NOT_FOUND);
+      const stateName = slug.replace(/-/g, ' ');
+      const state = await this.prisma.state.findFirst({
+        where: { name: { equals: stateName, mode: 'insensitive' } }
+      });
+
+      if (!state) {
+        throw new HttpException('State not found', HttpStatus.NOT_FOUND);
+      }
+
+      const created = await this.prisma.stateProfile.create({
+        data: {
+          stateId: state.id,
+          slug,
+          about: formattedData.about || '',
+          population: formattedData.population,
+          area: formattedData.area || null,
+          coordinates: formattedData.coordinates || null,
+        },
+        include: { state: true }
+      });
+
+      return { success: true, data: created };
     }
 
     const updated = await this.prisma.stateProfile.update({
       where: { slug },
-      data: updateData,
+      data: formattedData,
       include: { state: true }
     });
 

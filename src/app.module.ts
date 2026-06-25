@@ -9,9 +9,10 @@ import { StateProfileModule } from './state-profile/state-profile.module';
 import { BlogModule } from './blog/blog.module';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
+import { TrafficModule } from './traffic/traffic.module';
 
 @Module({
-  imports: [PrismaModule, LandingPageModule, BudgetModule, ContactModule, StateProfileModule, BlogModule, AuthModule, UserModule],
+  imports: [PrismaModule, LandingPageModule, BudgetModule, ContactModule, StateProfileModule, BlogModule, AuthModule, UserModule, TrafficModule],
   controllers: [AppController],
   providers: [AppService],
 })

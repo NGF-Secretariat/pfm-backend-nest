@@ -739,4 +739,15 @@ export class LandingPageService {
       return { success: false, message: 'Failed to subscribe' };
     }
   }
+
+  async getSubscribers() {
+    try {
+      const subscribers = await this.prisma.subscriber.findMany({
+        orderBy: { createdAt: 'desc' }
+      });
+      return { success: true, data: subscribers };
+    } catch (error) {
+      return { success: false, message: 'Failed to retrieve subscribers' };
+    }
+  }
 }
