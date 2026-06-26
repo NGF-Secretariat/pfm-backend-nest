@@ -21,7 +21,24 @@ function extractLocalImages(markdown: string): string[] {
 export class BlogService {
   constructor(private prisma: PrismaService) {}
 
-  async uploadBlogImage(file: Express.Multer.File) {
+  async uploadBlogImage(file: Express.Multer.File, previousImage?: string) {
+    if (previousImage && previousImage.startsWith('/blogs/')) {
+      const oldImagePath = path.join(
+        process.cwd(),
+        '..',
+        'pfm-frontend-next',
+        'public',
+        previousImage
+      );
+      try {
+        if (fs.existsSync(oldImagePath)) {
+          fs.unlinkSync(oldImagePath);
+        }
+      } catch (err) {
+        console.error('Failed to delete replaced cover image during upload:', err);
+      }
+    }
+
     const ext = path.extname(file.originalname);
     const baseName = path.basename(file.originalname, ext).replace(/[^a-zA-Z0-9]/g, '_');
     const filename = `${baseName}_${Date.now()}${ext}`;
@@ -73,8 +90,8 @@ export class BlogService {
     const blog = await this.prisma.blogPost.findUnique({ where: { slug } });
     if (!blog) throw new NotFoundException('Blog post not found');
 
-    // 1. Storage cleanup for cover image if replaced
-    if (updateData.image && blog.image && updateData.image !== blog.image) {
+    // 1. Storage cleanup for cover image if replaced or removed
+    if (blog.image && updateData.image !== blog.image) {
       if (blog.image.startsWith('/blogs/')) {
         const oldImagePath = path.join(
           process.cwd(),

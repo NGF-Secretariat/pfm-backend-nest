@@ -8,11 +8,14 @@ export class BlogController {
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
-  async uploadImage(@UploadedFile() file: Express.Multer.File) {
+  async uploadImage(
+    @UploadedFile() file: Express.Multer.File,
+    @Body('previousImage') previousImage?: string,
+  ) {
     if (!file) {
       throw new BadRequestException('No file provided');
     }
-    return this.blogService.uploadBlogImage(file);
+    return this.blogService.uploadBlogImage(file, previousImage);
   }
 
   @Post()
