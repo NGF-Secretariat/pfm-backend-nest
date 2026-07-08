@@ -117,21 +117,32 @@ export class StateProfileService {
       where: {
         description: {
           in: [
-            'Total Revenue (including Opening Balance)',
             'Total Revenue',
-            'Total Recurrent Expenditure',
-            'Total Capital Expenditure',
+            'Revenue',
+            'Total Revenue (including Opening Balance)',
+            'TOTAL EXPENDITURE',
             'Total Expenditure',
-            'TOTAL EXPENDITURE'
+            'EXPENDITURE',
+            'Capital Expenditure',
+            'Total Capital Expenditure',
+            'Personnel Expenditure',
+            'Personnel',
+            'Other Recurrent Expenditure',
+            'Other Recurrent Cost',
+            'Total Recurrent Expenditure'
           ]
         }
       }
     });
 
-    const revIds = items.filter(i => i.description.includes('Revenue')).map(i => i.id);
-    const expIds = items.filter(i => i.description === 'Total Expenditure' || i.description === 'TOTAL EXPENDITURE').map(i => i.id);
-    const capIds = items.filter(i => i.description.includes('Capital')).map(i => i.id);
-    const recIds = items.filter(i => i.description.includes('Recurrent')).map(i => i.id);
+    const revItems = items.filter(i => i.description === 'Total Revenue' || i.description === 'Revenue');
+    const fallbackRevItem = items.find(i => i.description === 'Total Revenue (including Opening Balance)');
+    const expItems = items.filter(i => i.description === 'TOTAL EXPENDITURE' || i.description === 'EXPENDITURE');
+    const fallbackExpItem = items.find(i => i.description === 'Total Expenditure');
+    const capItems = items.filter(i => i.description === 'Capital Expenditure' || i.description === 'Total Capital Expenditure');
+    const personnelItems = items.filter(i => i.description === 'Personnel Expenditure' || i.description === 'Personnel');
+    const otherRecItems = items.filter(i => i.description === 'Other Recurrent Expenditure' || i.description === 'Other Recurrent Cost');
+    const totalRecItem = items.find(i => i.description === 'Total Recurrent Expenditure');
 
     const actuals = await this.prisma.publicFinanceActual.findMany({
       where: { stateId: stateId, itemId: { in: items.map(i => i.id) } }
@@ -169,15 +180,68 @@ export class StateProfileService {
       const actYear = actuals.filter(a => a.year === year);
       const budYear = budgets.filter(b => b.year === year);
 
-      timeSeries.actual.revenue.push({ year, value: actYear.find(a => revIds.includes(a.itemId))?.amount.toNumber() || 0 });
-      timeSeries.actual.expenditure.push({ year, value: actYear.find(a => expIds.includes(a.itemId))?.amount.toNumber() || 0 });
-      timeSeries.actual.capital.push({ year, value: actYear.find(a => capIds.includes(a.itemId))?.amount.toNumber() || 0 });
-      timeSeries.actual.recurrent.push({ year, value: actYear.find(a => recIds.includes(a.itemId))?.amount.toNumber() || 0 });
+      // Revenue prioritized: 'Total Revenue' / 'Revenue' (C5) first, then fallback to 'Total Revenue (including Opening Balance)'
+      let actRev = 0;
+      if (revItems.length > 0) {
+        actRev = actYear.find(a => revItems.some(i => i.id === a.itemId))?.amount.toNumber() || 0;
+      }
+      if (actRev === 0 && fallbackRevItem) {
+        actRev = actYear.find(a => a.itemId === fallbackRevItem.id)?.amount.toNumber() || 0;
+      }
 
-      timeSeries.original.revenue.push({ year, value: budYear.find(b => revIds.includes(b.itemId))?.amount.toNumber() || 0 });
-      timeSeries.original.expenditure.push({ year, value: budYear.find(b => expIds.includes(b.itemId))?.amount.toNumber() || 0 });
-      timeSeries.original.capital.push({ year, value: budYear.find(b => capIds.includes(b.itemId))?.amount.toNumber() || 0 });
-      timeSeries.original.recurrent.push({ year, value: budYear.find(b => recIds.includes(b.itemId))?.amount.toNumber() || 0 });
+      let budRev = 0;
+      if (revItems.length > 0) {
+        budRev = budYear.find(b => revItems.some(i => i.id === b.itemId))?.amount.toNumber() || 0;
+      }
+      if (budRev === 0 && fallbackRevItem) {
+        budRev = budYear.find(b => b.itemId === fallbackRevItem.id)?.amount.toNumber() || 0;
+      }
+
+      timeSeries.actual.revenue.push({ year, value: actRev });
+      timeSeries.original.revenue.push({ year, value: budRev });
+
+      // Expenditure prioritized: 'TOTAL EXPENDITURE' / 'EXPENDITURE' (C62) first, then fallback to 'Total Expenditure'
+      let actExp = 0;
+      if (expItems.length > 0) {
+        actExp = actYear.find(a => expItems.some(i => i.id === a.itemId))?.amount.toNumber() || 0;
+      }
+      if (actExp === 0 && fallbackExpItem) {
+        actExp = actYear.find(a => a.itemId === fallbackExpItem.id)?.amount.toNumber() || 0;
+      }
+
+      let budExp = 0;
+      if (expItems.length > 0) {
+        budExp = budYear.find(b => expItems.some(i => i.id === b.itemId))?.amount.toNumber() || 0;
+      }
+      if (budExp === 0 && fallbackExpItem) {
+        budExp = budYear.find(b => b.itemId === fallbackExpItem.id)?.amount.toNumber() || 0;
+      }
+
+      timeSeries.actual.expenditure.push({ year, value: actExp });
+      timeSeries.original.expenditure.push({ year, value: budExp });
+
+      // Capital
+      const actCap = capItems.length > 0 ? actYear.find(a => capItems.some(i => i.id === a.itemId))?.amount.toNumber() || 0 : 0;
+      const budCap = capItems.length > 0 ? budYear.find(b => capItems.some(i => i.id === b.itemId))?.amount.toNumber() || 0 : 0;
+      timeSeries.actual.capital.push({ year, value: actCap });
+      timeSeries.original.capital.push({ year, value: budCap });
+
+      // Recurrent: sum of Personnel + Other Recurrent, with Total Recurrent as fallback
+      const actPersVal = personnelItems.length > 0 ? actYear.find(a => personnelItems.some(i => i.id === a.itemId))?.amount.toNumber() || 0 : 0;
+      const actOthVal = otherRecItems.length > 0 ? actYear.find(a => otherRecItems.some(i => i.id === a.itemId))?.amount.toNumber() || 0 : 0;
+      let actRecVal = actPersVal + actOthVal;
+      if (actRecVal === 0 && totalRecItem) {
+        actRecVal = actYear.find(a => a.itemId === totalRecItem.id)?.amount.toNumber() || 0;
+      }
+      timeSeries.actual.recurrent.push({ year, value: actRecVal });
+
+      const budPersVal = personnelItems.length > 0 ? budYear.find(b => personnelItems.some(i => i.id === b.itemId))?.amount.toNumber() || 0 : 0;
+      const budOthVal = otherRecItems.length > 0 ? budYear.find(b => otherRecItems.some(i => i.id === b.itemId))?.amount.toNumber() || 0 : 0;
+      let budRecVal = budPersVal + budOthVal;
+      if (budRecVal === 0 && totalRecItem) {
+        budRecVal = budYear.find(b => b.itemId === totalRecItem.id)?.amount.toNumber() || 0;
+      }
+      timeSeries.original.recurrent.push({ year, value: budRecVal });
     }
 
     return { success: true, data: { ...profile, timeSeries } };
