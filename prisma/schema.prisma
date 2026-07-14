@@ -314,7 +314,9 @@ model StateProfile {
   coordinates String?
   dateCreated String?
   gdp         String?
+  gdpYear     String?
   hdi         String?
+  hdiYear     String?
   website     String?
 
   @@map("state_profiles")

@@ -56,7 +56,9 @@ export class StateProfileService {
             area: row['Area'] || null,
             coordinates: row['Co-ordinates'] || null,
             gdp: row['GDP'] || null,
+            gdpYear: row['GDP Year'] ? String(row['GDP Year']) : null,
             hdi: row['HDI'] || null,
+            hdiYear: row['HDI Year'] ? String(row['HDI Year']) : null,
             website: row['Website'] || null,
           },
           update: {
@@ -67,7 +69,9 @@ export class StateProfileService {
             area: row['Area'] || null,
             coordinates: row['Co-ordinates'] || null,
             gdp: row['GDP'] || null,
+            gdpYear: row['GDP Year'] ? String(row['GDP Year']) : null,
             hdi: row['HDI'] || null,
+            hdiYear: row['HDI Year'] ? String(row['HDI Year']) : null,
             website: row['Website'] || null,
           }
         });
@@ -117,7 +121,9 @@ export class StateProfileService {
         area: null,
         coordinates: null,
         gdp: null,
+        gdpYear: '2023',
         hdi: null,
+        hdiYear: '2019',
         website: null,
         state
       };
@@ -287,7 +293,9 @@ export class StateProfileService {
           area: formattedData.area || null,
           coordinates: formattedData.coordinates || null,
           gdp: formattedData.gdp || null,
+          gdpYear: formattedData.gdpYear || null,
           hdi: formattedData.hdi || null,
+          hdiYear: formattedData.hdiYear || null,
           website: formattedData.website || null,
         },
         include: { state: true }
