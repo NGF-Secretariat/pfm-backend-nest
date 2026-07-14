@@ -28,19 +28,24 @@ export class BlogService {
         '..',
         'pfm-frontend-next',
         'public',
-        previousImage
+        previousImage,
       );
       try {
         if (fs.existsSync(oldImagePath)) {
           fs.unlinkSync(oldImagePath);
         }
       } catch (err) {
-        console.error('Failed to delete replaced cover image during upload:', err);
+        console.error(
+          'Failed to delete replaced cover image during upload:',
+          err,
+        );
       }
     }
 
     const ext = path.extname(file.originalname);
-    const baseName = path.basename(file.originalname, ext).replace(/[^a-zA-Z0-9]/g, '_');
+    const baseName = path
+      .basename(file.originalname, ext)
+      .replace(/[^a-zA-Z0-9]/g, '_');
     const filename = `${baseName}_${Date.now()}${ext}`;
 
     const destDir = path.join(
@@ -48,7 +53,7 @@ export class BlogService {
       '..',
       'pfm-frontend-next',
       'public',
-      'blogs'
+      'blogs',
     );
 
     // Ensure directory exists
@@ -64,21 +69,21 @@ export class BlogService {
 
   async create(createData: any) {
     const blog = await this.prisma.blogPost.create({
-      data: createData
+      data: createData,
     });
     return { success: true, data: blog };
   }
 
   async findAll() {
     const blogs = await this.prisma.blogPost.findMany({
-      orderBy: { createdAt: 'asc' }
+      orderBy: { createdAt: 'asc' },
     });
     return { success: true, data: blogs };
   }
 
   async findOne(slug: string) {
     const blog = await this.prisma.blogPost.findUnique({
-      where: { slug }
+      where: { slug },
     });
     if (!blog) {
       throw new NotFoundException('Blog post not found');
@@ -98,7 +103,7 @@ export class BlogService {
           '..',
           'pfm-frontend-next',
           'public',
-          blog.image
+          blog.image,
         );
         try {
           if (fs.existsSync(oldImagePath)) {
@@ -114,7 +119,7 @@ export class BlogService {
     if (updateData.content && blog.content) {
       const oldImages = extractLocalImages(blog.content);
       const newImages = extractLocalImages(updateData.content);
-      const deletedImages = oldImages.filter(img => !newImages.includes(img));
+      const deletedImages = oldImages.filter((img) => !newImages.includes(img));
 
       for (const img of deletedImages) {
         const imgPath = path.join(
@@ -122,7 +127,7 @@ export class BlogService {
           '..',
           'pfm-frontend-next',
           'public',
-          img
+          img,
         );
         try {
           if (fs.existsSync(imgPath)) {
@@ -136,7 +141,7 @@ export class BlogService {
 
     const updatedBlog = await this.prisma.blogPost.update({
       where: { slug },
-      data: updateData
+      data: updateData,
     });
 
     return { success: true, data: updatedBlog };

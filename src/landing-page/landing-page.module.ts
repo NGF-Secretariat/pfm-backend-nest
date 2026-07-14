@@ -6,4 +6,4 @@ import { LandingPageController } from './landing-page.controller';
   controllers: [LandingPageController],
   providers: [LandingPageService],
 })
-export class LandingPageModule { }
+export class LandingPageModule {}

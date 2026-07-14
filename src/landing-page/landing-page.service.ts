@@ -4,7 +4,6 @@ import { UpdateLandingPageDto } from './dto/update-landing-page.dto';
 import * as XLSX from 'xlsx';
 import { PrismaService } from 'src/prisma/prisma.service';
 
-
 interface StateFiscalGroup {
   stateId: number;
   stateName: string;
@@ -30,8 +29,7 @@ interface GroupedFiscalResponse {
 
 @Injectable()
 export class LandingPageService {
-
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prisma: PrismaService) {}
 
   create(createLandingPageDto: CreateLandingPageDto) {
     return 'This action adds a new landingPage';
@@ -71,7 +69,7 @@ export class LandingPageService {
 
     // Pre-load states to avoid querying per row
     const dbStates = await this.prisma.state.findMany();
-    const stateMap = new Map(dbStates.map(s => [s.name.toUpperCase(), s.id]));
+    const stateMap = new Map(dbStates.map((s) => [s.name.toUpperCase(), s.id]));
 
     // Run the rest concurrently to speed up
     await Promise.all([
@@ -82,8 +80,11 @@ export class LandingPageService {
       this.upsertNationalAggregates(data['Total_Expen_Original_and_Actual']),
       this.upsertExpenditureByFunction(data['Expenditure_by_Function']),
       this.upsertPopulation(data['Population'], stateMap), // typo is in the sheet name
-      this.upsertPopulationExpenditureSummary(data['Population_23_Act_Total Exp'], stateMap),
-      this.upsertGeoPolOriginalExp(data['Geo_Pol_Original_Exp'])
+      this.upsertPopulationExpenditureSummary(
+        data['Population_23_Act_Total Exp'],
+        stateMap,
+      ),
+      this.upsertGeoPolOriginalExp(data['Geo_Pol_Original_Exp']),
     ]);
 
     return { message: 'Upload successful', sheets: workbook.SheetNames };
@@ -91,7 +92,10 @@ export class LandingPageService {
 
   // ── Helpers ────────────────────────────────────────────────────────────────
 
-  private getStateIdFromMap(name: string, stateMap: Map<string, number>): number {
+  private getStateIdFromMap(
+    name: string,
+    stateMap: Map<string, number>,
+  ): number {
     const id = stateMap.get(name.toUpperCase());
     if (!id) throw new Error(`State not found: ${name}`);
     return id;
@@ -101,23 +105,26 @@ export class LandingPageService {
 
   private async upsertStates(data: Record<string, any[]>) {
     const rows = data['Actual_Revenue'] ?? [];
-    const stateNames = Array.from(new Set(rows
-      .map((r) => r['State'])
-      .filter((n) => n && n !== 'TOTAL')));
+    const stateNames = Array.from(
+      new Set(rows.map((r) => r['State']).filter((n) => n && n !== 'TOTAL')),
+    );
 
-    const promises = stateNames.map(name =>
+    const promises = stateNames.map((name) =>
       this.prisma.state.upsert({
         where: { name },
         update: {},
         create: { name },
-      })
+      }),
     );
     await this.prisma.$transaction(promises);
   }
 
   // ── Actual Revenue ─────────────────────────────────────────────────────────
 
-  private async upsertActualRevenue(rows: any[], stateMap: Map<string, number>) {
+  private async upsertActualRevenue(
+    rows: any[],
+    stateMap: Map<string, number>,
+  ) {
     if (!rows) return;
     const yearMap = {
       'Actual Revenue 2021': 2021,
@@ -133,11 +140,13 @@ export class LandingPageService {
 
       for (const [col, year] of Object.entries(yearMap)) {
         if (row[col] == null) continue;
-        promises.push(this.prisma.actualRevenue.upsert({
-          where: { stateId_year: { stateId, year } },
-          update: { amount: row[col] },
-          create: { stateId, year, amount: row[col] },
-        }));
+        promises.push(
+          this.prisma.actualRevenue.upsert({
+            where: { stateId_year: { stateId, year } },
+            update: { amount: row[col] },
+            create: { stateId, year, amount: row[col] },
+          }),
+        );
       }
     }
     await this.prisma.$transaction(promises);
@@ -145,7 +154,10 @@ export class LandingPageService {
 
   // ── Actual Expenditure ─────────────────────────────────────────────────────
 
-  private async upsertActualExpenditure(rows: any[], stateMap: Map<string, number>) {
+  private async upsertActualExpenditure(
+    rows: any[],
+    stateMap: Map<string, number>,
+  ) {
     if (!rows) return;
     const yearMap = {
       'Actual Expenditure 2021': 2021,
@@ -161,11 +173,13 @@ export class LandingPageService {
 
       for (const [col, year] of Object.entries(yearMap)) {
         if (row[col] == null) continue;
-        promises.push(this.prisma.actualExpenditure.upsert({
-          where: { stateId_year: { stateId, year } },
-          update: { amount: row[col] },
-          create: { stateId, year, amount: row[col] },
-        }));
+        promises.push(
+          this.prisma.actualExpenditure.upsert({
+            where: { stateId_year: { stateId, year } },
+            update: { amount: row[col] },
+            create: { stateId, year, amount: row[col] },
+          }),
+        );
       }
     }
     await this.prisma.$transaction(promises);
@@ -173,7 +187,10 @@ export class LandingPageService {
 
   // ── Budget Revenue ─────────────────────────────────────────────────────────
 
-  private async upsertBudgetRevenue(rows: any[], stateMap: Map<string, number>) {
+  private async upsertBudgetRevenue(
+    rows: any[],
+    stateMap: Map<string, number>,
+  ) {
     if (!rows) return;
     const yearMap = {
       'Total Revenue 2023': 2023,
@@ -189,11 +206,13 @@ export class LandingPageService {
 
       for (const [col, year] of Object.entries(yearMap)) {
         if (row[col] == null) continue;
-        promises.push(this.prisma.budgetRevenue.upsert({
-          where: { stateId_year: { stateId, year } },
-          update: { amount: row[col] },
-          create: { stateId, year, amount: row[col] },
-        }));
+        promises.push(
+          this.prisma.budgetRevenue.upsert({
+            where: { stateId_year: { stateId, year } },
+            update: { amount: row[col] },
+            create: { stateId, year, amount: row[col] },
+          }),
+        );
       }
     }
     await this.prisma.$transaction(promises);
@@ -201,7 +220,10 @@ export class LandingPageService {
 
   // ── Budget Expenditure ─────────────────────────────────────────────────────
 
-  private async upsertBudgetExpenditure(rows: any[], stateMap: Map<string, number>) {
+  private async upsertBudgetExpenditure(
+    rows: any[],
+    stateMap: Map<string, number>,
+  ) {
     if (!rows) return;
     const yearMap = {
       'Total Expenditure 2023': 2023,
@@ -217,11 +239,13 @@ export class LandingPageService {
 
       for (const [col, year] of Object.entries(yearMap)) {
         if (row[col] == null) continue;
-        promises.push(this.prisma.budgetExpenditure.upsert({
-          where: { stateId_year: { stateId, year } },
-          update: { amount: row[col] },
-          create: { stateId, year, amount: row[col] },
-        }));
+        promises.push(
+          this.prisma.budgetExpenditure.upsert({
+            where: { stateId_year: { stateId, year } },
+            update: { amount: row[col] },
+            create: { stateId, year, amount: row[col] },
+          }),
+        );
       }
     }
     await this.prisma.$transaction(promises);
@@ -242,27 +266,37 @@ export class LandingPageService {
 
       const year = parseInt(yearRaw as any, 10);
 
-      const originalRevenue = row['Original'] ?? row['Revenue (not including opening balance)'] ?? null;
-      const originalExpenditure = row['__EMPTY_1'] ?? row['Expenditure '] ?? null;
-      const actualRevenue = row['Actual '] ?? row['Revenue (not including opening balance)_1'] ?? null;
-      const actualExpenditure = row['__EMPTY_3'] ?? row['Expenditure _1'] ?? null;
+      const originalRevenue =
+        row['Original'] ??
+        row['Revenue (not including opening balance)'] ??
+        null;
+      const originalExpenditure =
+        row['__EMPTY_1'] ?? row['Expenditure '] ?? null;
+      const actualRevenue =
+        row['Actual '] ??
+        row['Revenue (not including opening balance)_1'] ??
+        null;
+      const actualExpenditure =
+        row['__EMPTY_3'] ?? row['Expenditure _1'] ?? null;
 
-      promises.push(this.prisma.nationalAggregate.upsert({
-        where: { year },
-        update: {
-          originalRevenue,
-          originalExpenditure,
-          actualRevenue,
-          actualExpenditure,
-        },
-        create: {
-          year,
-          originalRevenue,
-          originalExpenditure,
-          actualRevenue,
-          actualExpenditure,
-        },
-      }));
+      promises.push(
+        this.prisma.nationalAggregate.upsert({
+          where: { year },
+          update: {
+            originalRevenue,
+            originalExpenditure,
+            actualRevenue,
+            actualExpenditure,
+          },
+          create: {
+            year,
+            originalRevenue,
+            originalExpenditure,
+            actualRevenue,
+            actualExpenditure,
+          },
+        }),
+      );
     }
     await this.prisma.$transaction(promises);
   }
@@ -275,9 +309,9 @@ export class LandingPageService {
     'Economic Affairs': 'ECONOMIC_AFFAIRS',
     'Environmental Protection': 'ENVIRONMENTAL_PROTECTION',
     'Housing and Community Ammenities': 'HOUSING_AND_COMMUNITY_AMENITIES',
-    'Health': 'HEALTH',
+    Health: 'HEALTH',
     'Recreation and Culture': 'RECREATION_AND_CULTURE',
-    'Education': 'EDUCATION',
+    Education: 'EDUCATION',
     'Social Protection': 'SOCIAL_PROTECTION',
   };
 
@@ -290,27 +324,32 @@ export class LandingPageService {
     for (const row of rows) {
       const firstVal = String(row['S/No'] ?? row['2023 Budget '] ?? '');
       const yearMatch = firstVal.match(/^(20\d{2})/);
-      if (yearMatch) { currentYear = parseInt(yearMatch[1]); continue; }
+      if (yearMatch) {
+        currentYear = parseInt(yearMatch[1]);
+        continue;
+      }
       if (!currentYear || !row['Description']) continue;
 
       const fn = this.functionMap[row['Description'].trim()];
       if (!fn) continue;
 
-      promises.push(this.prisma.expenditureByFunction.upsert({
-        where: { year_function: { year: currentYear, function: fn } },
-        update: {
-          recurrent: row['Recurrent '] ?? row['Recurrent'] ?? 0,
-          capital: row['Capital'] ?? 0,
-          total: row['Total '] ?? row['Total'] ?? 0,
-        },
-        create: {
-          year: currentYear,
-          function: fn,
-          recurrent: row['Recurrent '] ?? row['Recurrent'] ?? 0,
-          capital: row['Capital'] ?? 0,
-          total: row['Total '] ?? row['Total'] ?? 0,
-        },
-      }));
+      promises.push(
+        this.prisma.expenditureByFunction.upsert({
+          where: { year_function: { year: currentYear, function: fn } },
+          update: {
+            recurrent: row['Recurrent '] ?? row['Recurrent'] ?? 0,
+            capital: row['Capital'] ?? 0,
+            total: row['Total '] ?? row['Total'] ?? 0,
+          },
+          create: {
+            year: currentYear,
+            function: fn,
+            recurrent: row['Recurrent '] ?? row['Recurrent'] ?? 0,
+            capital: row['Capital'] ?? 0,
+            total: row['Total '] ?? row['Total'] ?? 0,
+          },
+        }),
+      );
     }
     await this.prisma.$transaction(promises);
   }
@@ -327,13 +366,18 @@ export class LandingPageService {
       const stateName = String(row['State']);
       const stateId = this.getStateIdFromMap(stateName, stateMap);
 
-      for (const [col, year] of [['2024 Population', 2024], ['2025 Population', 2025]] as const) {
+      for (const [col, year] of [
+        ['2024 Population', 2024],
+        ['2025 Population', 2025],
+      ] as const) {
         if (row[col] == null) continue;
-        promises.push(this.prisma.population.upsert({
-          where: { stateId_year: { stateId, year } },
-          update: { population: row[col] },
-          create: { stateId, year, population: row[col] },
-        }));
+        promises.push(
+          this.prisma.population.upsert({
+            where: { stateId_year: { stateId, year } },
+            update: { population: row[col] },
+            create: { stateId, year, population: row[col] },
+          }),
+        );
       }
     }
     await this.prisma.$transaction(promises);
@@ -341,7 +385,10 @@ export class LandingPageService {
 
   // ── Population + Expenditure Summary ──────────────────────────────────────
 
-  private async upsertPopulationExpenditureSummary(rows: any[], stateMap: Map<string, number>) {
+  private async upsertPopulationExpenditureSummary(
+    rows: any[],
+    stateMap: Map<string, number>,
+  ) {
     if (!rows) return;
 
     const promises: any[] = [];
@@ -355,20 +402,22 @@ export class LandingPageService {
       const exp = row['Actual Total Expenditure 2023'];
       if (pop == null || exp == null) continue;
 
-      promises.push(this.prisma.populationExpenditureSummary.upsert({
-        where: { stateId },
-        update: {
-          population2024: pop,
-          actualTotalExpenditure2023: exp,
-          perCapitaExpenditure2023: exp / pop,
-        },
-        create: {
-          stateId,
-          population2024: pop,
-          actualTotalExpenditure2023: exp,
-          perCapitaExpenditure2023: exp / pop,
-        },
-      }));
+      promises.push(
+        this.prisma.populationExpenditureSummary.upsert({
+          where: { stateId },
+          update: {
+            population2024: pop,
+            actualTotalExpenditure2023: exp,
+            perCapitaExpenditure2023: exp / pop,
+          },
+          create: {
+            stateId,
+            population2024: pop,
+            actualTotalExpenditure2023: exp,
+            perCapitaExpenditure2023: exp / pop,
+          },
+        }),
+      );
     }
     await this.prisma.$transaction(promises);
   }
@@ -381,26 +430,44 @@ export class LandingPageService {
       budRevYears,
       budExpYears,
       funcYears,
-      progYears
+      progYears,
     ] = await Promise.all([
-      this.prisma.actualRevenue.findMany({ select: { year: true }, distinct: ['year'] }),
-      this.prisma.actualExpenditure.findMany({ select: { year: true }, distinct: ['year'] }),
-      this.prisma.budgetRevenue.findMany({ select: { year: true }, distinct: ['year'] }),
-      this.prisma.budgetExpenditure.findMany({ select: { year: true }, distinct: ['year'] }),
-      this.prisma.expenditureByFunction.findMany({ select: { year: true }, distinct: ['year'] }),
-      this.prisma.expenditureByProgramme.findMany({ select: { year: true }, distinct: ['year'] }),
+      this.prisma.actualRevenue.findMany({
+        select: { year: true },
+        distinct: ['year'],
+      }),
+      this.prisma.actualExpenditure.findMany({
+        select: { year: true },
+        distinct: ['year'],
+      }),
+      this.prisma.budgetRevenue.findMany({
+        select: { year: true },
+        distinct: ['year'],
+      }),
+      this.prisma.budgetExpenditure.findMany({
+        select: { year: true },
+        distinct: ['year'],
+      }),
+      this.prisma.expenditureByFunction.findMany({
+        select: { year: true },
+        distinct: ['year'],
+      }),
+      this.prisma.expenditureByProgramme.findMany({
+        select: { year: true },
+        distinct: ['year'],
+      }),
     ]);
 
     // Flatten and extract all unique years
     const allYears = Array.from(
       new Set([
-        ...actRevYears.map(y => y.year),
-        ...actExpYears.map(y => y.year),
-        ...budRevYears.map(y => y.year),
-        ...budExpYears.map(y => y.year),
-        ...funcYears.map(y => y.year),
-        ...progYears.map(y => y.year),
-      ])
+        ...actRevYears.map((y) => y.year),
+        ...actExpYears.map((y) => y.year),
+        ...budRevYears.map((y) => y.year),
+        ...budExpYears.map((y) => y.year),
+        ...funcYears.map((y) => y.year),
+        ...progYears.map((y) => y.year),
+      ]),
     ).sort((a, b) => b - a); // Descending order
 
     if (allYears.length === 0) {
@@ -413,7 +480,7 @@ export class LandingPageService {
     }
 
     // Find the closest year less than or equal to targetYear
-    const closestPastYear = allYears.find(y => y <= targetYear);
+    const closestPastYear = allYears.find((y) => y <= targetYear);
     if (closestPastYear) {
       return closestPastYear;
     }
@@ -422,8 +489,9 @@ export class LandingPageService {
     return allYears[allYears.length - 1];
   }
 
-
-  async getGroupedDashboardData(targetYear: number): Promise<GroupedFiscalResponse> {
+  async getGroupedDashboardData(
+    targetYear: number,
+  ): Promise<GroupedFiscalResponse> {
     const resolvedYear = await this.resolveClosestYear(targetYear);
 
     // Fetch all related tables for the resolved year concurrently
@@ -477,14 +545,24 @@ export class LandingPageService {
     ]);
 
     // Build lookup maps for rapid O(1) state matching
-    const actualRevMap = new Map(actualRevenues.map(r => [r.stateId, r.amount.toNumber()]));
-    const actualExpMap = new Map(actualExpenditures.map(e => [e.stateId, e.amount.toNumber()]));
-    const budgetRevMap = new Map(budgetRevenues.map(r => [r.stateId, r.amount.toNumber()]));
-    const budgetExpMap = new Map(budgetExpenditures.map(e => [e.stateId, e.amount.toNumber()]));
-    const populationMap = new Map(populations.map(p => [p.stateId, p.population.toNumber()]));
+    const actualRevMap = new Map(
+      actualRevenues.map((r) => [r.stateId, r.amount.toNumber()]),
+    );
+    const actualExpMap = new Map(
+      actualExpenditures.map((e) => [e.stateId, e.amount.toNumber()]),
+    );
+    const budgetRevMap = new Map(
+      budgetRevenues.map((r) => [r.stateId, r.amount.toNumber()]),
+    );
+    const budgetExpMap = new Map(
+      budgetExpenditures.map((e) => [e.stateId, e.amount.toNumber()]),
+    );
+    const populationMap = new Map(
+      populations.map((p) => [p.stateId, p.population.toNumber()]),
+    );
 
     // Map each state with all its grouped data points
-    const statesSummary: StateFiscalGroup[] = states.map(state => {
+    const statesSummary: StateFiscalGroup[] = states.map((state) => {
       const population = populationMap.get(state.id) || null;
       const actualExpenditure = actualExpMap.get(state.id) || null;
       const actualRevenue = actualRevMap.get(state.id) || null;
@@ -557,13 +635,13 @@ export class LandingPageService {
       orderBy: { year: 'asc' },
     });
 
-    const original = aggregates.map(agg => ({
+    const original = aggregates.map((agg) => ({
       year: agg.year,
       expenditure: agg.originalExpenditure?.toNumber() ?? 0,
       revenue: agg.originalRevenue?.toNumber() ?? 0,
     }));
 
-    const actual = aggregates.map(agg => ({
+    const actual = aggregates.map((agg) => ({
       year: agg.year,
       expenditure: agg.actualExpenditure?.toNumber() ?? 0,
       revenue: agg.actualRevenue?.toNumber() ?? 0,
@@ -582,7 +660,7 @@ export class LandingPageService {
 
   async zonalBreakdown() {
     const zoneBudgets = await this.prisma.zoneOriginalBudget.findMany({
-      include: { zone: true }
+      include: { zone: true },
     });
 
     const zonalData = new Map<string, any>();
@@ -590,7 +668,12 @@ export class LandingPageService {
     const getZone = (zoneName: string, year: number) => {
       const key = `${zoneName}_${year}`;
       if (!zonalData.has(key)) {
-        zonalData.set(key, { zoneName, year, originalExpenditure: 0, states: {} });
+        zonalData.set(key, {
+          zoneName,
+          year,
+          originalExpenditure: 0,
+          states: {},
+        });
       }
       return zonalData.get(key);
     };
@@ -605,18 +688,26 @@ export class LandingPageService {
       zone.originalExpenditure += amount;
 
       const stateKey = stateName.toLowerCase();
-      const formattedName = stateName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
-      if (!zone.states[stateKey]) zone.states[stateKey] = { name: formattedName, originalAmount: 0 };
+      const formattedName = stateName
+        .split(' ')
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+        .join(' ');
+      if (!zone.states[stateKey])
+        zone.states[stateKey] = { name: formattedName, originalAmount: 0 };
       zone.states[stateKey].originalAmount += amount;
     });
 
-    const result = Array.from(zonalData.values()).map(zone => {
-      const statesBreakdown: Record<string, { originalPercentage: number }> = {};
+    const result = Array.from(zonalData.values()).map((zone) => {
+      const statesBreakdown: Record<string, { originalPercentage: number }> =
+        {};
 
-      for (const [stateKey, data] of Object.entries(zone.states) as [string, any][]) {
-        const orgPct = zone.originalExpenditure > 0 ? (data.originalAmount / zone.originalExpenditure) * 100 : 0;
+      for (const [stateKey, data] of Object.entries(zone.states as Record<string, any>)) {
+        const orgPct =
+          zone.originalExpenditure > 0
+            ? (data.originalAmount / zone.originalExpenditure) * 100
+            : 0;
         statesBreakdown[data.name] = {
-          originalPercentage: parseFloat(orgPct.toFixed(2))
+          originalPercentage: parseFloat(orgPct.toFixed(2)),
         };
       }
 
@@ -624,15 +715,15 @@ export class LandingPageService {
         zoneName: zone.zoneName,
         year: zone.year,
         originalExpenditure: zone.originalExpenditure,
-        states: statesBreakdown
+        states: statesBreakdown,
       };
     });
 
     return {
       success: true,
       data: {
-        result
-      }
+        result,
+      },
     };
   }
 
@@ -656,9 +747,15 @@ export class LandingPageService {
     let currentRightZone = 'North-East';
 
     for (const row of rows) {
-      if (typeof row['South-West'] === 'string' && row['South-West'] !== 'S/No' && row['South-West'] !== currentLeftZone) {
-        if (row['South-West'] && isNaN(parseInt(row['South-West'], 10))) currentLeftZone = row['South-West'];
-        if (row['North-East'] && isNaN(parseInt(row['North-East'], 10))) currentRightZone = row['North-East'];
+      if (
+        typeof row['South-West'] === 'string' &&
+        row['South-West'] !== 'S/No' &&
+        row['South-West'] !== currentLeftZone
+      ) {
+        if (row['South-West'] && isNaN(parseInt(row['South-West'], 10)))
+          currentLeftZone = row['South-West'];
+        if (row['North-East'] && isNaN(parseInt(row['North-East'], 10)))
+          currentRightZone = row['North-East'];
       }
 
       if (typeof row['South-West'] === 'number' && row['__EMPTY']) {
@@ -683,22 +780,40 @@ export class LandingPageService {
       const zone = await this.prisma.geoPoliticalZone.upsert({
         where: { name: zoneName },
         update: {},
-        create: { name: zoneName }
+        create: { name: zoneName },
       });
 
       for (const [stateName, originalBudget] of Object.entries(states)) {
-        promises.push((async () => {
-          let state = await this.prisma.state.findUnique({ where: { name: stateName } });
-          if (state) {
-            await this.prisma.state.update({ where: { id: state.id }, data: { zoneId: zone.id } });
-          }
+        promises.push(
+          (async () => {
+            const state = await this.prisma.state.findUnique({
+              where: { name: stateName },
+            });
+            if (state) {
+              await this.prisma.state.update({
+                where: { id: state.id },
+                data: { zoneId: zone.id },
+              });
+            }
 
-          await this.prisma.zoneOriginalBudget.upsert({
-            where: { zoneId_stateName_year: { zoneId: zone.id, stateName: stateName, year: parsedYear } },
-            update: { originalBudget },
-            create: { zoneId: zone.id, stateName: stateName, originalBudget, year: parsedYear }
-          });
-        })());
+            await this.prisma.zoneOriginalBudget.upsert({
+              where: {
+                zoneId_stateName_year: {
+                  zoneId: zone.id,
+                  stateName: stateName,
+                  year: parsedYear,
+                },
+              },
+              update: { originalBudget },
+              create: {
+                zoneId: zone.id,
+                stateName: stateName,
+                originalBudget,
+                year: parsedYear,
+              },
+            });
+          })(),
+        );
       }
     }
     await Promise.all(promises);
@@ -712,7 +827,7 @@ export class LandingPageService {
       orderBy: { total: 'desc' },
     });
 
-    const result = data.map(item => ({
+    const result = data.map((item) => ({
       function: item.function,
       recurrent: item.recurrent.toNumber(),
       capital: item.capital.toNumber(),
@@ -722,7 +837,7 @@ export class LandingPageService {
     return {
       success: true,
       data: {
-        result
+        result,
       },
     };
   }
@@ -743,7 +858,7 @@ export class LandingPageService {
   async getSubscribers() {
     try {
       const subscribers = await this.prisma.subscriber.findMany({
-        orderBy: { createdAt: 'desc' }
+        orderBy: { createdAt: 'desc' },
       });
       return { success: true, data: subscribers };
     } catch (error) {

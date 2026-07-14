@@ -1,4 +1,17 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFile, Query, HttpException, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseInterceptors,
+  UploadedFile,
+  Query,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { LandingPageService } from './landing-page.service';
 import { CreateLandingPageDto } from './dto/create-landing-page.dto';
 import { UpdateLandingPageDto } from './dto/update-landing-page.dto';
@@ -6,8 +19,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('landing-page')
 export class LandingPageController {
-  constructor(private readonly landingPageService: LandingPageService) { }
-
+  constructor(private readonly landingPageService: LandingPageService) {}
 
   @Post()
   create(@Body() createLandingPageDto: CreateLandingPageDto) {
@@ -29,17 +41,19 @@ export class LandingPageController {
     } catch (error: any) {
       throw new HttpException(
         `Failed to retrieve subscribers: ${error.message}`,
-        HttpStatus.INTERNAL_SERVER_ERROR
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
 
   @Post('upload')
-  @UseInterceptors(FileInterceptor("file", {
-    limits: {
-      fileSize: 10 * 1024 * 1024,
-    }
-  }))
+  @UseInterceptors(
+    FileInterceptor('file', {
+      limits: {
+        fileSize: 10 * 1024 * 1024,
+      },
+    }),
+  )
   uploadFile(@UploadedFile() file: Express.Multer.File) {
     return this.landingPageService.uploadFile(file);
   }
@@ -50,7 +64,10 @@ export class LandingPageController {
     const targetYear = year ? parseInt(year, 10) : new Date().getFullYear();
 
     if (isNaN(targetYear)) {
-      throw new HttpException('Invalid year parameter format', HttpStatus.BAD_REQUEST);
+      throw new HttpException(
+        'Invalid year parameter format',
+        HttpStatus.BAD_REQUEST,
+      );
     }
 
     try {
@@ -58,7 +75,7 @@ export class LandingPageController {
     } catch (error: any) {
       throw new HttpException(
         `Failed to compile dashboard summary: ${error.message}`,
-        HttpStatus.INTERNAL_SERVER_ERROR
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -70,7 +87,7 @@ export class LandingPageController {
     } catch (error: any) {
       throw new HttpException(
         `Failed to compile dashboard summary: ${error.message}`,
-        HttpStatus.INTERNAL_SERVER_ERROR
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -82,7 +99,7 @@ export class LandingPageController {
     } catch (error: any) {
       throw new HttpException(
         `Failed to compile dashboard summary: ${error.message}`,
-        HttpStatus.INTERNAL_SERVER_ERROR
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -94,7 +111,7 @@ export class LandingPageController {
     } catch (error: any) {
       throw new HttpException(
         `Failed to compile dashboard summary: ${error.message}`,
-        HttpStatus.INTERNAL_SERVER_ERROR
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -106,7 +123,7 @@ export class LandingPageController {
     } catch (error: any) {
       throw new HttpException(
         `Failed to compile dashboard summary: ${error.message}`,
-        HttpStatus.INTERNAL_SERVER_ERROR
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -122,7 +139,10 @@ export class LandingPageController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateLandingPageDto: UpdateLandingPageDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateLandingPageDto: UpdateLandingPageDto,
+  ) {
     return this.landingPageService.update(+id, updateLandingPageDto);
   }
 

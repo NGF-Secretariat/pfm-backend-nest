@@ -11,4 +11,6 @@ async function main() {
   console.log(`Dumped ${items.length} items to items-dump.json`);
 }
 
-main().catch(console.error).finally(() => prisma.$disconnect());
+main()
+  .catch(console.error)
+  .finally(() => prisma.$disconnect());

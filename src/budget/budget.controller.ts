@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Query, UseInterceptors, UploadedFile, BadRequestException, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Query,
+  UseInterceptors,
+  UploadedFile,
+  BadRequestException,
+  Body,
+} from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { BudgetService } from './budget.service';
 
@@ -12,7 +21,10 @@ export class BudgetController {
   }
 
   @Get('map-snapshot')
-  async getMapSnapshot(@Query('year') year: string, @Query('type') type: string) {
+  async getMapSnapshot(
+    @Query('year') year: string,
+    @Query('type') type: string,
+  ) {
     return this.budgetService.getMapSnapshot(year, type);
   }
 
@@ -22,9 +34,11 @@ export class BudgetController {
   }
 
   @Post('upload/all')
-  @UseInterceptors(FileInterceptor('file', {
-    limits: { fileSize: 50 * 1024 * 1024 }, // 50MB
-  }))
+  @UseInterceptors(
+    FileInterceptor('file', {
+      limits: { fileSize: 50 * 1024 * 1024 }, // 50MB
+    }),
+  )
   async uploadAll(@UploadedFile() file: Express.Multer.File) {
     if (!file) throw new BadRequestException('File is required');
     try {
@@ -36,45 +50,57 @@ export class BudgetController {
   }
 
   @Post('upload/actual')
-  @UseInterceptors(FileInterceptor('file', {
-    limits: { fileSize: 50 * 1024 * 1024 },
-  }))
+  @UseInterceptors(
+    FileInterceptor('file', {
+      limits: { fileSize: 50 * 1024 * 1024 },
+    }),
+  )
   uploadActual(@UploadedFile() file: Express.Multer.File) {
     if (!file) throw new BadRequestException('File is required');
     return this.budgetService.uploadSpecific(file, 'ACTUAL');
   }
 
   @Post('upload/budget')
-  @UseInterceptors(FileInterceptor('file', {
-    limits: { fileSize: 50 * 1024 * 1024 },
-  }))
+  @UseInterceptors(
+    FileInterceptor('file', {
+      limits: { fileSize: 50 * 1024 * 1024 },
+    }),
+  )
   uploadBudget(@UploadedFile() file: Express.Multer.File) {
     if (!file) throw new BadRequestException('File is required');
     return this.budgetService.uploadSpecific(file, 'BUDGET');
   }
 
   @Post('upload/pi')
-  @UseInterceptors(FileInterceptor('file', {
-    limits: { fileSize: 50 * 1024 * 1024 },
-  }))
+  @UseInterceptors(
+    FileInterceptor('file', {
+      limits: { fileSize: 50 * 1024 * 1024 },
+    }),
+  )
   uploadPi(@UploadedFile() file: Express.Multer.File) {
     if (!file) throw new BadRequestException('File is required');
     return this.budgetService.uploadExcelSheetDirect(file, 'PI');
   }
 
   @Post('upload/revised')
-  @UseInterceptors(FileInterceptor('file', {
-    limits: { fileSize: 50 * 1024 * 1024 },
-  }))
+  @UseInterceptors(
+    FileInterceptor('file', {
+      limits: { fileSize: 50 * 1024 * 1024 },
+    }),
+  )
   uploadRevised(@UploadedFile() file: Express.Multer.File) {
     if (!file) throw new BadRequestException('File is required');
     return this.budgetService.uploadExcelSheetDirect(file, 'REVISED');
   }
 
   @Post('upload/local-sheet')
-  async uploadLocalSheet(@Body() body: { filePath: string; sheetName: string }) {
+  async uploadLocalSheet(
+    @Body() body: { filePath: string; sheetName: string },
+  ) {
     if (!body.filePath || !body.sheetName) {
-      throw new BadRequestException('filePath and sheetName must be provided in the request body');
+      throw new BadRequestException(
+        'filePath and sheetName must be provided in the request body',
+      );
     }
     return this.budgetService.uploadLocalSheet(body.filePath, body.sheetName);
   }

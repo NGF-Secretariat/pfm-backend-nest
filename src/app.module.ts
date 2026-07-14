@@ -12,7 +12,17 @@ import { UserModule } from './user/user.module';
 import { TrafficModule } from './traffic/traffic.module';
 
 @Module({
-  imports: [PrismaModule, LandingPageModule, BudgetModule, ContactModule, StateProfileModule, BlogModule, AuthModule, UserModule, TrafficModule],
+  imports: [
+    PrismaModule,
+    LandingPageModule,
+    BudgetModule,
+    ContactModule,
+    StateProfileModule,
+    BlogModule,
+    AuthModule,
+    UserModule,
+    TrafficModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

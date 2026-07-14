@@ -15,7 +15,7 @@ export class UserService {
         role: true,
         createdAt: true,
       },
-      orderBy: { createdAt: 'desc' }
+      orderBy: { createdAt: 'desc' },
     });
   }
 

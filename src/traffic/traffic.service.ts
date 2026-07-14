@@ -45,11 +45,14 @@ export class TrafficService {
       const totalUniqueVisitors = totalUniqueResult.length;
 
       // Aggregations
-      const dailyMap = new Map<string, { views: number; visitors: Set<string> }>();
+      const dailyMap = new Map<
+        string,
+        { views: number; visitors: Set<string> }
+      >();
       const sectionMap = new Map<string, number>();
       const pageMap = new Map<string, number>();
 
-      logs.forEach(log => {
+      logs.forEach((log) => {
         // Daily
         const dateStr = log.createdAt.toISOString().split('T')[0]; // YYYY-MM-DD
         if (!dailyMap.has(dateStr)) {
@@ -66,27 +69,36 @@ export class TrafficService {
         pageMap.set(log.page, (pageMap.get(log.page) || 0) + 1);
       });
 
-      const trafficPerDay = Array.from(dailyMap.entries()).map(([date, data]) => ({
-        date,
-        views: data.views,
-        visitors: data.visitors.size,
-      }));
+      const trafficPerDay = Array.from(dailyMap.entries()).map(
+        ([date, data]) => ({
+          date,
+          views: data.views,
+          visitors: data.visitors.size,
+        }),
+      );
 
-      const sectionsVisited = Array.from(sectionMap.entries()).map(([section, count]) => ({
-        section,
-        count,
-      })).sort((a, b) => b.count - a.count);
+      const sectionsVisited = Array.from(sectionMap.entries())
+        .map(([section, count]) => ({
+          section,
+          count,
+        }))
+        .sort((a, b) => b.count - a.count);
 
-      const pagesVisited = Array.from(pageMap.entries()).map(([page, count]) => ({
-        page,
-        count,
-      })).sort((a, b) => b.count - a.count);
+      const pagesVisited = Array.from(pageMap.entries())
+        .map(([page, count]) => ({
+          page,
+          count,
+        }))
+        .sort((a, b) => b.count - a.count);
 
       const totalPageViews = logs.length;
-      
+
       // Get today's stats
       const todayStr = new Date().toISOString().split('T')[0];
-      const todayData = dailyMap.get(todayStr) || { views: 0, visitors: new Set() };
+      const todayData = dailyMap.get(todayStr) || {
+        views: 0,
+        visitors: new Set(),
+      };
 
       return {
         success: true,

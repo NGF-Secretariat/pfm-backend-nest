@@ -1,4 +1,14 @@
-import { Controller, Get, Param, Patch, Body, Post, UseInterceptors, UploadedFile, BadRequestException } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Body,
+  Post,
+  UseInterceptors,
+  UploadedFile,
+  BadRequestException,
+} from '@nestjs/common';
 import { BlogService } from './blog.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 

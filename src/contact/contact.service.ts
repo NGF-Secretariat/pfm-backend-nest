@@ -16,9 +16,16 @@ export class ContactService {
           message: createContactDto.message,
         },
       });
-      return { success: true, message: 'Thank you. Your message has been sent successfully.', data: contact };
+      return {
+        success: true,
+        message: 'Thank you. Your message has been sent successfully.',
+        data: contact,
+      };
     } catch (error) {
-      return { success: false, message: 'Failed to send message. Please try again.' };
+      return {
+        success: false,
+        message: 'Failed to send message. Please try again.',
+      };
     }
   }
 
