@@ -312,6 +312,10 @@ model StateProfile {
   population  Decimal? @db.Decimal(18, 2)
   area        String?
   coordinates String?
+  dateCreated String?
+  gdp         String?
+  hdi         String?
+  website     String?
 
   @@map("state_profiles")
 }

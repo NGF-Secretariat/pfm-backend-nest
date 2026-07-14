@@ -51,16 +51,24 @@ export class StateProfileService {
             stateId,
             slug,
             about: row['About'] || '',
+            dateCreated: row['Date Created'] || null,
             population,
             area: row['Area'] || null,
             coordinates: row['Co-ordinates'] || null,
+            gdp: row['GDP'] || null,
+            hdi: row['HDI'] || null,
+            website: row['Website'] || null,
           },
           update: {
             slug,
             about: row['About'] || '',
+            dateCreated: row['Date Created'] || null,
             population,
             area: row['Area'] || null,
             coordinates: row['Co-ordinates'] || null,
+            gdp: row['GDP'] || null,
+            hdi: row['HDI'] || null,
+            website: row['Website'] || null,
           }
         });
 
@@ -104,9 +112,13 @@ export class StateProfileService {
         stateId: state.id,
         slug,
         about: null,
+        dateCreated: null,
         population: null,
         area: null,
         coordinates: null,
+        gdp: null,
+        hdi: null,
+        website: null,
         state
       };
     } else {
@@ -155,10 +167,10 @@ export class StateProfileService {
     const yearSet = new Set<number>();
     actuals.forEach(a => yearSet.add(a.year));
     budgets.forEach(b => yearSet.add(b.year));
-    
+
     // Default to a common range if there's no data for the state yet
-    const years = yearSet.size > 0 
-      ? Array.from(yearSet).sort() 
+    const years = yearSet.size > 0
+      ? Array.from(yearSet).sort()
       : [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 
     const timeSeries = {
@@ -249,7 +261,7 @@ export class StateProfileService {
 
   async updateProfileBySlug(slug: string, updateData: any) {
     let existing = await this.prisma.stateProfile.findUnique({ where: { slug } });
-    
+
     const formattedData: any = { ...updateData };
     if (formattedData.population !== undefined) {
       formattedData.population = formattedData.population ? parseFloat(formattedData.population) : null;
@@ -269,10 +281,14 @@ export class StateProfileService {
         data: {
           stateId: state.id,
           slug,
+          dateCreated: formattedData.dateCreated || null,
           about: formattedData.about || '',
           population: formattedData.population,
           area: formattedData.area || null,
           coordinates: formattedData.coordinates || null,
+          gdp: formattedData.gdp || null,
+          hdi: formattedData.hdi || null,
+          website: formattedData.website || null,
         },
         include: { state: true }
       });
