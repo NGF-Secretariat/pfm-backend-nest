@@ -43,9 +43,8 @@ export class StateProfileService {
         }
 
         const slug = stateNameLower.replace(/\s+/g, '-');
-        const population = row['Population']
-          ? parseFloat(row['Population'])
-          : null;
+        const population = row['Population'] ? String(row['Population']) : null;
+        const populationYear = row['Population Year'] ? String(row['Population Year']) : null;
 
         await this.prisma.stateProfile.upsert({
           where: { stateId },
@@ -55,6 +54,7 @@ export class StateProfileService {
             about: row['About'] || '',
             dateCreated: row['Date Created'] || null,
             population,
+            populationYear,
             area: row['Area'] || null,
             coordinates: row['Co-ordinates'] || null,
             gdp: row['GDP'] || null,
@@ -68,6 +68,7 @@ export class StateProfileService {
             about: row['About'] || '',
             dateCreated: row['Date Created'] || null,
             population,
+            populationYear,
             area: row['Area'] || null,
             coordinates: row['Co-ordinates'] || null,
             gdp: row['GDP'] || null,
@@ -361,11 +362,6 @@ export class StateProfileService {
     });
 
     const formattedData: any = { ...updateData };
-    if (formattedData.population !== undefined) {
-      formattedData.population = formattedData.population
-        ? parseFloat(formattedData.population)
-        : null;
-    }
 
     if (!existing) {
       const stateName = slug.replace(/-/g, ' ');
@@ -383,7 +379,8 @@ export class StateProfileService {
           slug,
           dateCreated: formattedData.dateCreated || null,
           about: formattedData.about || '',
-          population: formattedData.population,
+          population: formattedData.population || null,
+          populationYear: formattedData.populationYear || null,
           area: formattedData.area || null,
           coordinates: formattedData.coordinates || null,
           gdp: formattedData.gdp || null,

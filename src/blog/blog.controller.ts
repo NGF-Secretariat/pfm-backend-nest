@@ -8,9 +8,11 @@ import {
   UseInterceptors,
   UploadedFile,
   BadRequestException,
+  Req,
 } from '@nestjs/common';
 import { BlogService } from './blog.service';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { Request } from 'express';
 
 @Controller('blogs')
 export class BlogController {
@@ -20,12 +22,13 @@ export class BlogController {
   @UseInterceptors(FileInterceptor('file'))
   async uploadImage(
     @UploadedFile() file: Express.Multer.File,
+    @Req() req: Request,
     @Body('previousImage') previousImage?: string,
   ) {
     if (!file) {
       throw new BadRequestException('No file provided');
     }
-    return this.blogService.uploadBlogImage(file, previousImage);
+    return this.blogService.uploadBlogImage(file, req, previousImage);
   }
 
   @Post()

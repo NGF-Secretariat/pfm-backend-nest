@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import * as fs from 'fs';
 import * as path from 'path';
+import { Request } from 'express';
 
 function extractLocalImages(markdown: string): string[] {
   if (!markdown) return [];
@@ -10,7 +11,7 @@ function extractLocalImages(markdown: string): string[] {
   let match;
   while ((match = regex.exec(markdown)) !== null) {
     const url = match[1];
-    if (url.startsWith('/blogs/')) {
+    if (url.includes('/blogs/')) {
       images.push(url);
     }
   }
@@ -21,14 +22,14 @@ function extractLocalImages(markdown: string): string[] {
 export class BlogService {
   constructor(private prisma: PrismaService) {}
 
-  async uploadBlogImage(file: Express.Multer.File, previousImage?: string) {
-    if (previousImage && previousImage.startsWith('/blogs/')) {
+  async uploadBlogImage(file: Express.Multer.File, req: Request, previousImage?: string) {
+    if (previousImage && previousImage.includes('/blogs/')) {
+      const index = previousImage.indexOf('/blogs/');
+      const relativePath = previousImage.substring(index);
       const oldImagePath = path.join(
         process.cwd(),
-        '..',
-        'pfm-frontend-next',
         'public',
-        previousImage,
+        relativePath,
       );
       try {
         if (fs.existsSync(oldImagePath)) {
@@ -50,8 +51,6 @@ export class BlogService {
 
     const destDir = path.join(
       process.cwd(),
-      '..',
-      'pfm-frontend-next',
       'public',
       'blogs',
     );
@@ -64,7 +63,11 @@ export class BlogService {
     const filePath = path.join(destDir, filename);
     fs.writeFileSync(filePath, file.buffer);
 
-    return { success: true, url: `/blogs/${filename}` };
+    const proto = (req.headers['x-forwarded-proto'] as string) || req.protocol || 'http';
+    const host = (req.headers['x-forwarded-host'] as string) || req.get('host') || 'localhost:5020';
+    const baseUrl = `${proto}://${host}`.replace(/\/+$/, '');
+
+    return { success: true, url: `${baseUrl}/blogs/${filename}` };
   }
 
   async create(createData: any) {
@@ -97,13 +100,13 @@ export class BlogService {
 
     // 1. Storage cleanup for cover image if replaced or removed
     if (blog.image && updateData.image !== blog.image) {
-      if (blog.image.startsWith('/blogs/')) {
+      if (blog.image.includes('/blogs/')) {
+        const index = blog.image.indexOf('/blogs/');
+        const relativePath = blog.image.substring(index);
         const oldImagePath = path.join(
           process.cwd(),
-          '..',
-          'pfm-frontend-next',
           'public',
-          blog.image,
+          relativePath,
         );
         try {
           if (fs.existsSync(oldImagePath)) {
@@ -122,12 +125,12 @@ export class BlogService {
       const deletedImages = oldImages.filter((img) => !newImages.includes(img));
 
       for (const img of deletedImages) {
+        const index = img.indexOf('/blogs/');
+        const relativePath = img.substring(index);
         const imgPath = path.join(
           process.cwd(),
-          '..',
-          'pfm-frontend-next',
           'public',
-          img,
+          relativePath,
         );
         try {
           if (fs.existsSync(imgPath)) {

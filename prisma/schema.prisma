@@ -309,7 +309,8 @@ model StateProfile {
   
   slug        String  @unique
   about       String  @db.Text
-  population  Decimal? @db.Decimal(18, 2)
+  population  String?
+  populationYear String?
   area        String?
   coordinates String?
   dateCreated String?
