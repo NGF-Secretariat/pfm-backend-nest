@@ -12,7 +12,7 @@ function extractLocalImages(markdown: string): string[] {
   let match;
   while ((match = regex.exec(markdown)) !== null) {
     const url = match[1];
-    if (url.includes('/blogs/')) {
+    if (url.includes('/blogs/') || url.includes('/blog/')) {
       images.push(url);
     }
   }
@@ -47,8 +47,8 @@ async function deleteCloudinaryImage(url: string): Promise<void> {
     } catch (err) {
       console.error(`Failed to delete Cloudinary image: ${url}`, err);
     }
-  } else if (url.includes('/blogs/')) {
-    const index = url.indexOf('/blogs/');
+  } else if (url.includes('/blogs/') || url.includes('/blog/')) {
+    const index = url.includes('/blogs/') ? url.indexOf('/blogs/') : url.indexOf('/blog/');
     const relativePath = url.substring(index);
     const oldImagePath = path.join(process.cwd(), 'public', relativePath);
     try {
@@ -82,7 +82,7 @@ export class BlogService {
     const filename = `${baseName}_${Date.now()}`;
 
     const result = await cloudinary.uploader.upload(dataURI, {
-      folder: 'blogs',
+      folder: 'blog',
       public_id: filename,
     });
 
