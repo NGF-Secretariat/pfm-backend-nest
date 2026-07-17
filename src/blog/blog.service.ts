@@ -3,6 +3,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import * as fs from 'fs';
 import * as path from 'path';
 import { Request } from 'express';
+import { v2 as cloudinary } from 'cloudinary';
 
 function extractLocalImages(markdown: string): string[] {
   if (!markdown) return [];
@@ -18,56 +19,74 @@ function extractLocalImages(markdown: string): string[] {
   return images;
 }
 
+async function deleteCloudinaryImage(url: string): Promise<void> {
+  if (!url) return;
+  if (url.includes('cloudinary.com')) {
+    try {
+      const parts = url.split('/');
+      const uploadIndex = parts.indexOf('upload');
+      if (uploadIndex === -1) return;
+
+      let startIndex = uploadIndex + 1;
+      if (
+        parts[startIndex] &&
+        parts[startIndex].startsWith('v') &&
+        !isNaN(Number(parts[startIndex].substring(1)))
+      ) {
+        startIndex++;
+      }
+
+      const remaining = parts.slice(startIndex);
+      const lastPart = remaining[remaining.length - 1];
+      const dotIndex = lastPart.lastIndexOf('.');
+      if (dotIndex !== -1) {
+        remaining[remaining.length - 1] = lastPart.substring(0, dotIndex);
+      }
+      const publicId = remaining.join('/');
+      await cloudinary.uploader.destroy(publicId);
+    } catch (err) {
+      console.error(`Failed to delete Cloudinary image: ${url}`, err);
+    }
+  } else if (url.includes('/blogs/')) {
+    const index = url.indexOf('/blogs/');
+    const relativePath = url.substring(index);
+    const oldImagePath = path.join(process.cwd(), 'public', relativePath);
+    try {
+      if (fs.existsSync(oldImagePath)) {
+        fs.unlinkSync(oldImagePath);
+      }
+    } catch (err) {
+      console.error(`Failed to delete local fallback image: ${url}`, err);
+    }
+  }
+}
+
 @Injectable()
 export class BlogService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) {
+    cloudinary.config();
+  }
 
   async uploadBlogImage(file: Express.Multer.File, req: Request, previousImage?: string) {
-    if (previousImage && previousImage.includes('/blogs/')) {
-      const index = previousImage.indexOf('/blogs/');
-      const relativePath = previousImage.substring(index);
-      const oldImagePath = path.join(
-        process.cwd(),
-        'public',
-        relativePath,
-      );
-      try {
-        if (fs.existsSync(oldImagePath)) {
-          fs.unlinkSync(oldImagePath);
-        }
-      } catch (err) {
-        console.error(
-          'Failed to delete replaced cover image during upload:',
-          err,
-        );
-      }
+    if (previousImage) {
+      await deleteCloudinaryImage(previousImage);
     }
+
+    const base64Data = file.buffer.toString('base64');
+    const dataURI = `data:${file.mimetype};base64,${base64Data}`;
 
     const ext = path.extname(file.originalname);
     const baseName = path
       .basename(file.originalname, ext)
       .replace(/[^a-zA-Z0-9]/g, '_');
-    const filename = `${baseName}_${Date.now()}${ext}`;
+    const filename = `${baseName}_${Date.now()}`;
 
-    const destDir = path.join(
-      process.cwd(),
-      'public',
-      'blogs',
-    );
+    const result = await cloudinary.uploader.upload(dataURI, {
+      folder: 'blogs',
+      public_id: filename,
+    });
 
-    // Ensure directory exists
-    if (!fs.existsSync(destDir)) {
-      fs.mkdirSync(destDir, { recursive: true });
-    }
-
-    const filePath = path.join(destDir, filename);
-    fs.writeFileSync(filePath, file.buffer);
-
-    const proto = (req.headers['x-forwarded-proto'] as string) || req.protocol || 'http';
-    const host = (req.headers['x-forwarded-host'] as string) || req.get('host') || 'localhost:5020';
-    const baseUrl = `${proto}://${host}`.replace(/\/+$/, '');
-
-    return { success: true, url: `${baseUrl}/blogs/${filename}` };
+    return { success: true, url: result.secure_url };
   }
 
   async create(createData: any) {
@@ -100,22 +119,7 @@ export class BlogService {
 
     // 1. Storage cleanup for cover image if replaced or removed
     if (blog.image && updateData.image !== blog.image) {
-      if (blog.image.includes('/blogs/')) {
-        const index = blog.image.indexOf('/blogs/');
-        const relativePath = blog.image.substring(index);
-        const oldImagePath = path.join(
-          process.cwd(),
-          'public',
-          relativePath,
-        );
-        try {
-          if (fs.existsSync(oldImagePath)) {
-            fs.unlinkSync(oldImagePath);
-          }
-        } catch (err) {
-          console.error('Failed to delete replaced cover image:', err);
-        }
-      }
+      await deleteCloudinaryImage(blog.image);
     }
 
     // 2. Storage cleanup for deleted inline body images
@@ -125,20 +129,7 @@ export class BlogService {
       const deletedImages = oldImages.filter((img) => !newImages.includes(img));
 
       for (const img of deletedImages) {
-        const index = img.indexOf('/blogs/');
-        const relativePath = img.substring(index);
-        const imgPath = path.join(
-          process.cwd(),
-          'public',
-          relativePath,
-        );
-        try {
-          if (fs.existsSync(imgPath)) {
-            fs.unlinkSync(imgPath);
-          }
-        } catch (err) {
-          console.error(`Failed to delete removed inline image ${img}:`, err);
-        }
+        await deleteCloudinaryImage(img);
       }
     }
 
