@@ -5,26 +5,16 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import * as XLSX from 'xlsx';
+import * as fs from 'fs';
+import * as path from 'path';
 
 @Injectable()
 export class BudgetService {
-  private mappingsCache: any = null;
-  private fetchCache = new Map<string, { timestamp: number; data: any }>();
-  private readonly CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes cache
-
   constructor(private readonly prisma: PrismaService) {}
 
   private getMappings(): any {
-    if (!this.mappingsCache) {
-      const mappingsPath = require('path').join(
-        process.cwd(),
-        'src/field-mappings.json',
-      );
-      this.mappingsCache = JSON.parse(
-        require('fs').readFileSync(mappingsPath, 'utf8'),
-      );
-    }
-    return this.mappingsCache;
+    const mappingsPath = path.join(process.cwd(), 'src/field-mappings.json');
+    return JSON.parse(fs.readFileSync(mappingsPath, 'utf8'));
   }
 
   async uploadAll(file: Express.Multer.File) {
@@ -94,7 +84,7 @@ export class BudgetService {
 
     const targetSheetName = type === 'PI' ? `PI${year}` : `B${year}R`;
 
-    const workbookPath = require('path').join(
+    const workbookPath = path.join(
       process.cwd(),
       'Public Finance Database (2018-2026) + Indicators.xlsx',
     );
@@ -403,11 +393,7 @@ export class BudgetService {
     }
 
     const cacheKey = `fetch_${year}_${type}_${stateNames.slice().sort().join(',')}`;
-    const now = Date.now();
-    const cached = this.fetchCache.get(cacheKey);
-    if (cached && now - cached.timestamp < this.CACHE_TTL_MS) {
-      return cached.data;
-    }
+    // Always compute fresh results to avoid serving stale cached data with missing codes
 
     const states = await this.prisma.state.findMany();
     const stateMap = new Map<number, string>();
@@ -598,7 +584,6 @@ export class BudgetService {
         result,
       },
     };
-    this.fetchCache.set(cacheKey, { timestamp: Date.now(), data: response });
     return response;
   }
 
@@ -616,13 +601,6 @@ export class BudgetService {
         .flatMap((s) => s.split(','))
         .map((s) => s.trim().toUpperCase())
         .filter(Boolean);
-    }
-
-    const cacheKey = `fetchPi_${year}_${stateNames.slice().sort().join(',')}`;
-    const now = Date.now();
-    const cached = this.fetchCache.get(cacheKey);
-    if (cached && now - cached.timestamp < this.CACHE_TTL_MS) {
-      return cached.data;
     }
 
     const states = await this.prisma.state.findMany();
@@ -658,7 +636,7 @@ export class BudgetService {
     }
 
     // 2. Load the excel workbook for PI
-    const workbookPath = require('path').join(
+    const workbookPath = path.join(
       process.cwd(),
       'Public Finance Database (2018-2026) + Indicators.xlsx',
     );
@@ -831,7 +809,6 @@ export class BudgetService {
         result: Array.from(stateObjects.values()),
       },
     };
-    this.fetchCache.set(cacheKey, { timestamp: Date.now(), data: response });
     return response;
   }
 
@@ -839,7 +816,7 @@ export class BudgetService {
     sheetName: string,
     stateNameMap: Map<string, number>,
   ) {
-    const workbookPath = require('path').join(
+    const workbookPath = path.join(
       process.cwd(),
       'Public Finance Database (2018-2026) + Indicators.xlsx',
     );

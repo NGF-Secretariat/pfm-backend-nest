@@ -1,503 +1,175 @@
 {
-  "Revenue by Economic": {
-    "category": "revenue_by_economuc",
-    "path": null
+  "Total Capital Expenditure": {
+    "category": "exp_by_func_recurrent",
+    "path": "total_recurrent_expenditure"
   },
-  "Total Revenue (including Opening Balance)": {
-    "category": "revenue_by_economuc",
-    "path": "total_revenue_with_opening_balance"
-  },
-  "Opening Balance": {
-    "category": "revenue_by_economuc",
-    "path": "opening_balance"
-  },
-  "Total Revenue": {
-    "category": "revenue_by_economuc",
-    "path": "total_revenue"
-  },
-  "Government Share of Federation Revenue (FAAC)": {
-    "category": "revenue_by_economuc",
-    "path": "total_revenue.government_share_of_federation_revenue_faac"
-  },
-  "State Government of Statutory Allocation": {
-    "category": "revenue_by_economuc",
-    "path": "total_revenue.state_government_share_of_statutory_allocation"
-  },
-  "Statutory Allocation": {
-    "category": "revenue_by_economuc",
-    "path": "total_revenue.state_government_share_of_statutory_allocation.statutory_allocation"
-  },
-  "Oil/Gas Derivation": {
-    "category": "revenue_by_economuc",
-    "path": "total_revenue.state_government_share_of_statutory_allocation.oil_gas_derivation"
-  },
-  "Government Share of Value Added Tax (VAT)": {
-    "category": "revenue_by_economuc",
-    "path": "total_revenue.government_share_of_value_added_tax_vat"
-  },
-  "Government Share of Other Federation Revenues": {
-    "category": "revenue_by_economuc",
-    "path": "total_revenue.government_share_of_other_federation_revenues"
-  },
-  "Independent Revenue (Internally Generated Revenue)": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue"
-  },
-  "Tax Revenue": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.tax_revenue"
-  },
-  "Personal Taxes": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.personal_taxes"
-  },
-  "Personal Income Tax (PAYE)": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.personal_taxes.paye"
-  },
-  "Personnal Income Tax (Direct Assessment Taxes)": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.personal_taxes.personal_income_tax"
-  },
-  "Penalty For Offences & Interest": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.personal_taxes.penalty_for_offenses_and_interests"
-  },
-  "Other Personal Tax N.E.C": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.personal_taxes.other_personal_tax"
-  },
-  "Other Taxes": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.other_taxes"
-  },
-  "Sales Tax": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.other_taxes.sales_tax"
-  },
-  "Lottery Tax/Licence": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.other_taxes.loterry_tax_license"
-  },
-  "Property Tax": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.other_taxes.property_tax"
-  },
-  "Capital Gain Taxes": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.other_taxes.capital_gain_tax"
-  },
-  "Withholding Tax": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.other_taxes.withholding_taxes"
-  },
-  "Other Taxes N.E.C": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.other_taxes.other_taxes_nec"
-  },
-  "Non-Tax Revenue": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.non_tax_revenue"
-  },
-  "Licences General": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.licences_general"
-  },
-  "Fees – General": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.fees_general"
-  },
-  "Fines – General": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.fines_general"
-  },
-  "Sales – General": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.sales_general"
-  },
-  "Earnings – General": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.earnings_general"
-  },
-  "Rent On Government Buildings – General": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.rent_on_gov_buildings_general"
-  },
-  "Rent on Land and Others – General": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.rent_on_land_and_others_general"
-  },
-  "Repayments": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.repayments"
-  },
-  "Investment Income": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.investment_income"
-  },
-  "Interest Earned": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.interest_earned"
-  },
-  "Reimbursement": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.reimbursement"
-  },
-  "Miscellaneous Income": {
-    "category": "revenue_by_economuc",
-    "path": "independent_revenue.miscellaneous_income"
-  },
-  "Aids and Grants": {
-    "category": "revenue_by_economuc",
-    "path": "aids_grants"
-  },
-  "Domestic Aids": {
-    "category": "revenue_by_economuc",
-    "path": "aids_grants.domestic_aids"
-  },
-  "Foreign Aids": {
-    "category": "revenue_by_economuc",
-    "path": "aids_grants.foreign_aids"
-  },
-  "Domestic Grants": {
-    "category": "revenue_by_economuc",
-    "path": "aids_grants.domestic_grants"
-  },
-  "Foreign Grants": {
-    "category": "revenue_by_economuc",
-    "path": "aids_grants.foreign_grants"
-  },
-  "Capital Development Fund (CDF) Receipts": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts"
-  },
-  "Other Capital Receipts to CDF": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.other_capital_receipts_to__CDF"
-  },
-  "Sale Of Fixed Assets": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.sale_of_fixed_assets"
-  },
-  "Domestic Loans/ Borrowings From Financial Institutions": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.domestic_loans_borrowings_from_financial_institutions"
-  },
-  "Domestic Loans/ Borrowings From Other Government Entities": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.domestic_loans_borrowings_from_other_government_entities"
-  },
-  "Domestic Loans/ Borrowings From Other  Entities/ Organisations": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.international_loans_borrowings_from_financial_institutions"
-  },
-  "International Loans/ Borrowings From Financial Institutions": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.international_loans_borrowings_from_financial_institutions"
-  },
-  "International Loans/ Borrowings From Other Government Entities": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.international_loans_borrowings_from_other_government_entities"
-  },
-  "International Loans/ Borrowings From Other  Entities/ Organisations": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.international_loans_borrowings_from_other_entities_organizations"
-  },
-  "Foreign Debt Forgiveness": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.foreign_debt_forgiveness"
-  },
-  "Domestic Debt Forgiveness": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.domestic_debt_forgiveness"
-  },
-  "Gain On Disposal Of Asset – PPE": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.gain_on_disposal_of_asset_ppe"
-  },
-  "Gain On Disposal Of Asset - Investment Property": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.gain_on_disposal_of_asset_investment_property"
-  },
-  "Minority Interest Share Of Surplus": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.minority_interest_share_of_surplus"
-  },
-  "Extraordinary Items": {
-    "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.extraordinary_items"
-  },
-  "Actual": {
+  "Administration Sector (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "capital_development_fund_receipts.unspecified_revenue"
-  },
-  "TOTAL EXPENDITURE": {
-    "category": "exp_by_programme_recurrent",
-    "path": "total_expenditure.default"
-  },
-  "Personnel Expenditure": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure"
-  },
-  "Personnel Cost": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.personal_cost"
-  },
-  "Salaries and Wages – General": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.salaries_wages_general"
-  },
-  "Salaries": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.salaries_wages_general.salaries"
-  },
-  "Overtime Payments": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.salaries_wages_general.overtime_payments"
-  },
-  "Consolidated Revenue Charges": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.salaries_wages_general.consolidated_revenue_charges"
-  },
-  "Allowances": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.allowances"
-  },
-  "Social Contribution": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_contribution"
-  },
-  "NHIS Contribution": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_contribution.nhis_contribution"
-  },
-  "Contributory Pension": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_contribution.contribution_pension"
-  },
-  "Group Life Insurance": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_contribution.group_life_insurance"
-  },
-  "Employee Compensation Fund": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_contribution.employee_compensation_fund"
-  },
-  "Housing Fund Contribution": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_contribution.housing_fund_contribution"
-  },
-  "Social Benefit": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_benefit"
-  },
-  "Gratuity": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_benefit.gratuity"
-  },
-  "Pension": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_benefit.pension"
-  },
-  "Death Benefit": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_benefit.death_benefit"
-  },
-  "Grauitity Arrears": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_benefit.gratuity_arrears"
-  },
-  "Pension Arrears": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_benefit.pension_arrears"
-  },
-  "Severance Gratuity for all Political Office Holders": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_benefit.severance_gratuity_for_all_political_office_holders"
-  },
-  "Contribution to LG Pension": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_benefit.contribution_to_lg_pension"
-  },
-  "Payment of Benefits to past Governors/Deputies/Political Office Holders": {
-    "category": "exp_by_economic",
-    "path": "personal_expenditure.social_benefit.payment_of_benefit_to_past_governors_deputies_political_office_holders"
-  },
-  "Other Recurrent Expenditure": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure"
-  },
-  "Overhead Costs": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.overhead_costs"
-  },
-  "Transport and Travelling General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.transport_and_travelling_general"
-  },
-  "Utilities General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.utilities_general"
-  },
-  "Materials and Supplies General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.materials_and_supplies_general"
-  },
-  "Maintenance Services General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.maintainance_services_general"
-  },
-  "Training – General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.training_general"
-  },
-  "Other Services General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.other_services_general"
-  },
-  "Consulting and Professional Services General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.consulting_and_professional_services_general"
-  },
-  "Fuel and Lubricant General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.fuel_and_lubricant_general"
-  },
-  "Financial General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.financial_general"
-  },
-  "Miscellaneous General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.miscellaneous_general"
-  },
-  "Loans and Advances": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.loans_and_advances"
-  },
-  "Staff Loans and Allowances": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.staff_loans_and_allowances"
-  },
-  "Grants and Contribution General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.grants_and_contribution_general"
-  },
-  "Grants to other States": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.grants_and_contribution_general.grants_to_other_states_federal_government"
-  },
-  "Grants to Local Governments": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.grants_and_contribution_general.grants_to_local_governments"
-  },
-  "Grants to Government Owned Companies": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.grants_and_contribution_general.grants_to_government_owned_companies"
-  },
-  "Grants to Private Companies": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.grants_and_contribution_general.grants_to_private_owned_companies"
-  },
-  "Grants to Communities/NGOs/FBOs/CBOs": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.grants_and_contribution_general.grants_to_communities_ngo_fbo_cbo"
-  },
-  "Subsidies General": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.subsidies_general"
-  },
-  "Subsidy to Government Owned Companies, Boards & Parastatals": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.subsidies_general.subsidy_to_government_owned_companies_boards_parastatals"
-  },
-  "Meal Subsidy to Government Schools": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.subsidies_general.meal_subsidy_to_government_schools"
-  },
-  "Subsidy to Private Companies": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.subsidies_general.subsidy_to_private_companies"
-  },
-  "Public Debt Charges": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.public_debt_charges"
-  },
-  "Foreign Debt Interest": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.foreign_debt_interest"
-  },
-  "Foreign Interest / Discount - Treasury Bill/Long Term Borrowing": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.foreign_debt_interest.foreign_interest_discount_treasury_bill_long_term_borrowing"
-  },
-  "Foreign Interest / Discount - Short Term Borrowings": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.foreign_debt_interest.foreign_interest_discount_short_term_borrowings"
-  },
-  "Domestic Debt Interest": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.domestic_debt_interest"
-  },
-  "Domestic Interest / Discount - Treasury Bill/Long Term Borrowing": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.domestic_debt_interest.domestic_interest_discount_treasury_bill_long_term_borrowing"
-  },
-  "Domestic Interest /Discount - Short Term Borrowings": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.domestic_debt_interest.domestic_interest_discount_short_term_borrowings"
-  },
-  "Foreign Debt Principal": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.foreign_debt_principal"
-  },
-  "Foreign Principal - Treasury Bill/Long Term Borrowing": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.foreign_debt_principal.foreign_principal_treasury_bill_long_term_borrowing"
-  },
-  "Foreign Principal - Short Term Borrowings": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.foreign_debt_principal.foreign_principal_short_term_borrowing"
-  },
-  "Domestic Debt Principal": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.domestic_debt_principal"
-  },
-  "Domestic Principal - Treasury Bill/Long Term Borrowing": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.domestic_debt_principal.domestic_principal_treasury_bill_long_term_borrowing"
-  },
-  "Domestic Principal - Short Term Borrowings": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.domestic_debt_principal.domestic_principal_short_term_borrowing"
-  },
-  "Transfers-Payments": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.transfers_payments"
-  },
-  "Transfer to Fund Recurrent Expenditure-Payment": {
-    "category": "exp_by_economic",
-    "path": "other_recurrent_expenditure.transfers_payments.transfer_to_fund_recurrent_expenditure_payment"
-  },
-  "Capital Expenditure": {
-    "category": "exp_by_economic",
-    "path": "capital_expenditure"
-  },
-  "Fixed Assets Purchased": {
-    "category": "exp_by_economic",
-    "path": "capital_expenditure.fixed_assets_purchased"
-  },
-  "Construction/Provision": {
-    "category": "exp_by_economic",
-    "path": "capital_expenditure.construction_provision"
-  },
-  "Rehabilitation/Repairs": {
-    "category": "exp_by_economic",
-    "path": "capital_expenditure.rehabilitation_repairs"
-  },
-  "Preservation Of The Environment": {
-    "category": "exp_by_economic",
-    "path": "capital_expenditure.preservation_of_the_environment"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure"
+  },
+  "Governor’s Office (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.governors_office"
+  },
+  "Secretary to the State Government (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.secretary_to_the_state_government"
+  },
+  "State Assembly (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.state_assembly"
+  },
+  "Ministry of Information (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.ministry_of_information"
+  },
+  "Ministry of Internal Security and Home Affairs (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.ministry_of_internal_security_and_home_affairs"
+  },
+  "Office of the Head of Service (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.office_of_the_head_of_service"
+  },
+  "Office of the Auditor General State (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.office_of_the_auditor_general_state"
+  },
+  "Office of the Auditor General for Local Government (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.office_of_the_auditor_general_for_local_government"
+  },
+  "Civil Service Commission (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.civil_wervice_commission"
+  },
+  "Local Government Service Commission (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.local_government_service_commission"
+  },
+  "State Independent Electoral Commission (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.state_independent_electoral_commission"
+  },
+  "Economic Sector (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure"
+  },
+  "Ministry of Agriculture & Natural Resources (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_agriculture_natural_resources"
+  },
+  "Ministry of Finance (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_finance"
+  },
+  "Ministry of Commerce/Trade/Business/Industry/Investment (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_commerce_trade_business_industry_investment"
+  },
+  "Ministry of Labour and Productivity (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_labour_and_oriductivity"
+  },
+  "Ministry of Science and Technology (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_science_and_technology"
+  },
+  "Ministry of Transport (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_transport"
+  },
+  "Ministry of Energy (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_energy"
+  },
+  "Ministry of Works (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_works"
+  },
+  "Ministry of Culture and Tourism (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_culture_tourism"
+  },
+  "State Planning Commission/Ministry of Budget and Economic Planning (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_budget_economic_planning"
+  },
+  "Fiscal Responsibility Commission (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.fiscal_responsibility_commission"
+  },
+  "Ministry of Water Resources (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_water_resources"
+  },
+  "Ministry of Housing and Urban Development (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_housing_urban_development"
+  },
+  "Ministry of Land and Survey (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_land_and_survey"
+  },
+  "Law and Justice Sector (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure"
+  },
+  "Judiciary (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure.judiciary"
+  },
+  "Ministry of Justice (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure.ministry_of_justice"
+  },
+  "Regional Sector (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.regional_sector__capital_expenditure"
+  },
+  "Oil Producing Communities Development Agency/Commission (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.regional_sector__capital_expenditure.oil_producing_communities_development_agency_commission"
+  },
+  "State Capital Development Agency/Ministry (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.regional_sector__capital_expenditure.state_capital_development_agency_ministry"
+  },
+  "Social Sector (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.social_sector__capital_expenditure"
+  },
+  "Ministry of Youth Development (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_youth_development"
+  },
+  "Ministry of Women Affairs (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_women_affairs"
+  },
+  "Ministry of Education (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_education"
+  },
+  "Ministry of Health (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_health"
+  },
+  "Ministry of Environment (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_environment"
+  },
+  "Ministry of Sport Development (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_sports_development"
+  },
+  "Ministry of Humanitarian Affairs (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_humanitarian_affairs"
+  },
+  "Ministry of Local Government (Capital Expenditure)": {
+    "category": "exp_by_admin_capital",
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_local_government"
   },
   "Total Recurrent Expenditure": {
     "category": "exp_by_admin_recurrent",
@@ -663,173 +335,785 @@
     "category": "exp_by_admin_recurrent",
     "path": "total_recurrent_expenditure.social_sector__recurrent_expenditure.ministry_of_sports_development"
   },
-  "Total Capital Expenditure": {
+  "Ministry of Humanitarian Affairs (Recurrent Expenditure)": {
+    "category": "exp_by_admin_recurrent",
+    "path": "total_recurrent_expenditure.social_sector__recurrent_expenditure.ministry_of_humanitarian_affairs"
+  },
+  "Ministry of Local Government (Recurrent Expenditure)": {
+    "category": "exp_by_admin_recurrent",
+    "path": "total_recurrent_expenditure.social_sector__recurrent_expenditure.ministry_of_local_government"
+  },
+  "Total Expenditure": {
+    "category": "exp_by_programme_recurrent",
+    "path": "total_expenditure.default"
+  },
+  "Personnel Expenditure": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure"
+  },
+  "Personnel Cost": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.personal_cost"
+  },
+  "Salaries and Wages – General": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.salaries_wages_general"
+  },
+  "Salaries": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.salaries_wages_general.salaries"
+  },
+  "Overtime Payments": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.salaries_wages_general.overtime_payments"
+  },
+  "Consolidated Revenue Charges": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.salaries_wages_general.consolidated_revenue_charges"
+  },
+  "Allowances": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.allowances"
+  },
+  "Social Contribution": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_contribution"
+  },
+  "NHIS Contribution": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_contribution.nhis_contribution"
+  },
+  "Contributory Pension": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_contribution.contribution_pension"
+  },
+  "Group Life Insurance": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_contribution.group_life_insurance"
+  },
+  "Employee Compensation Fund": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_contribution.employee_compensation_fund"
+  },
+  "Housing Fund Contribution": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_contribution.housing_fund_contribution"
+  },
+  "Social Benefit": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_benefit"
+  },
+  "Gratuity": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_benefit.gratuity"
+  },
+  "Pension": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_benefit.pension"
+  },
+  "Death Benefit": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_benefit.death_benefit"
+  },
+  "Grauitity Arrears": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_benefit.gratuity_arrears"
+  },
+  "Pension Arrears": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_benefit.pension_arrears"
+  },
+  "Severance Gratuity for all Political Office Holders": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_benefit.severance_gratuity_for_all_political_office_holders"
+  },
+  "Contribution to LG Pension": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_benefit.contribution_to_lg_pension"
+  },
+  "Payment of Benefits to past Governors/Deputies/Political Office Holders": {
+    "category": "exp_by_economic",
+    "path": "personal_expenditure.social_benefit.payment_of_benefit_to_past_governors_deputies_political_office_holders"
+  },
+  "Other Recurrent Expenditure": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure"
+  },
+  "Overhead Costs": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.overhead_costs"
+  },
+  "Transport and Travelling General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.transport_and_travelling_general"
+  },
+  "Utilities General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.utilities_general"
+  },
+  "Materials and Supplies General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.materials_and_supplies_general"
+  },
+  "Maintenance Services General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.maintainance_services_general"
+  },
+  "Training – General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.training_general"
+  },
+  "Other Services General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.other_services_general"
+  },
+  "Consulting and Professional Services General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.consulting_and_professional_services_general"
+  },
+  "Fuel and Lubricant General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.fuel_and_lubricant_general"
+  },
+  "Financial General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.financial_general"
+  },
+  "Miscellaneous General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.miscellaneous_general"
+  },
+  "Loans and Advances": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.loans_and_advances"
+  },
+  "Staff Loans and Allowances": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.staff_loans_and_allowances"
+  },
+  "Grants and Contribution General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.grants_and_contribution_general"
+  },
+  "Grants to other States/ Federal Government": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.grants_and_contribution_general.grants_to_other_states_federal_government"
+  },
+  "Grants to Local Governments": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.grants_and_contribution_general.grants_to_local_governments"
+  },
+  "Grants to Government Owned Companies": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.grants_and_contribution_general.grants_to_government_owned_companies"
+  },
+  "Grants to Private Companies": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.grants_and_contribution_general.grants_to_private_owned_companies"
+  },
+  "Grants to Communities/NGOs/FBOs/CBOs": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.grants_and_contribution_general.grants_to_communities_ngo_fbo_cbo"
+  },
+  "Subsidies General": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.subsidies_general"
+  },
+  "Subsidy to Government Owned Companies, Boards & Parastatals": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.subsidies_general.subsidy_to_government_owned_companies_boards_parastatals"
+  },
+  "Meal Subsidy to Government Schools": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.subsidies_general.meal_subsidy_to_government_schools"
+  },
+  "Subsidy to Private Companies": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.subsidies_general.subsidy_to_private_companies"
+  },
+  "Public Debt Charges": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.public_debt_charges"
+  },
+  "Foreign Debt Interest": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.foreign_debt_interest"
+  },
+  "Foreign Interest / Discount - Treasury Bill/Long Term Borrowing": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.foreign_debt_interest.foreign_interest_discount_treasury_bill_long_term_borrowing"
+  },
+  "Foreign Interest / Discount - Short Term Borrowings": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.foreign_debt_interest.foreign_interest_discount_short_term_borrowings"
+  },
+  "Domestic Debt Interest": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.domestic_debt_interest"
+  },
+  "Domestic Interest / Discount - Treasury Bill/Long Term Borrowing": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.domestic_debt_interest.domestic_interest_discount_treasury_bill_long_term_borrowing"
+  },
+  "Domestic Interest /Discount - Short Term Borrowings": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.domestic_debt_interest.domestic_interest_discount_short_term_borrowings"
+  },
+  "Foreign Debt Principal": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.foreign_debt_principal"
+  },
+  "Foreign Principal - Treasury Bill/Long Term Borrowing": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.foreign_debt_principal.foreign_principal_treasury_bill_long_term_borrowing"
+  },
+  "Foreign Principal - Short Term Borrowings": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.foreign_debt_principal.foreign_principal_short_term_borrowing"
+  },
+  "Domestic Debt Principal": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.domestic_debt_principal"
+  },
+  "Domestic Principal - Treasury Bill/Long Term Borrowing": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.domestic_debt_principal.domestic_principal_treasury_bill_long_term_borrowing"
+  },
+  "Domestic Principal - Short Term Borrowings": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.domestic_debt_principal.domestic_principal_short_term_borrowing"
+  },
+  "Transfers-Payments": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.transfers_payments"
+  },
+  "Transfer to Fund Recurrent Expenditure-Payment": {
+    "category": "exp_by_economic",
+    "path": "other_recurrent_expenditure.transfers_payments.transfer_to_fund_recurrent_expenditure_payment"
+  },
+  "Capital Expenditure": {
+    "category": "exp_by_economic",
+    "path": "capital_expenditure"
+  },
+  "Fixed Assets Purchased": {
+    "category": "exp_by_economic",
+    "path": "capital_expenditure.fixed_assets_purchased"
+  },
+  "Construction/Provision": {
+    "category": "exp_by_economic",
+    "path": "capital_expenditure.construction_provision"
+  },
+  "Rehabilitation/Repairs": {
+    "category": "exp_by_economic",
+    "path": "capital_expenditure.rehabilitation_repairs"
+  },
+  "Preservation of The Environment": {
+    "category": "exp_by_economic",
+    "path": "capital_expenditure.preservation_of_the_environment"
+  },
+  "Other Capital Projects": {
+    "category": "exp_by_economic",
+    "path": "capital_expenditure.other_capital_projects"
+  },
+  "General Public Service (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service"
+  },
+  "Executive & Legislative Organ, Financial Affairs and External Affairs (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.executive_legislative_organ_financial_external"
+  },
+  "Executive Organ and Legislative Organs (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.executive_legislative_organ_financial_external.executive_organ_and_legislative_organs"
+  },
+  "Financial and Fiscal Affairs (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.executive_legislative_organ_financial_external.financial_fiscal_affairs"
+  },
+  "Foreign and Economic Aid (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.foreign_economic_aid__capital_expenditure"
+  },
+  "Economic Aid to Developing Countries and Countries in Transition (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.foreign_economic_aid__capital_expenditure.economic_aid_to_developing_countries_and_countries_in_transition"
+  },
+  "Economic Aid routed through International Organisations (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.foreign_economic_aid__capital_expenditure.economic_aid_routed_through_international_organisations"
+  },
+  "General Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.general_services__capital_expenditure"
+  },
+  "General Personnel Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.general_services__capital_expenditure.general_personnel_services"
+  },
+  "Overall Planning and Statistical Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.general_services__capital_expenditure.overall_planning_and_statistical_services"
+  },
+  "Other General Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.general_services__capital_expenditure.other_general_services"
+  },
+  "Basic Research (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.basic_research__capital_expenditure"
+  },
+  "Basic Research": {
     "category": "exp_by_func_recurrent",
-    "path": "total_recurrent_expenditure"
+    "path": "general_public_service.basic_research__recurrent_expenditure.basic_research"
   },
-  "Administration Sector (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure"
+  "R&D General Public Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.rd_general_public_services__capital_expenditure"
   },
-  "Governor’s Office (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.governors_office"
-  },
-  "Secretary to the State Government (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.secretary_to_the_state_government"
-  },
-  "State Assembly (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.state_assembly"
-  },
-  "Ministry of Information (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.ministry_of_information"
-  },
-  "Ministry of Internal Security and Home Affairs (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.ministry_of_internal_security_and_home_affairs"
-  },
-  "Office of the Head of Service (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.office_of_the_head_of_service"
-  },
-  "Office of the Auditor General State (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.office_of_the_auditor_general_state"
-  },
-  "Office of the Auditor General Local Government (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.civil_wervice_commission"
-  },
-  "Civil Service Commission (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.civil_wervice_commission"
-  },
-  "Local Government Service Commission (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.local_government_service_commission"
-  },
-  "State Independent Electoral Commission (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.state_independent_electoral_commission"
-  },
-  "Economic Sector (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure"
-  },
-  "Ministry of Agriculture & Natural Resources (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_agriculture_natural_resources"
-  },
-  "Ministry of Finance (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_finance"
-  },
-  "Ministry of Commerce/Trade/Business/Industry/Investment (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_commerce_trade_business_industry_investment"
-  },
-  "Ministry of Labour and Productivity (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_labour_and_oriductivity"
-  },
-  "Ministry of Science and Technology (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_science_and_technology"
-  },
-  "Ministry of Transport (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_transport"
-  },
-  "Ministry of Energy (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_energy"
-  },
-  "Ministry of Works (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_works"
-  },
-  "Ministry of Culture and Tourism (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_culture_tourism"
-  },
-  "State Planning Commission/Ministry of Budget and Economic Planning (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_budget_economic_planning"
-  },
-  "Fiscal Responsibility Commission (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.fiscal_responsibility_commission"
-  },
-  "Ministry of Water Resources (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_water_resources"
-  },
-  "Ministry of Housing and Urban Development (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_housing_urban_development"
-  },
-  "Ministry of Land and Survey (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_land_and_survey"
-  },
-  "Law and Justice Sector (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure"
-  },
-  "Judiciary (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure.judiciary"
-  },
-  "Ministry of Justice (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure.ministry_of_justice"
-  },
-  "Regional Sector (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.regional_sector__capital_expenditure"
-  },
-  "Oil Producing Communities Development Agency/Commission (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.regional_sector__capital_expenditure.oil_producing_communities_development_agency_commission"
-  },
-  "State Capital Development Agency/Ministry (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.regional_sector__capital_expenditure.state_capital_development_agency_ministry"
-  },
-  "Social Sector (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure"
-  },
-  "Ministry of Youth Development (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_youth_development"
-  },
-  "Ministry of Women Affairs (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_women_affairs"
-  },
-  "Ministry of Education (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_education"
-  },
-  "Ministry of Health (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_health"
-  },
-  "Ministry of Environment (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_environment"
-  },
-  "Ministry of Local Government (Capital Expenditure)": {
-    "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_local_government"
-  },
-  "Expenditure by Functions (Recurrent)": {
+  "R&D General Public Services": {
     "category": "exp_by_func_recurrent",
-    "path": "total_recurrent_expenditure"
+    "path": "general_public_service.rd_general_public_services__recurrent_expenditure.rd_general_public_services"
+  },
+  "General Public Services N.E.C (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.general_public_servuces_nec__capital_expenditure.general_public_servuces_nec"
+  },
+  "Public Debt Transactions (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.public_debt_transactions__capital_expenditure.public_debt_transactions"
+  },
+  "Transfer of a General Character between Different Levels of Government (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "general_public_service.transfer_general_character_between_dif_levels_of_gov.transfer_general_character_between_dif_levels_of_gov"
+  },
+  "Public Order and Safety (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "public_order_safety"
+  },
+  "Police Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "public_order_safety.police_services__capital_expenditure"
+  },
+  "State Expenditure to Support Police Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "public_order_safety.police_services__capital_expenditure.state_expenditure_to_support_police_services"
+  },
+  "Fire Protection Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "public_order_safety.fire_protection_services__capital_expenditure.fire_protection_services"
+  },
+  "Justice & Law Courts (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "public_order_safety.justice_law_courts__capital_expenditure.justice_law_courts"
+  },
+  "Economic Affairs (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs"
+  },
+  "General Economic, Commercial and Labour Affairs (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.general_economic_commercial_labour_affairs"
+  },
+  "General Economic and Commercial Affairs (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_commercial_affairs"
+  },
+  "General Labour Affairs (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_labour_affairs"
+  },
+  "Agriculture, Forestry, Fishing and Hunting (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure"
+  },
+  "Agriculture (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.agriculture"
+  },
+  "Forestry (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.forestry"
+  },
+  "Fishing and Hunting (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.fishing_and_hunting"
+  },
+  "Fuel and Energy (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.fuel_energy__capital_expenditure"
+  },
+  "Coal and Solid Mineral Fuel (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.fuel_energy__capital_expenditure.coal_solid_mineral_fuel"
+  },
+  "Electricity (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.fuel_energy__capital_expenditure.electricity"
+  },
+  "Non Electricity Energy (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.fuel_energy__capital_expenditure.non_electric_energy"
+  },
+  "Mining, Manufacturing and Construction (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.mining_manufacturing_construction__capital_expenditure"
+  },
+  "State Support to Mining Resources other than mineral fuels (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.mining_manufacturing_construction__capital_expenditure.state_support_to_mining_resources_other_than_mineral_fuels"
+  },
+  "Manufacturing (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.mining_manufacturing_construction__capital_expenditure.manufacturing"
+  },
+  "Construction (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.mining_manufacturing_construction__capital_expenditure.construction"
+  },
+  "Transport (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.transport__capital_expenditure"
+  },
+  "Road Transport (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.transport__capital_expenditure.road"
+  },
+  "Water Transport (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.transport__capital_expenditure.water"
+  },
+  "Railway Transport (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.transport__capital_expenditure.railway"
+  },
+  "Air Transport (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.transport__capital_expenditure.air"
+  },
+  "Communication (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.communication__capital_expenditure.communication"
+  },
+  "Other Industries (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.other_inductries__capital_expenditure"
+  },
+  "Distributive Trade, Storage and Warehousing (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.other_inductries__capital_expenditure.distributive_trade_storage_and_warehousing"
+  },
+  "Hotel and Restaurants (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.other_inductries__capital_expenditure.hotel_and_restaurants"
+  },
+  "Tourism (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.other_inductries__capital_expenditure.tourism"
+  },
+  "Multipurpose Development Projects (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.other_inductries__capital_expenditure.multipurpose_development_projects"
+  },
+  "R&D Economic Affairs (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.ed_economic_affairs__capital_expenditure"
+  },
+  "R&D General Economic, Commercial and Labour Affairs (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_general_economic_commercial_labour_affairs"
+  },
+  "R&D Agriculture, Forestry, Fishing and Hunting (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_agriculture_forestry_fishing_hunting"
+  },
+  "R&D Fuel and Energy (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_fuel_energy"
+  },
+  "R&D Mining, Manufacturing and Construction (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_mining_manufacturing_construction"
+  },
+  "R&D Transport (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_transport"
+  },
+  "R&D Communication (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_communication"
+  },
+  "R&D Other Industries (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_other_industries"
+  },
+  "Economic Affairs N. E. C (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "economic_affairs.economic_affairs_nec__capital_expenditure.economic_affairs_nec"
+  },
+  "Environmental Protection (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "evironmental_protection"
+  },
+  "Waste Management (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "evironmental_protection.waste_management__capital_expenditure.waste_management"
+  },
+  "Waste Water Management (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "evironmental_protection.waste_water_management__capital_expenditure.waste_water_management"
+  },
+  "Pollution Abatement (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "evironmental_protection.pollution_abatement__capital_expenditure.pollution_abatement"
+  },
+  "Protection of Biodiversity and Landscape (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "evironmental_protection.protection_biodiversity_landscape__capital_expenditure.protection_biodiversity_landscape"
+  },
+  "R&D Environmental Protection (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "evironmental_protection.rd_environmental_protection__capital_expenditure.rd_environmental_protection"
+  },
+  "Environmental Protection N.E.C. (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "evironmental_protection.environmental_protection_nec__capital_expenditure.environmental_protection_nec"
+  },
+  "Housing and Community Amenities (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "housing_community_amenities"
+  },
+  "Housing Development (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "housing_community_amenities.housing_development__capital_expenditure.housing_development"
+  },
+  "Community Development (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "housing_community_amenities.community_development__capital_expenditure.community_development"
+  },
+  "Water Supply (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "housing_community_amenities.water_supply__capital_expenditure.water_supply"
+  },
+  "Street Lighting (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "housing_community_amenities.street_light__capital_expenditure.street_light"
+  },
+  "R&D Housing and Community Amenities (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "housing_community_amenities.rd_housing_community_amenities__capital_expenditure.rd_housing_community_amenities"
+  },
+  "Housing and Community Amenities N. E. C (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "housing_community_amenities.housing_community_amenities_nec__capital_expenditure.housing_community_amenities_nec"
+  },
+  "Health (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health"
+  },
+  "Medical Products, Appliances and Equipment (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.medical_products_appliances_equiptment__capital_expenditure"
+  },
+  "Pharmaceutical Products (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.medical_products_appliances_equiptment__capital_expenditure.pharmaceutical_products"
+  },
+  "Other Medical Products (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.medical_products_appliances_equiptment__capital_expenditure.other_medical_products"
+  },
+  "Therapeutic Appliances and Equipment (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.medical_products_appliances_equiptment__capital_expenditure.therapeutic_appliances_and_equipment"
+  },
+  "Outpatient Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.outpatient_services__capital_expenditure"
+  },
+  "General Medical Services": {
+    "category": "exp_by_func_recurrent",
+    "path": "health.outpatient_services__recurrent_expenditure.general_medical_services"
+  },
+  "Specialized Medical Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.outpatient_services__capital_expenditure.specialized_medical_services"
+  },
+  "Dental Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.outpatient_services__capital_expenditure.dental_services"
+  },
+  "Paramedical Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.outpatient_services__capital_expenditure.paramedical_services"
+  },
+  "Hospital Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.hospital_services__capital_expenditure"
+  },
+  "General Hospital Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.hospital_services__capital_expenditure.general_hospital_services"
+  },
+  "Specialized Hospital Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.hospital_services__capital_expenditure.specialized_hospital_services"
+  },
+  "Medical and Maternity Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.hospital_services__capital_expenditure.medical_and_maternity_services"
+  },
+  "Nursing and Convalescent Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.hospital_services__capital_expenditure.nursing_and_convalescent_services"
+  },
+  "Public Health Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.public_health_services__capital_expenditure.public_health_services"
+  },
+  "R&D Health (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.rd_health__capital_expenditure.rd_health"
+  },
+  "Health N. E. C (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "health.health_nec__capital_expenditure.health_nec"
+  },
+  "Recreation, Culture and Religion (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "recreation_culture_religon"
+  },
+  "Recreational and Sporting Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "recreation_culture_religon.recreational_sporting_services__capital_expenditure.recreational_sporting_services"
+  },
+  "Cultural Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "recreation_culture_religon.cultural_services__capital_expenditure.cultural_services"
+  },
+  "Broadcasting and Publishing Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "recreation_culture_religon.broadcasting_publishing_services__capital_expenditure.broadcasting_publishing_services"
+  },
+  "Religious and Other Community Services (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "recreation_culture_religon.religous_other_community_services__capital_expenditure.religous_other_community_services"
+  },
+  "R&D Recreation, Culture and Religion (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "recreation_culture_religon.rd_recreation_culture_religon__capital_expenditure.rd_recreation_culture_religon"
+  },
+  "Recreation, Culture and Religion N. E. C (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "recreation_culture_religon.recreation_culture_religon_nec__capital_expenditure.recreation_culture_religon_nec"
+  },
+  "Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education"
+  },
+  "Pre-Primary and Primary Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.preprimary_primary_education__capital_expenditure"
+  },
+  "Pre-Primary Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.preprimary_primary_education__capital_expenditure.pre_primary_education"
+  },
+  "Primary Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.preprimary_primary_education__capital_expenditure.primary_education"
+  },
+  "Secondary Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.secondary_education__capital_expenditure"
+  },
+  "Junior Secondary Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.secondary_education__capital_expenditure.junior_secondary"
+  },
+  "Senior Secondary Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.secondary_education__capital_expenditure.senior_secondary"
+  },
+  "Post-Secondary and Non Tertiary Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.postsecondary_nontetiary_education__capital_expenditure.postsecondary_nontetiary_education"
+  },
+  "Tertiary Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.tetiary_education__capital_expenditure"
+  },
+  "First Stage of Tertiary Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.tetiary_education__capital_expenditure.first_stage_of_tertiary_education"
+  },
+  "Second Stage of Tertiary Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.tetiary_education__capital_expenditure.second_stage_of_tertiary_education"
+  },
+  "Education Not Definable by Level (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.education_nondefinable_by_level__capital_expenditure.education_nondefinable_by_level"
+  },
+  "Subsidiary Services to Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.subsidiary_services_to_education__capital_expenditure.subsidiary_services_to_education"
+  },
+  "R&D Education (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.rd_education__capital_expenditure.rd_education"
+  },
+  "Education N. E. C (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "education.education_nec__capital_expenditure.education_nec"
+  },
+  "Social Protection (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection"
+  },
+  "Sickness and Disability (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection.sickness_disability__capital_expenditure"
+  },
+  "Sickness (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection.sickness_disability__capital_expenditure.sickness"
+  },
+  "Disability (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection.sickness_disability__capital_expenditure.disability"
+  },
+  "Old Age (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection.old_age__capital_expenditure.old_age"
+  },
+  "Survivors (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection.survivors__capital_expenditure.survivors"
+  },
+  "Family and Children (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection.family_and_children__capital_expenditure.family_and_children"
+  },
+  "Unemployment (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection.unemployment__capital_expenditure.unemployment"
+  },
+  "Housing (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection.housing__capital_expenditure.housing"
+  },
+  "Social Exclusion N. E. C (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection.social_exclusion_nec__capital_expenditure.social_exclusion_nec"
+  },
+  "R&D Social Protection (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection.rd_social_protection__capital_expenditure.rd_social_protection"
+  },
+  "Social Protection N. E. C (Capital Expenditure)": {
+    "category": "exp_by_func_capital",
+    "path": "social_protection.social_protection_nec__capital_expenditure.social_protection_nec"
   },
   "General Public Service (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
@@ -965,862 +1249,1186 @@
   },
   "Mining, Manufacturing and Construction (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.mining_manufacturing_construction__recurrent_expenditure.manufacturing"
+    "path": "economic_affairs.mining_manufacturing_construction__recurrent_expenditure"
   },
   "State Support to Mining Resources other than mineral fuels (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.mining_manufacturing_construction__recurrent_expenditure.construction"
+    "path": "economic_affairs.mining_manufacturing_construction__recurrent_expenditure.state_support_to_mining_resources_other_than_mineral_fuels"
   },
   "Manufacturing (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.transport__recurrent_expenditure"
+    "path": "economic_affairs.mining_manufacturing_construction__recurrent_expenditure.manufacturing"
   },
   "Construction (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.transport__recurrent_expenditure.road"
+    "path": "economic_affairs.mining_manufacturing_construction__recurrent_expenditure.construction"
   },
   "Transport (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.transport__recurrent_expenditure.water"
+    "path": "economic_affairs.transport__recurrent_expenditure"
   },
   "Road Transport (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.transport__recurrent_expenditure.railway"
+    "path": "economic_affairs.transport__recurrent_expenditure.road"
   },
   "Water Transport (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.transport__recurrent_expenditure.air"
+    "path": "economic_affairs.transport__recurrent_expenditure.water"
   },
   "Railway Transport (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.communication__recurrent_expenditure"
+    "path": "economic_affairs.transport__recurrent_expenditure.railway"
   },
   "Air Transport (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.communication__recurrent_expenditure.communication"
+    "path": "economic_affairs.transport__recurrent_expenditure.air"
   },
   "Communication (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.other_inductries__recurrent_expenditure"
+    "path": "economic_affairs.communication__recurrent_expenditure.communication"
   },
   "Other Industries (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.other_inductries__recurrent_expenditure.hotel_and_restaurants"
+    "path": "economic_affairs.other_inductries__recurrent_expenditure"
   },
   "Distributive Trade, Storage and Warehousing (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.other_inductries__recurrent_expenditure.tourism"
+    "path": "economic_affairs.other_inductries__recurrent_expenditure.distributive_trade_storage_and_warehousing"
   },
   "Hotel and Restaurants (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.other_inductries__recurrent_expenditure.multipurpose_development_projects"
+    "path": "economic_affairs.other_inductries__recurrent_expenditure.hotel_and_restaurants"
   },
   "Tourism (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure"
+    "path": "economic_affairs.other_inductries__recurrent_expenditure.tourism"
   },
   "Multipurpose Development Projects (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_general_economic_commercial_labour_affairs"
+    "path": "economic_affairs.other_inductries__recurrent_expenditure.multipurpose_development_projects"
   },
   "R&D Economic Affairs (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_agriculture_forestry_fishing_hunting"
+    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure"
   },
   "R&D General Economic, Commercial and Labour Affairs (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_fuel_energy"
+    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_general_economic_commercial_labour_affairs"
   },
   "R&D Agriculture, Forestry, Fishing and Hunting (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_mining_manufacturing_construction"
+    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_agriculture_forestry_fishing_hunting"
   },
   "R&D Fuel and Energy (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_transport"
+    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_fuel_energy"
   },
   "R&D Mining, Manufacturing and Construction (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_communication"
+    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_mining_manufacturing_construction"
   },
   "R&D Transport (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_other_industries"
+    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_transport"
   },
   "R&D Communication (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.economic_affairs_nec__recurrent_expenditure"
+    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_communication"
   },
   "R&D Other Industries (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.economic_affairs_nec__recurrent_expenditure.economic_affairs_nec"
+    "path": "economic_affairs.ed_economic_affairs__recurrent_expenditure.rd_other_industries"
   },
   "Economic Affairs N. E. C (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "environment_protection"
+    "path": "economic_affairs.economic_affairs_nec__recurrent_expenditure.economic_affairs_nec"
   },
   "Environmental Protection (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "environment_protection.waste_management__recurrent_expenditure.waste_management"
+    "path": "evironmental_protection"
   },
   "Waste Management (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "environment_protection.waste_water_management__recurrent_expenditure"
+    "path": "evironmental_protection.waste_management__recurrent_expenditure.waste_management"
   },
   "Waste Water Management (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "environment_protection.pollution_abatement__recurrent_expenditure"
+    "path": "evironmental_protection.waste_water_management__recurrent_expenditure.waste_water_management"
   },
   "Pollution Abatement (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "environment_protection.protection_biodiversity_landscape__recurrent_expenditure"
+    "path": "evironmental_protection.pollution_abatement__recurrent_expenditure.pollution_abatement"
   },
   "Protection of Biodiversity and Landscape (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "environment_protection.rd_environmental_protection__recurrent_expenditure"
+    "path": "evironmental_protection.protection_biodiversity_landscape__recurrent_expenditure.protection_biodiversity_landscape"
   },
   "R&D Environmental Protection (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "environment_protection.environmental_protection_nec__recurrent_expenditure"
+    "path": "evironmental_protection.rd_environmental_protection__recurrent_expenditure.rd_environmental_protection"
   },
   "Environmental Protection N.E.C. (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "housing"
+    "path": "evironmental_protection.environmental_protection_nec__recurrent_expenditure.environmental_protection_nec"
   },
   "Housing and Community Amenities (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "housing.housing_development__recurrent_expenditure.housing_development"
+    "path": "housing_community_amenities"
   },
   "Housing Development (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "housing.community_development__recurrent_expenditure"
+    "path": "housing_community_amenities.housing_development__recurrent_expenditure.housing_development"
   },
   "Community Development (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "housing.water_supply__recurrent_expenditure"
+    "path": "housing_community_amenities.community_development__recurrent_expenditure.community_development"
   },
   "Water Supply (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "housing.street_light__recurrent_expenditure"
+    "path": "housing_community_amenities.water_supply__recurrent_expenditure.water_supply"
   },
   "Street Lighting (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "housing.rd_housing_community_amenities__recurrent_expenditure"
-  },
-  "Street lighting (Recurrent Expenditure)": {
-    "category": "exp_by_func_recurrent",
-    "path": "housing.rd_housing_community_amenities__recurrent_expenditure.rd_housing_community_amenities"
+    "path": "housing_community_amenities.street_light__recurrent_expenditure.street_light"
   },
   "R&D Housing and Community Amenities (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "housing.housing_community_amenities_nec__recurrent_expenditure"
+    "path": "housing_community_amenities.rd_housing_community_amenities__recurrent_expenditure.rd_housing_community_amenities"
   },
   "Housing and Community Amenities N. E. C (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health"
+    "path": "housing_community_amenities.housing_community_amenities_nec__recurrent_expenditure.housing_community_amenities_nec"
   },
   "Health (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.medical_products_appliances_equiptment__recurrent_expenditure.pharmaceutical_products"
+    "path": "health"
   },
   "Medical Products, Appliances and Equipment (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.medical_products_appliances_equiptment__recurrent_expenditure.other_medical_products"
+    "path": "health.medical_products_appliances_equiptment__recurrent_expenditure"
   },
   "Pharmaceutical Products (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.medical_products_appliances_equiptment__recurrent_expenditure.therapeutic_appliances_and_equipment"
+    "path": "health.medical_products_appliances_equiptment__recurrent_expenditure.pharmaceutical_products"
   },
   "Other Medical Products (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.outpatient_services__recurrent_expenditure"
+    "path": "health.medical_products_appliances_equiptment__recurrent_expenditure.other_medical_products"
   },
   "Therapeutic Appliances and Equipment (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.outpatient_services__recurrent_expenditure.general_medical_services"
+    "path": "health.medical_products_appliances_equiptment__recurrent_expenditure.therapeutic_appliances_and_equipment"
   },
   "Outpatient Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.outpatient_services__recurrent_expenditure.specialized_medical_services"
-  },
-  "General Medical Services (Recurrent Expenditure)": {
-    "category": "exp_by_func_recurrent",
-    "path": "health.outpatient_services__recurrent_expenditure.dental_services"
+    "path": "health.outpatient_services__recurrent_expenditure"
   },
   "Specialized Medical Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.outpatient_services__recurrent_expenditure.paramedical_services"
+    "path": "health.outpatient_services__recurrent_expenditure.specialized_medical_services"
   },
   "Dental Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.hospital_services__recurrent_expenditure"
+    "path": "health.outpatient_services__recurrent_expenditure.dental_services"
   },
   "Paramedical Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.hospital_services__recurrent_expenditure.general_hospital_services"
+    "path": "health.outpatient_services__recurrent_expenditure.paramedical_services"
   },
   "Hospital Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.hospital_services__recurrent_expenditure.specialized_hospital_services"
+    "path": "health.hospital_services__recurrent_expenditure"
   },
   "General Hospital Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.hospital_services__recurrent_expenditure.medical_and_maternity_services"
+    "path": "health.hospital_services__recurrent_expenditure.general_hospital_services"
   },
   "Specialized Hospital Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.hospital_services__recurrent_expenditure.nursing_and_convalescent_services"
+    "path": "health.hospital_services__recurrent_expenditure.specialized_hospital_services"
   },
   "Medical and Maternity Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.public_health_services__recurrent_expenditure"
+    "path": "health.hospital_services__recurrent_expenditure.medical_and_maternity_services"
   },
   "Nursing and Convalescent Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.public_health_services__recurrent_expenditure.public_health_services"
+    "path": "health.hospital_services__recurrent_expenditure.nursing_and_convalescent_services"
   },
   "Public Health Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.rd_health__recurrent_expenditure"
+    "path": "health.public_health_services__recurrent_expenditure.public_health_services"
   },
   "R&D Health (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "health.health_nec__recurrent_expenditure"
+    "path": "health.rd_health__recurrent_expenditure.rd_health"
   },
   "Health N. E. C (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "recreation"
+    "path": "health.health_nec__recurrent_expenditure.health_nec"
   },
   "Recreation, Culture and Religion (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "recreation.recreational_sporting_services__recurrent_expenditure.recreational_sporting_services"
+    "path": "recreation_culture_religon"
   },
   "Recreational and Sporting Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "recreation.cultural_services__recurrent_expenditure"
+    "path": "recreation_culture_religon.recreational_sporting_services__recurrent_expenditure.recreational_sporting_services"
   },
   "Cultural Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "recreation.broadcasting_publishing_services__recurrent_expenditure"
+    "path": "recreation_culture_religon.cultural_services__recurrent_expenditure.cultural_services"
   },
   "Broadcasting and Publishing Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "recreation.religous_other_community_services__recurrent_expenditure"
+    "path": "recreation_culture_religon.broadcasting_publishing_services__recurrent_expenditure.broadcasting_publishing_services"
   },
   "Religious and Other Community Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "recreation.rd_recreation_culture_religon__recurrent_expenditure"
+    "path": "recreation_culture_religon.religous_other_community_services__recurrent_expenditure.religous_other_community_services"
   },
   "R&D Recreation, Culture and Religion (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "recreation.recreation_culture_religon_nec__recurrent_expenditure"
+    "path": "recreation_culture_religon.rd_recreation_culture_religon__recurrent_expenditure.rd_recreation_culture_religon"
   },
   "Recreation, Culture and Religion N. E. C (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education"
+    "path": "recreation_culture_religon.recreation_culture_religon_nec__recurrent_expenditure.recreation_culture_religon_nec"
   },
   "Education (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education.preprimary_primary_education__recurrent_expenditure.pre_primary_education"
+    "path": "education"
   },
   "Pre-Primary and Primary Education (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education.preprimary_primary_education__recurrent_expenditure.primary_education"
+    "path": "education.preprimary_primary_education__recurrent_expenditure"
   },
   "Pre-Primary Education (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education.secondary_education__recurrent_expenditure"
+    "path": "education.preprimary_primary_education__recurrent_expenditure.pre_primary_education"
   },
   "Primary Education (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education.secondary_education__recurrent_expenditure.junior_secondary"
+    "path": "education.preprimary_primary_education__recurrent_expenditure.primary_education"
   },
   "Secondary Education (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
+    "path": "education.secondary_education__recurrent_expenditure"
+  },
+  "Junior Secondary Education (Recurrent Expenditure)": {
+    "category": "exp_by_func_recurrent",
+    "path": "education.secondary_education__recurrent_expenditure.junior_secondary"
+  },
+  "Senior Secondary Education (Recurrent Expenditure)": {
+    "category": "exp_by_func_recurrent",
     "path": "education.secondary_education__recurrent_expenditure.senior_secondary"
-  },
-  "Junior Secondary (Recurrent Expenditure)": {
-    "category": "exp_by_func_recurrent",
-    "path": "education.postsecondary_nontetiary_education__recurrent_expenditure"
-  },
-  "Senior Secondary (Recurrent Expenditure)": {
-    "category": "exp_by_func_recurrent",
-    "path": "education.postsecondary_nontetiary_education__recurrent_expenditure.postsecondary_nontetiary_education"
   },
   "Post-Secondary and Non Tertiary Education (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education.tetiary_education__recurrent_expenditure"
+    "path": "education.postsecondary_nontetiary_education__recurrent_expenditure.postsecondary_nontetiary_education"
   },
   "Tertiary Education (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education.tetiary_education__recurrent_expenditure.second_stage_of_tertiary_education"
+    "path": "education.tetiary_education__recurrent_expenditure"
   },
   "First Stage of Tertiary Education (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education.education_nondefinable_by_level__recurrent_expenditure"
+    "path": "education.tetiary_education__recurrent_expenditure.first_stage_of_tertiary_education"
   },
   "Second Stage of Tertiary Education (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education.education_nondefinable_by_level__recurrent_expenditure.education_nondefinable_by_level"
+    "path": "education.tetiary_education__recurrent_expenditure.second_stage_of_tertiary_education"
   },
   "Education Not Definable by Level (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education.subsidiary_services_to_education__recurrent_expenditure"
+    "path": "education.education_nondefinable_by_level__recurrent_expenditure.education_nondefinable_by_level"
   },
   "Subsidiary Services to Education (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education.rd_education__recurrent_expenditure"
+    "path": "education.subsidiary_services_to_education__recurrent_expenditure.subsidiary_services_to_education"
   },
   "R&D Education (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "education.education_nec__recurrent_expenditure"
+    "path": "education.rd_education__recurrent_expenditure.rd_education"
   },
   "Education N. E. C (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social"
+    "path": "education.education_nec__recurrent_expenditure.education_nec"
   },
   "Social Protection (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social.sickness_disability__recurrent_expenditure.sickness"
+    "path": "social_protection"
   },
   "Sickness and Disability (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social.sickness_disability__recurrent_expenditure.disability"
+    "path": "social_protection.sickness_disability__recurrent_expenditure"
   },
   "Sickness (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social.old_age__recurrent_expenditure"
+    "path": "social_protection.sickness_disability__recurrent_expenditure.sickness"
   },
   "Disability (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social.old_age__recurrent_expenditure.old_age"
+    "path": "social_protection.sickness_disability__recurrent_expenditure.disability"
   },
   "Old Age (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social.survivors__recurrent_expenditure"
+    "path": "social_protection.old_age__recurrent_expenditure.old_age"
   },
   "Survivors (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social.family_and_children__recurrent_expenditure"
+    "path": "social_protection.survivors__recurrent_expenditure.survivors"
   },
   "Family and Children (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social.unemployment__recurrent_expenditure"
+    "path": "social_protection.family_and_children__recurrent_expenditure.family_and_children"
   },
   "Unemployment (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social.housing__recurrent_expenditure"
+    "path": "social_protection.unemployment__recurrent_expenditure.unemployment"
   },
   "Housing (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social.social_exclusion_nec__recurrent_expenditure"
+    "path": "social_protection.housing__recurrent_expenditure.housing"
   },
   "Social Exclusion N. E. C (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social.rd_social_protection__recurrent_expenditure"
+    "path": "social_protection.social_exclusion_nec__recurrent_expenditure.social_exclusion_nec"
   },
   "R&D Social Protection (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "social.social_protection_nec__recurrent_expenditure"
+    "path": "social_protection.rd_social_protection__recurrent_expenditure.rd_social_protection"
   },
   "Social Protection N. E. C (Recurrent Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.social_protection_nec__recurrent_expenditure.social_protection_nec"
-  },
-  "Expenditure by Functions (Capital)": {
-    "category": "exp_by_func_capital",
-    "path": "total_capital_expenditure"
-  },
-  "General Public Service (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service"
-  },
-  "Executive & Legislative Organ, Financial Affairs and External Affairs (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.executive_legislative_organ_financial_external"
-  },
-  "Executive Organ and Legislative Organs (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.executive_legislative_organ_financial_external.executive_organ_and_legislative_organs"
-  },
-  "Financial and Fiscal Affairs (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.executive_legislative_organ_financial_external.financial_fiscal_affairs"
-  },
-  "Foreign and Economic Aid (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.foreign_economic_aid__capital_expenditure"
-  },
-  "Economic Aid to Developing Countries and Countries in Transition (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.foreign_economic_aid__capital_expenditure.economic_aid_to_developing_countries_and_countries_in_transition"
-  },
-  "Economic Aid routed through International Organisations (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.foreign_economic_aid__capital_expenditure.economic_aid_routed_through_international_organisations"
-  },
-  "General Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.general_services__capital_expenditure"
-  },
-  "General Personnel Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.general_services__capital_expenditure.general_personnel_services"
-  },
-  "Overall Planning and Statistical Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.general_services__capital_expenditure.overall_planning_and_statistical_services"
-  },
-  "Other General Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.general_services__capital_expenditure.other_general_services"
-  },
-  "Basic Research (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.basic_research__capital_expenditure"
-  },
-  "R&D General Public Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.rd_general_public_services__capital_expenditure"
-  },
-  "General Public Services N.E.C (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.general_public_servuces_nec__capital_expenditure.general_public_servuces_nec"
-  },
-  "Public Debt Transactions (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.public_debt_transactions__capital_expenditure.public_debt_transactions"
-  },
-  "Transfer of a General Character between Different Levels of Government (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "general_public_service.transfer_general_character_between_dif_levels_of_gov.transfer_general_character_between_dif_levels_of_gov"
-  },
-  "Public Order and Safety (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "public_order_safety"
-  },
-  "Police Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "public_order_safety.police_services__capital_expenditure"
-  },
-  "State Expenditure to Support Police Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "public_order_safety.police_services__capital_expenditure.state_expenditure_to_support_police_services"
-  },
-  "Fire Protection Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "public_order_safety.fire_protection_services__capital_expenditure.fire_protection_services"
-  },
-  "Justice & Law Courts (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "public_order_safety.justice_law_courts__capital_expenditure.justice_law_courts"
-  },
-  "Economic Affairs (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs"
-  },
-  "General Economic, Commercial and Labour Affairs (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.general_economic_commercial_labour_affairs"
-  },
-  "General Economic and Commercial Affairs (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_commercial_affairs"
-  },
-  "General Labour Affairs (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_labour_affairs"
-  },
-  "Agriculture, Forestry, Fishing and Hunting (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure"
-  },
-  "Agriculture (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.agriculture"
-  },
-  "Forestry (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.forestry"
-  },
-  "Fishing and Hunting (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.fishing_and_hunting"
-  },
-  "Fuel and Energy (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.fuel_energy__capital_expenditure"
-  },
-  "Coal and Solid Mineral Fuel (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.fuel_energy__capital_expenditure.coal_solid_mineral_fuel"
-  },
-  "Electricity (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.fuel_energy__capital_expenditure.electricity"
-  },
-  "Non Electricity Energy (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.fuel_energy__capital_expenditure.non_electric_energy"
-  },
-  "Mining, Manufacturing and Construction (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.mining_manufacturing_construction__capital_expenditure.manufacturing"
-  },
-  "State Support to Mining Resources other than mineral fuels (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.mining_manufacturing_construction__capital_expenditure.construction"
-  },
-  "Manufacturing (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.transport__capital_expenditure"
-  },
-  "Construction (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.transport__capital_expenditure.road"
-  },
-  "Transport (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.transport__capital_expenditure.water"
-  },
-  "Road Transport (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.transport__capital_expenditure.railway"
-  },
-  "Water Transport (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.transport__capital_expenditure.air"
-  },
-  "Railway Transport (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.communication__capital_expenditure"
-  },
-  "Air Transport (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.communication__capital_expenditure.communication"
-  },
-  "Communication (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.other_inductries__capital_expenditure"
-  },
-  "Other Industries (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.other_inductries__capital_expenditure.hotel_and_restaurants"
-  },
-  "Distributive Trade, Storage and Warehousing (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.other_inductries__capital_expenditure.tourism"
-  },
-  "Hotel and Restaurants (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.other_inductries__capital_expenditure.multipurpose_development_projects"
-  },
-  "Tourism (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.ed_economic_affairs__capital_expenditure"
-  },
-  "Multipurpose Development Projects (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_general_economic_commercial_labour_affairs"
-  },
-  "R&D Economic Affairs (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_agriculture_forestry_fishing_hunting"
-  },
-  "R&D General Economic, Commercial and Labour Affairs (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_fuel_energy"
-  },
-  "R&D Agriculture, Forestry, Fishing and Hunting (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_mining_manufacturing_construction"
-  },
-  "R&D Fuel and Energy (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_transport"
-  },
-  "R&D Mining, Manufacturing and Construction (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_communication"
-  },
-  "R&D Transport (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.ed_economic_affairs__capital_expenditure.rd_other_industries"
-  },
-  "R&D Communication (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.economic_affairs_nec__capital_expenditure"
-  },
-  "R&D Other Industries (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "economic_affairs.economic_affairs_nec__capital_expenditure.economic_affairs_nec"
-  },
-  "Economic Affairs N. E. C (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "environment_protection"
-  },
-  "Environmental Protection (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "environment_protection.waste_management__capital_expenditure.waste_management"
-  },
-  "Waste Management (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "environment_protection.waste_water_management__capital_expenditure"
-  },
-  "Waste Water Management (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "environment_protection.pollution_abatement__capital_expenditure"
-  },
-  "Pollution Abatement (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "environment_protection.protection_biodiversity_landscape__capital_expenditure"
-  },
-  "Protection of Biodiversity and Landscape (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "environment_protection.rd_environmental_protection__capital_expenditure"
-  },
-  "R&D Environmental Protection (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "environment_protection.environmental_protection_nec__capital_expenditure"
-  },
-  "Environmental Protection N.E.C. (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "housing"
-  },
-  "Housing and Community Amenities (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "housing.housing_development__capital_expenditure.housing_development"
-  },
-  "Housing Development (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "housing.community_development__capital_expenditure"
-  },
-  "Community Development (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "housing.water_supply__capital_expenditure"
-  },
-  "Water Supply (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "housing.street_light__capital_expenditure"
-  },
-  "Street Lighting (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "housing.rd_housing_community_amenities__capital_expenditure"
-  },
-  "Street lighting (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "housing.rd_housing_community_amenities__capital_expenditure.rd_housing_community_amenities"
-  },
-  "R&D Housing and Community Amenities (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "housing.housing_community_amenities_nec__capital_expenditure"
-  },
-  "Housing and Community Amenities N. E. C (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health"
-  },
-  "Health (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.medical_products_appliances_equiptment__capital_expenditure.pharmaceutical_products"
-  },
-  "Medical Products, Appliances and Equipment (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.medical_products_appliances_equiptment__capital_expenditure.other_medical_products"
-  },
-  "Pharmaceutical Products (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.medical_products_appliances_equiptment__capital_expenditure.therapeutic_appliances_and_equipment"
-  },
-  "Other Medical Products (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.outpatient_services__capital_expenditure"
-  },
-  "Therapeutic Appliances and Equipment (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.outpatient_services__capital_expenditure.general_medical_services"
-  },
-  "Outpatient Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.outpatient_services__capital_expenditure.specialized_medical_services"
-  },
-  "General Medical Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.outpatient_services__capital_expenditure.dental_services"
-  },
-  "Specialized Medical Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.outpatient_services__capital_expenditure.paramedical_services"
-  },
-  "Dental Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.hospital_services__capital_expenditure"
-  },
-  "Paramedical Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.hospital_services__capital_expenditure.general_hospital_services"
-  },
-  "Hospital Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.hospital_services__capital_expenditure.specialized_hospital_services"
-  },
-  "General Hospital Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.hospital_services__capital_expenditure.medical_and_maternity_services"
-  },
-  "Specialized Hospital Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.hospital_services__capital_expenditure.nursing_and_convalescent_services"
-  },
-  "Medical and Maternity Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.public_health_services__capital_expenditure"
-  },
-  "Nursing and Convalescent Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.public_health_services__capital_expenditure.public_health_services"
-  },
-  "Public Health Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.rd_health__capital_expenditure"
-  },
-  "R&D Health (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "health.health_nec__capital_expenditure"
-  },
-  "Health N. E. C (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "recreation"
-  },
-  "Recreation, Culture and Religion (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "recreation.recreational_sporting_services__capital_expenditure.recreational_sporting_services"
-  },
-  "Recreational and Sporting Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "recreation.cultural_services__capital_expenditure"
-  },
-  "Cultural Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "recreation.broadcasting_publishing_services__capital_expenditure"
-  },
-  "Broadcasting and Publishing Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "recreation.religous_other_community_services__capital_expenditure"
-  },
-  "Religious and Other Community Services (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "recreation.rd_recreation_culture_religon__capital_expenditure"
-  },
-  "R&D Recreation, Culture and Religion (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "recreation.recreation_culture_religon_nec__capital_expenditure"
-  },
-  "Recreation, Culture and Religion N. E. C (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education"
-  },
-  "Education (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.preprimary_primary_education__capital_expenditure.pre_primary_education"
-  },
-  "Pre-Primary and Primary Education (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.preprimary_primary_education__capital_expenditure.primary_education"
-  },
-  "Pre-Primary Education (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.secondary_education__capital_expenditure"
-  },
-  "Primary Education (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.secondary_education__capital_expenditure.junior_secondary"
-  },
-  "Secondary Education (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.secondary_education__capital_expenditure.senior_secondary"
-  },
-  "Junior Secondary (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.postsecondary_nontetiary_education__capital_expenditure"
-  },
-  "Senior Secondary (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.postsecondary_nontetiary_education__capital_expenditure.postsecondary_nontetiary_education"
-  },
-  "Post-Secondary and Non Tertiary Education (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.tetiary_education__capital_expenditure"
-  },
-  "Tertiary Education (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.tetiary_education__capital_expenditure.second_stage_of_tertiary_education"
-  },
-  "First Stage of Tertiary Education (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.education_nondefinable_by_level__capital_expenditure"
-  },
-  "Second Stage of Tertiary Education (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.education_nondefinable_by_level__capital_expenditure.education_nondefinable_by_level"
-  },
-  "Education Not Definable by Level (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.subsidiary_services_to_education__capital_expenditure"
-  },
-  "Subsidiary Services to Education (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.rd_education__capital_expenditure"
-  },
-  "R&D Education (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "education.education_nec__capital_expenditure"
-  },
-  "Education N. E. C (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social"
-  },
-  "Social Protection (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.sickness_disability__capital_expenditure.sickness"
-  },
-  "Sickness and Disability (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.sickness_disability__capital_expenditure.disability"
-  },
-  "Sickness (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.old_age__capital_expenditure"
-  },
-  "Disability (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.old_age__capital_expenditure.old_age"
-  },
-  "Old Age (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.survivors__capital_expenditure"
-  },
-  "Survivors (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.family_and_children__capital_expenditure"
-  },
-  "Family and Children (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.unemployment__capital_expenditure"
-  },
-  "Unemployment (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.housing__capital_expenditure"
-  },
-  "Housing (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.social_exclusion_nec__capital_expenditure"
-  },
-  "Social Exclusion N. E. C (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.rd_social_protection__capital_expenditure"
-  },
-  "R&D Social Protection (Capital Expenditure)": {
-    "category": "exp_by_func_capital",
-    "path": "social.social_protection_nec__capital_expenditure"
+    "category": "exp_by_func_recurrent",
+    "path": "social_protection.social_protection_nec__recurrent_expenditure.social_protection_nec"
+  },
+  "Agriculture": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.default"
+  },
+  "Effective governance of the Agriculture Sector": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.effective_governance_of_the_agric_sector.default"
+  },
+  "Legal, policy, regulations and standards, guidelines and protocols development and reviews": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.effective_governance_of_the_education_system.legal_policy_regulations_and_standards.default"
+  },
+  "Agriculture sector coordination mechanisms": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.effective_governance_of_the_agric_sector.agric_sector_coordination_mechanism.default"
+  },
+  "Development of the livestock value chain": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.development_of_livestock_value_chain.default"
+  },
+  "Ruminant (cattle, sheep & goats) production and marketing": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.development_of_livestock_value_chain.ruminant_production_and_marketing.default"
+  },
+  "Meat processing and marketing": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.development_of_livestock_value_chain.meat_processing_and_marketing.default"
+  },
+  "Poultry, pig, and micro livestock production": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.development_of_livestock_value_chain.poultry_pig_and_micro_livestock_production.default"
+  },
+  "Dairy development": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.development_of_livestock_value_chain.dairy_development.default"
+  },
+  "Animal health and livestock diseases management": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.development_of_livestock_value_chain.animal_health_and_livestock_diseases_management.default"
+  },
+  "Livestock feeds development": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.development_of_livestock_value_chain.livestock_feeds_development.default"
+  },
+  "Enhancement of food production and productivity": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.enhancement_of_food_production_and_productivity.default"
+  },
+  "Crop value chains and food systems promotion (food and cash crops of state’s comparative advantage)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.enhancement_of_food_production_and_productivity.crop_value_and_food_system_production.default"
+  },
+  "Intensive crop and vegetable production (irrigation, crop diversification etc.)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.enhancement_of_food_production_and_productivity.intensive_crop_and_vegetable_production.default"
+  },
+  "Farm inputs supply and service delivery system (improved seeds, fertilizer, agro-chemicals etc.)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.enhancement_of_food_production_and_productivity.farm_inputs_supply_and_service_delivery_system.default"
+  },
+  "Reduction of post-harvest losses": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.reduction_of_post_harvest_losses.default"
+  },
+  "Modern technology for post-harvest storage and value addition": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.reduction_of_post_harvest_losses.modern_tech_for_post_harvest_storage_and_value_addition.default"
+  },
+  "Buffer stocking and commodity warehousing": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.reduction_of_post_harvest_losses.buffer_stocking_and_commodity_warehousing.default"
+  },
+  "Market linkage": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.reduction_of_post_harvest_losses.market_linkage.default"
+  },
+  "Agricultural produce and quality control": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.reduction_of_post_harvest_losses.agric_produce_and_quality_control.default"
+  },
+  "Enhancement of fisheries resources development (aquaculture, marine, inland, artisanal)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.enhancement_of_fisheries_resources_and_development.default"
+  },
+  "Commercial aquaculture development (fish production, feed mills development, fishing inputs etc.)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.enhancement_of_fisheries_resources_and_development.commercial_aquaculture_development.default"
+  },
+  "Commercial coastal and inland fishing": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.enhancement_of_fisheries_resources_and_development.commercial_coastal_and_inland_fishing.default"
+  },
+  "Fish processing and post-harvest management": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.enhancement_of_fisheries_resources_and_development.fish_processing_and_post_harvest_management.default"
+  },
+  "Marine industrial fishing": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.enhancement_of_fisheries_resources_and_development.marine_inductrial_fishing.default"
+  },
+  "Promotion of forest resource conservation and preservation of biodiversity": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.promotion_of_forest_resource_conservation_and_preservation_of_biodiversity.default"
+  },
+  "Forest regeneration and conservation": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.promotion_of_forest_resource_conservation_and_preservation_of_biodiversity.forest_regeneration_and_conservation.default"
+  },
+  "Eco-tourism development": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.promotion_of_forest_resource_conservation_and_preservation_of_biodiversity.eco_tourism_development.default"
+  },
+  "Non-farm forestry livelihood economics empowerment promotion (apiculture, sericulture etc.) programme": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.promotion_of_forest_resource_conservation_and_preservation_of_biodiversity.non_farm_forestry_livelihood_economics_empowerment_promotion.default"
+  },
+  "Promotion of enabling environment for increased agricultural development": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.promotion_of_enabling_environment_for_increased_agric_development.default"
+  },
+  "Integrated rural development (agricultural land development, farm mechanization, & rural infrastructures": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.promotion_of_enabling_environment_for_increased_agric_development.integrated_rural_development.default"
+  },
+  "Youth and women In agriculture empowerment & smallholder agricultural credit strengthening": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.promotion_of_enabling_environment_for_increased_agric_development.youth_and_women_in_agriculture_empowerment.default"
+  },
+  "Agricultural data and statistic management and institutionalisation of information and communication technology (ICT)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.promotion_of_enabling_environment_for_increased_agric_development.agricultural_data_and_statistic_management.default"
+  },
+  "Adaptive research, unified and all-inclusive extension services delivery": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.promotion_of_enabling_environment_for_increased_agric_development.adaptive_research_unified_and_all_inclusive_extension_service_delivery.default"
+  },
+  "Public Private Partnerships (corporate private sector, NGOs, donors & development partners, farmers organizations)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.promotion_of_enabling_environment_for_increased_agric_development.public_private_partnership.default"
+  },
+  "Capacity building for stakeholders and professional human resources development": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.promotion_of_enabling_environment_for_increased_agric_development.capacity_building_for_stakeholders_and_professional.default"
+  },
+  "Agriculture Sector Expenditures Not Elsewhere Classified": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.agric_sector_expenditures_not_elsewhere_classified.default"
+  },
+  "Agriculture Programme Not Elsewhere Classified": {
+    "category": "exp_by_programme_recurrent",
+    "path": "agriculture.agric_sector_expenditures_not_elsewhere_classified.agriculture_programme_not_elsewhere_classified.default"
+  },
+  "Societal Re-orientation": {
+    "category": "exp_by_programme_recurrent",
+    "path": "societal_reorientation.default"
+  },
+  "Societal Re-orientation - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "societal_reorientation.societal_reorientation__general.societal_reorientation__general.default"
+  },
+  "Poverty Alleviation": {
+    "category": "exp_by_programme_recurrent",
+    "path": "poverty_alleviation.default"
+  },
+  "Poverty Alleviation - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "poverty_alleviation.poverty_alleviation__general.poverty_alleviation__general.default"
+  },
+  "Health": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.default"
+  },
+  "Effective governance of the health system": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.effective_governance_of_the_health_system.default"
+  },
+  "Human and institutional capacity performance management": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.effective_governance_of_the_education_system.human_and_institutional_capacity_performance_management.default"
+  },
+  "Health sector coordination mechanisms": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.effective_governance_of_the_health_system.health_coordination_mechanism.default"
+  },
+  "Integrated supportive supervision": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.effective_governance_of_the_education_system.integrated_supportive_supervision.default"
+  },
+  "Community engagement and participation in health": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.community_engagement_and_participation.default"
+  },
+  "Community interventions": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.community_engagement_and_participation.community_interventions.default"
+  },
+  "Community structures": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.community_engagement_and_participation.community_structures.default"
+  },
+  "Enhancement of the delivery of Essential Package of Health Services (EPHS) to all citizens": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.enhancement_of_the_delivery_of_essential_package.default"
+  },
+  "Reproductive, maternal and neonatal health": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.enhancement_of_the_delivery_of_essential_package.reproductive_maternal_and_neonatal_health.default"
+  },
+  "Child health": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.enhancement_of_the_delivery_of_essential_package.child_health.default"
+  },
+  "Adolescent health": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.enhancement_of_the_delivery_of_essential_package.adolescent_health.default"
+  },
+  "Communicable diseases": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.enhancement_of_the_delivery_of_essential_package.communicable_diseases.default"
+  },
+  "Non-communicable diseases": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.enhancement_of_the_delivery_of_essential_package.non_communicable_diseases.default"
+  },
+  "Nutrition": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.enhancement_of_the_delivery_of_essential_package.nutrition.default"
+  },
+  "Emergency services": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.enhancement_of_the_delivery_of_essential_package.emergency_services.default"
+  },
+  "Provision of the right number and right skill mix of competent, motivated, and productive Human Resources for Health (HRH)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_right_number_and_skill_mix.default"
+  },
+  "Pre-service training": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_right_number_and_skill_mix.pre_service__training.default"
+  },
+  "HRH Performance management": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_right_number_and_skill_mix.hrh_performance_management.default"
+  },
+  "In service training (continuing education)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_right_number_and_skill_mix.inservice_training.default"
+  },
+  "Provision of adequate and modern health infrastructure for health services delivery": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_adequate_and_modern_health_infrastructure.default"
+  },
+  "Functional health facilities": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_adequate_and_modern_health_infrastructure.functional_health_facilities.default"
+  },
+  "Planned Preventive Maintenance (PPM)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_adequate_and_modern_health_infrastructure.planned_preventive_maintenance.default"
+  },
+  "Facility electrification, water and sanitation": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_adequate_and_modern_health_infrastructure.facility_electrification.default"
+  },
+  "Provision of quality, affordable, available, and safe medicines, vaccines, and other health commodities": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_quality_affordable_available_medicine_vaccines.default"
+  },
+  "Sustainable drug supply": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_quality_affordable_available_medicine_vaccines.sustainable_drug_supply.default"
+  },
+  "Vaccines supply chain": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_quality_affordable_available_medicine_vaccines.vaccines_supply_chain.default"
+  },
+  "Evidence generation and utilisation": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.evidence_generation_and_utilization.default"
+  },
+  "Routine information system": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.evidence_generation_and_utilization.routine_information_system.default"
+  },
+  "Surveys and facility assessments": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.evidence_generation_and_utilization.survey_and_facility_assessments.default"
+  },
+  "Research and development (Institutional Review Board, Clinical Trials)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.evidence_generation_and_utilization.research_and_development.default"
+  },
+  "Monitoring and Evaluation (M&E)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.evidence_generation_and_utilization.monitoring_and_evaluation.default"
+  },
+  "Institution and maintenance of a responsive public health emergency preparedness system": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.institution_and_maintenance_of_resp_health_emergency.default"
+  },
+  "Integrated national disease surveillance": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.institution_and_maintenance_of_resp_health_emergency.integrated_national_disease_surveillance.default"
+  },
+  "Public health laboratories": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.institution_and_maintenance_of_resp_health_emergency.public_health_laboratories.default"
+  },
+  "Emergency Operation Centres (EOC)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.institution_and_maintenance_of_resp_health_emergency.emergency_operation_centres.default"
+  },
+  "Provision of universal health coverage and financial risk protection for citizens": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_universal_health_coverage.default"
+  },
+  "Mobilising equity contributions and vulnerable group funds": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_universal_health_coverage.mobilizing_equity_contribution.default"
+  },
+  "Mobilising employers’ contributions to the State Social Health Insurance Scheme": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.provision_of_universal_health_coverage.mobilizing_employers_contribution.default"
+  },
+  "Health Sector Expenditures Not Elsewhere Classified": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.health_sector_expenditures_not_elsewhere_classified.default"
+  },
+  "Health Not Elsewhere Classified": {
+    "category": "exp_by_programme_recurrent",
+    "path": "health.health_sector_expenditures_not_elsewhere_classified.health_not_elsewhere_classified.default"
+  },
+  "Education": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.default"
+  },
+  "Effective governance of the education system": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.effective_governance_of_the_education_system.default"
+  },
+  "Education sector coordination mechanisms": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.effective_governance_of_the_education_system.education_sector_coordination_mechanisms.default"
+  },
+  "Increase in access, retention, and completion rate at all levels": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.increase_in_access_retention_completion.default"
+  },
+  "Early Childhood Care, Development and Education (ECCDE)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.increase_in_access_retention_completion.early_childhood_care.default"
+  },
+  "Advocacy and sensitization": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.increase_in_access_retention_completion.advocacy_and_sensitization.default"
+  },
+  "School feeding": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.increase_in_access_retention_completion.school_feeding.default"
+  },
+  "School-based health": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.increase_in_access_retention_completion.school_based_health.default"
+  },
+  "Parental and community support": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.increase_in_access_retention_completion.parental_and_community_support.default"
+  },
+  "Tertiary institutions’ new courses accreditation": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.increase_in_access_retention_completion.tertiary_institutions_new_courses.default"
+  },
+  "Equity and inclusiveness in the provision of educational services": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.equity_inclusiveness_in_the_provision_of_eductional_services.default"
+  },
+  "Inclusive Education": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.equity_inclusiveness_in_the_provision_of_eductional_services.inclusive_education.default"
+  },
+  "Special education": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.equity_inclusiveness_in_the_provision_of_eductional_services.special_education.default"
+  },
+  "Nomadic and migrants’ education": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.equity_inclusiveness_in_the_provision_of_eductional_services.npmadic_and_migrants_education.default"
+  },
+  "Second chance education": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.equity_inclusiveness_in_the_provision_of_eductional_services.second_chance_education.default"
+  },
+  "Girls/Boys child education": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.equity_inclusiveness_in_the_provision_of_eductional_services.girls_boys_child_education.default"
+  },
+  "Emergency Response": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.equity_inclusiveness_in_the_provision_of_eductional_services.emergency_response.default"
+  },
+  "Improved quality of teaching and learning outcomes": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.improved_quality_of_teaching_and_learning.default"
+  },
+  "All levels of education quality assurance": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.improved_quality_of_teaching_and_learning.all_levels_of_education_quality_assurance.default"
+  },
+  "Instructional and learning materials": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.improved_quality_of_teaching_and_learning.instructional_and_learning_materials.default"
+  },
+  "Teaching and non-teaching staff capacity building": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.improved_quality_of_teaching_and_learning.teaching_and_non_teaching_staff_capacity_building.default"
+  },
+  "Curriculum review and development": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.improved_quality_of_teaching_and_learning.curriculum_review_and_development.default"
+  },
+  "Teachers’ recruitment and deployment": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.improved_quality_of_teaching_and_learning.teachers_recruitment_and_deployment.default"
+  },
+  "School examination and MLA": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.improved_quality_of_teaching_and_learning.school_examination_and_mla.default"
+  },
+  "Adequate infrastructure at all levels": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.adequate_infrastructure_at_all_levels.default"
+  },
+  "Schools’ infrastructure construction and rehabilitation": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.adequate_infrastructure_at_all_levels.school_infrastructure_construction_and_rehabilitation.default"
+  },
+  "Furnishing": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.adequate_infrastructure_at_all_levels.furnishing.default"
+  },
+  "Libraries and laboratories": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.adequate_infrastructure_at_all_levels.libraries_and_laboratories.default"
+  },
+  "Water, sanitation and hygiene": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.adequate_infrastructure_at_all_levels.water_sanitation_and_hygiene.default"
+  },
+  "School safety": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.adequate_infrastructure_at_all_levels.school_safety.default"
+  },
+  "Improved education information management system (EIMS)": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.improved_education_info_management_system.default"
+  },
+  "ICT equipment, software and expertise": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.improved_education_info_management_system.ict_equipment_software_and_expertise.default"
+  },
+  "Research and development": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.improved_education_info_management_system.research_and_development.default"
+  },
+  "Data and data management": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.improved_education_info_management_system.data_and_data_management.default"
+  },
+  "Education Sector Expenditures Not Elsewhere Classified": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.education_sector_expenditures_not_elsewhere_classified.default"
+  },
+  "Education Not Elsewhere Classified": {
+    "category": "exp_by_programme_recurrent",
+    "path": "education.education_sector_expenditures_not_elsewhere_classified.education_not_elsewhere_classified.default"
+  },
+  "Housing and Urban Development": {
+    "category": "exp_by_programme_recurrent",
+    "path": "housing_and_urban_development.default"
+  },
+  "Housing and Urban Development - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "housing_and_urban_development.housing_and_urban_development__general.housing_and_urban_development__general.default"
+  },
+  "Gender": {
+    "category": "exp_by_programme_recurrent",
+    "path": "gender.default"
+  },
+  "Gender - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "gender.gender__general.gender__general.default"
+  },
+  "Youth": {
+    "category": "exp_by_programme_recurrent",
+    "path": "youth.default"
+  },
+  "Youth - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "youth.youth__general.youth__general.default"
+  },
+  "Environmental Improvement": {
+    "category": "exp_by_programme_recurrent",
+    "path": "environmental_improvement.default"
+  },
+  "Environmental Improvement - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "environmental_improvement.environmental_improvement__general.environmental_improvement__general.default"
+  },
+  "Water Resources and Rural Development": {
+    "category": "exp_by_programme_recurrent",
+    "path": "water_resources_and_rural_development.default"
+  },
+  "Water Resources and Rural Deve - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "water_resources_and_rural_development.water_resources_and_rural_development__general.water_resources_and_rural_development__general.default"
+  },
+  "Information Communication and Technology": {
+    "category": "exp_by_programme_recurrent",
+    "path": "information_communication_and_tech.default"
+  },
+  "Information Communication and Technology - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "information_communication_and_tech.information_communication_and_tech__general.information_communication_and_tech__general.default"
+  },
+  "Growing the Private Sector": {
+    "category": "exp_by_programme_recurrent",
+    "path": "growing_private_sector.default"
+  },
+  "Growing the Private Sector - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "growing_private_sector.growing_private_sector__general.growing_private_sector__general.default"
+  },
+  "Reform of Government and Governance": {
+    "category": "exp_by_programme_recurrent",
+    "path": "reform_of_government_and_governance.default"
+  },
+  "Reform of Government and Governance - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "reform_of_government_and_governance.reform_of_government_and_governance__general.reform_of_government_and_governance__general.default"
+  },
+  "Power": {
+    "category": "exp_by_programme_recurrent",
+    "path": "power.default"
+  },
+  "Power - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "power.power__general.power__general.default"
+  },
+  "Rail": {
+    "category": "exp_by_programme_recurrent",
+    "path": "rail.rail__general.rail__general.default"
+  },
+  "Water Ways": {
+    "category": "exp_by_programme_recurrent",
+    "path": "water_ways.default"
+  },
+  "Water Ways - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "water_ways.water_ways__general.water_ways__general.default"
+  },
+  "Road": {
+    "category": "exp_by_programme_recurrent",
+    "path": "road.default"
+  },
+  "Road - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "road.road__general.road__general.default"
+  },
+  "Airways": {
+    "category": "exp_by_programme_recurrent",
+    "path": "airways.default"
+  },
+  "Airways - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "airways.airways__general.airways__general.default"
+  },
+  "COVID-19": {
+    "category": "exp_by_programme_recurrent",
+    "path": "covid_19.default"
+  },
+  "COVID-19 - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "covid_19.covid_19__general.covid_19__general.default"
+  },
+  "CLIMATE CHANGE": {
+    "category": "exp_by_programme_recurrent",
+    "path": "climate_change.default"
+  },
+  "CLIMATE CHANGE - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "climate_change.climate_change__general.climate_change__general.default"
+  },
+  "Oil and Gas Infrastructure": {
+    "category": "exp_by_programme_recurrent",
+    "path": "oil_and_gas_infrastructure.default"
+  },
+  "Oil and Gas Infrastructure - General": {
+    "category": "exp_by_programme_recurrent",
+    "path": "oil_and_gas_infrastructure.oil_and_gas_infrastructure__general.oil_and_gas_infrastructure__general.default"
+  },
+  "Total Revenue": {
+    "category": "revenue_by_economuc",
+    "path": "total_revenue"
+  },
+  "Government Share of Federation Revenue (FAAC)": {
+    "category": "revenue_by_economuc",
+    "path": "total_revenue.government_share_of_federation_revenue_faac"
+  },
+  "State Government Share of Statutory Allocation": {
+    "category": "revenue_by_economuc",
+    "path": "total_revenue.state_government_share_of_statutory_allocation"
+  },
+  "Statutory Allocation": {
+    "category": "revenue_by_economuc",
+    "path": "total_revenue.state_government_share_of_statutory_allocation.statutory_allocation"
+  },
+  "Oil/Gas Derivation": {
+    "category": "revenue_by_economuc",
+    "path": "total_revenue.state_government_share_of_statutory_allocation.oil_gas_derivation"
+  },
+  "Government Share of Value Added Tax (VAT)": {
+    "category": "revenue_by_economuc",
+    "path": "total_revenue.government_share_of_value_added_tax_vat"
+  },
+  "Government Share of Other Federation Revenues": {
+    "category": "revenue_by_economuc",
+    "path": "total_revenue.government_share_of_other_federation_revenues"
+  },
+  "Independent Revenue (Internally Generated Revenue)": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue"
+  },
+  "Tax Revenue": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.tax_revenue"
+  },
+  "Personal Taxes": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.personal_taxes"
+  },
+  "Personal Income Tax (PAYE)": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.personal_taxes.paye"
+  },
+  "Personnal Income Tax (Direct Assessment Taxes)": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.personal_taxes.personal_income_tax"
+  },
+  "Penalty for Offences & Interest": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.personal_taxes.penalty_for_offenses_and_interests"
+  },
+  "Other Personal Tax N.E.C": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.personal_taxes.other_personal_tax"
+  },
+  "Other Taxes": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.other_taxes"
+  },
+  "Sales Tax": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.other_taxes.sales_tax"
+  },
+  "Lottery Tax/Licence": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.other_taxes.loterry_tax_license"
+  },
+  "Property Tax": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.other_taxes.property_tax"
+  },
+  "Capital Gain Taxes": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.other_taxes.capital_gain_tax"
+  },
+  "Withholding Taxes": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.other_taxes.withholding_taxes"
+  },
+  "Other Taxes N.E.C": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.other_taxes.other_taxes_nec"
+  },
+  "Non-Tax Revenue": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.non_tax_revenue"
+  },
+  "Licences General": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.licences_general"
+  },
+  "Fees – General": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.fees_general"
+  },
+  "Fines – General": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.fines_general"
+  },
+  "Sales – General": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.sales_general"
+  },
+  "Earnings – General": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.earnings_general"
+  },
+  "Rent on Government Buildings – General": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.rent_on_gov_buildings_general"
+  },
+  "Rent on Land and Others – General": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.rent_on_land_and_others_general"
+  },
+  "Repayments": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.repayments"
+  },
+  "Investment Income": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.investment_income"
+  },
+  "Interest Earned": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.interest_earned"
+  },
+  "Reimbursement": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.reimbursement"
+  },
+  "Miscellaneous Income": {
+    "category": "revenue_by_economuc",
+    "path": "independent_revenue.miscellaneous_income"
+  },
+  "Aids and Grants": {
+    "category": "revenue_by_economuc",
+    "path": "aids_grants"
+  },
+  "Domestic Aids": {
+    "category": "revenue_by_economuc",
+    "path": "aids_grants.domestic_aids"
+  },
+  "Foreign Aids": {
+    "category": "revenue_by_economuc",
+    "path": "aids_grants.foreign_aids"
+  },
+  "Domestic Grants": {
+    "category": "revenue_by_economuc",
+    "path": "aids_grants.domestic_grants"
+  },
+  "Foreign Grants": {
+    "category": "revenue_by_economuc",
+    "path": "aids_grants.foreign_grants"
+  },
+  "Capital Development Fund (CDF) Receipts": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts"
+  },
+  "Other Capital Receipts to CDFs": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.other_capital_receipts_to__CDF"
+  },
+  "Sale of Fixed Assets": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.sale_of_fixed_assets"
+  },
+  "Domestic Loans/ Borrowings from Financial Institutions": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.domestic_loans_borrowings_from_financial_institutions"
+  },
+  "Domestic Loans/ Borrowings from Other Government Entities": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.domestic_loans_borrowings_from_other_government_entities"
+  },
+  "Domestic Loans/ Borrowings from Other Entities/ Organisations": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.international_loans_borrowings_from_financial_institutions"
+  },
+  "International Loans/ Borrowings from Financial Institutions": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.international_loans_borrowings_from_financial_institutions"
+  },
+  "International Loans/ Borrowings from Other Government Entities": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.international_loans_borrowings_from_other_government_entities"
+  },
+  "International Loans/ Borrowings from Other Entities/ Organisations": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.international_loans_borrowings_from_other_entities_organizations"
+  },
+  "Foreign Debt Forgiveness": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.foreign_debt_forgiveness"
+  },
+  "Domestic Debt Forgiveness": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.domestic_debt_forgiveness"
+  },
+  "Gain on Disposal of Asset – PPE": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.gain_on_disposal_of_asset_ppe"
+  },
+  "Gain on Disposal of Asset - Investment Property": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.gain_on_disposal_of_asset_investment_property"
+  },
+  "Minority Interest Share of Surplus": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.minority_interest_share_of_surplus"
+  },
+  "Extraordinary Items": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.extraordinary_items"
+  },
+  "Unspecified Revenue": {
+    "category": "revenue_by_economuc",
+    "path": "capital_development_fund_receipts.unspecified_revenue"
+  },
+  "Total Revenue (including Opening Balance)": {
+    "category": "revenue_by_economuc",
+    "path": "total_revenue_with_opening_balance"
+  },
+  "Opening Balance": {
+    "category": "revenue_by_economuc",
+    "path": "opening_balance"
   }
 }
