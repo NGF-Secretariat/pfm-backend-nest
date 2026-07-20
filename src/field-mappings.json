@@ -169,67 +169,67 @@
   },
   "Capital Development Fund (CDF) Receipts": {
     "category": "revenue_by_economuc",
-    "path": "cdfr"
+    "path": "capital_development_fund_receipts"
   },
   "Other Capital Receipts to CDF": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.other_capital_receipts_to__CDF"
+    "path": "capital_development_fund_receipts.other_capital_receipts_to__CDF"
   },
   "Sale Of Fixed Assets": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.sale_of_fixed_assets"
+    "path": "capital_development_fund_receipts.sale_of_fixed_assets"
   },
   "Domestic Loans/ Borrowings From Financial Institutions": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.domestic_loans_borrowings_from_financial_institutions"
+    "path": "capital_development_fund_receipts.domestic_loans_borrowings_from_financial_institutions"
   },
   "Domestic Loans/ Borrowings From Other Government Entities": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.domestic_loans_borrowings_from_other_government_entities"
+    "path": "capital_development_fund_receipts.domestic_loans_borrowings_from_other_government_entities"
   },
   "Domestic Loans/ Borrowings From Other  Entities/ Organisations": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.domestic_loans_borrowings_from_other_entities_organisations"
+    "path": "capital_development_fund_receipts.domestic_loans_borrowings_from_other_entities_organisations"
   },
   "International Loans/ Borrowings From Financial Institutions": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.international_loans_borrowings_from_financial_institutions"
+    "path": "capital_development_fund_receipts.international_loans_borrowings_from_financial_institutions"
   },
   "International Loans/ Borrowings From Other Government Entities": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.international_loans_borrowings_from_other_government_entities"
+    "path": "capital_development_fund_receipts.international_loans_borrowings_from_other_government_entities"
   },
   "International Loans/ Borrowings From Other  Entities/ Organisations": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.international_loans_borrowings_from_other_entities_organizations"
+    "path": "capital_development_fund_receipts.international_loans_borrowings_from_other_entities_organizations"
   },
   "Foreign Debt Forgiveness": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.foreign_debt_forgiveness"
+    "path": "capital_development_fund_receipts.foreign_debt_forgiveness"
   },
   "Domestic Debt Forgiveness": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.domestic_debt_forgiveness"
+    "path": "capital_development_fund_receipts.domestic_debt_forgiveness"
   },
   "Gain On Disposal Of Asset – PPE": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.gain_on_disposal_of_asset_ppe"
+    "path": "capital_development_fund_receipts.gain_on_disposal_of_asset_ppe"
   },
   "Gain On Disposal Of Asset - Investment Property": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.gain_on_disposal_of_asset_investment_property"
+    "path": "capital_development_fund_receipts.gain_on_disposal_of_asset_investment_property"
   },
   "Minority Interest Share Of Surplus": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.minority_interest_share_of_surplus"
+    "path": "capital_development_fund_receipts.minority_interest_share_of_surplus"
   },
   "Extraordinary Items": {
     "category": "revenue_by_economuc",
-    "path": "cdfr.extraordinary_items"
+    "path": "capital_development_fund_receipts.extraordinary_items"
   },
   "Actual": {
     "category": "exp_by_admin_capital",
-    "path": "cdfr.unspecified_revenue"
+    "path": "capital_development_fund_receipts.unspecified_revenue"
   },
   "TOTAL EXPENDITURE": {
     "category": "exp_by_economic",
