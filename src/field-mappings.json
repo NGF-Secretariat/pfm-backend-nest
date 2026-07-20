@@ -189,7 +189,7 @@
   },
   "Domestic Loans/ Borrowings From Other  Entities/ Organisations": {
     "category": "revenue_by_economuc",
-    "path": "capital_development_fund_receipts.domestic_loans_borrowings_from_other_entities_organisations"
+    "path": "capital_development_fund_receipts.international_loans_borrowings_from_financial_institutions"
   },
   "International Loans/ Borrowings From Financial Institutions": {
     "category": "revenue_by_economuc",
@@ -232,8 +232,8 @@
     "path": "capital_development_fund_receipts.unspecified_revenue"
   },
   "TOTAL EXPENDITURE": {
-    "category": "exp_by_economic",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure"
+    "category": "exp_by_programme_recurrent",
+    "path": "total_expenditure.default"
   },
   "Personnel Expenditure": {
     "category": "exp_by_economic",
@@ -500,12 +500,12 @@
     "path": "capital_expenditure.preservation_of_the_environment"
   },
   "Total Recurrent Expenditure": {
-    "category": "exp_by_func_recurrent",
-    "path": "capital_expenditure.other_capital_projects"
+    "category": "exp_by_admin_recurrent",
+    "path": "total_recurrent_expenditure"
   },
   "Administration Sector (Recurrent Expenditure)": {
     "category": "exp_by_admin_recurrent",
-    "path": "gp_service.executive_legislative_organ_financial_external.executive_organ_and_legislative_organs"
+    "path": "total_recurrent_expenditure.administration_sector__recurrent_expenditure"
   },
   "Governor’s Office (Recurrent Expenditure)": {
     "category": "exp_by_admin_recurrent",
@@ -664,40 +664,40 @@
     "path": "total_recurrent_expenditure.social_sector__recurrent_expenditure.ministry_of_sports_development"
   },
   "Total Capital Expenditure": {
-    "category": "exp_by_func_capital",
-    "path": "total_recurrent_expenditure.social_sector__recurrent_expenditure.ministry_of_local_government"
+    "category": "exp_by_func_recurrent",
+    "path": "total_recurrent_expenditure"
   },
   "Administration Sector (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "gp_service.executive_legislative_organ_financial_external.executive_organ_and_legislative_organs"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure"
   },
   "Governor’s Office (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.secretary_to_the_state_government"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.governors_office"
   },
   "Secretary to the State Government (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.state_assembly"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.secretary_to_the_state_government"
   },
   "State Assembly (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.ministry_of_information"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.state_assembly"
   },
   "Ministry of Information (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.ministry_of_internal_security_and_home_affairs"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.ministry_of_information"
   },
   "Ministry of Internal Security and Home Affairs (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.office_of_the_head_of_service"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.ministry_of_internal_security_and_home_affairs"
   },
   "Office of the Head of Service (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.office_of_the_auditor_general_state"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.office_of_the_head_of_service"
   },
   "Office of the Auditor General State (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.office_of_the_auditor_general_for_local_government"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.office_of_the_auditor_general_state"
   },
   "Office of the Auditor General Local Government (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
@@ -705,126 +705,126 @@
   },
   "Civil Service Commission (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.local_government_service_commission"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.civil_wervice_commission"
   },
   "Local Government Service Commission (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.administration_sector__capital_expenditure.state_independent_electoral_commission"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.local_government_service_commission"
   },
   "State Independent Electoral Commission (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure"
+    "path": "total__capital_expenditure.administration_sector__capital_expenditure.state_independent_electoral_commission"
   },
   "Economic Sector (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_agriculture_natural_resources"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure"
   },
   "Ministry of Agriculture & Natural Resources (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_finance"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_agriculture_natural_resources"
   },
   "Ministry of Finance (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_commerce_trade_business_industry_investment"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_finance"
   },
   "Ministry of Commerce/Trade/Business/Industry/Investment (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_labour_and_oriductivity"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_commerce_trade_business_industry_investment"
   },
   "Ministry of Labour and Productivity (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_science_and_technology"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_labour_and_oriductivity"
   },
   "Ministry of Science and Technology (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_transport"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_science_and_technology"
   },
   "Ministry of Transport (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_energy"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_transport"
   },
   "Ministry of Energy (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_works"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_energy"
   },
   "Ministry of Works (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_culture_tourism"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_works"
   },
   "Ministry of Culture and Tourism (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_budget_economic_planning"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_culture_tourism"
   },
   "State Planning Commission/Ministry of Budget and Economic Planning (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.fiscal_responsibility_commission"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_budget_economic_planning"
   },
   "Fiscal Responsibility Commission (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_water_resources"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.fiscal_responsibility_commission"
   },
   "Ministry of Water Resources (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_housing_urban_development"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_water_resources"
   },
   "Ministry of Housing and Urban Development (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_land_and_survey"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_housing_urban_development"
   },
   "Ministry of Land and Survey (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure"
+    "path": "total__capital_expenditure.economic_sector__capital_expenditure.ministry_of_land_and_survey"
   },
   "Law and Justice Sector (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure.judiciary"
+    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure"
   },
   "Judiciary (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure.ministry_of_justice"
+    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure.judiciary"
   },
   "Ministry of Justice (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.regional_sector__capital_expenditure"
+    "path": "total__capital_expenditure.law_and_justice_sector__capital_expenditure.ministry_of_justice"
   },
   "Regional Sector (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.regional_sector__capital_expenditure.oil_producing_communities_development_agency_commission"
+    "path": "total__capital_expenditure.regional_sector__capital_expenditure"
   },
   "Oil Producing Communities Development Agency/Commission (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.regional_sector__capital_expenditure.state_capital_development_agency_ministry"
+    "path": "total__capital_expenditure.regional_sector__capital_expenditure.oil_producing_communities_development_agency_commission"
   },
   "State Capital Development Agency/Ministry (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure"
+    "path": "total__capital_expenditure.regional_sector__capital_expenditure.state_capital_development_agency_ministry"
   },
   "Social Sector (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_youth_development"
+    "path": "total__capital_expenditure.social_sector__capital_expenditure"
   },
   "Ministry of Youth Development (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_women_affairs"
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_youth_development"
   },
   "Ministry of Women Affairs (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_education"
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_women_affairs"
   },
   "Ministry of Education (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_health"
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_education"
   },
   "Ministry of Health (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_environment"
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_health"
   },
   "Ministry of Environment (Capital Expenditure)": {
     "category": "exp_by_admin_capital",
-    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_sports_development"
+    "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_environment"
   },
   "Ministry of Local Government (Capital Expenditure)": {
-    "category": "exp_by_func_recurrent",
+    "category": "exp_by_admin_capital",
     "path": "total__capital_expenditure.social_sector__capital_expenditure.ministry_of_local_government"
   },
   "Expenditure by Functions (Recurrent)": {
@@ -833,135 +833,135 @@
   },
   "General Public Service (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.executive_legislative_organ_financial_external"
+    "path": "general_public_service"
   },
   "Executive & Legislative Organ, Financial Affairs and External Affairs (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.executive_legislative_organ_financial_external.financial_fiscal_affairs"
+    "path": "general_public_service.executive_legislative_organ_financial_external"
   },
   "Executive Organ and Legislative Organs (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.foreign_economic_aid__recurrent_expenditure"
+    "path": "general_public_service.executive_legislative_organ_financial_external.executive_organ_and_legislative_organs"
   },
   "Financial and Fiscal Affairs (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.foreign_economic_aid__recurrent_expenditure.economic_aid_to_developing_countries_and_countries_in_transition"
+    "path": "general_public_service.executive_legislative_organ_financial_external.financial_fiscal_affairs"
   },
   "Foreign and Economic Aid (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.foreign_economic_aid__recurrent_expenditure.economic_aid_routed_through_international_organisations"
+    "path": "general_public_service.foreign_economic_aid__recurrent_expenditure"
   },
   "Economic Aid to Developing Countries and Countries in Transition (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.general_services__recurrent_expenditure"
+    "path": "general_public_service.foreign_economic_aid__recurrent_expenditure.economic_aid_to_developing_countries_and_countries_in_transition"
   },
   "Economic Aid routed through International Organisations (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.general_services__recurrent_expenditure.general_personnel_services"
+    "path": "general_public_service.foreign_economic_aid__recurrent_expenditure.economic_aid_routed_through_international_organisations"
   },
   "General Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.general_services__recurrent_expenditure.overall_planning_and_statistical_services"
+    "path": "general_public_service.general_services__recurrent_expenditure"
   },
   "General Personnel Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.general_services__recurrent_expenditure.other_general_services"
+    "path": "general_public_service.general_services__recurrent_expenditure.general_personnel_services"
   },
   "Overall Planning and Statistical Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.basic_research__recurrent_expenditure"
+    "path": "general_public_service.general_services__recurrent_expenditure.overall_planning_and_statistical_services"
   },
   "Other General Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.basic_research__recurrent_expenditure.basic_research"
+    "path": "general_public_service.general_services__recurrent_expenditure.other_general_services"
   },
   "Basic Research (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.rd_general_public_services__recurrent_expenditure"
+    "path": "general_public_service.basic_research__recurrent_expenditure"
   },
   "R&D General Public Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.general_public_servuces_nec__recurrent_expenditure"
+    "path": "general_public_service.rd_general_public_services__recurrent_expenditure"
   },
   "General Public Services N.E.C (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.public_debt_transactions__recurrent_expenditure"
+    "path": "general_public_service.general_public_servuces_nec__recurrent_expenditure.general_public_servuces_nec"
   },
   "Public Debt Transactions (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "gp_service.transfer_general_character_between_dif_levels_of_gov"
+    "path": "general_public_service.public_debt_transactions__recurrent_expenditure.public_debt_transactions"
   },
   "Transfer of a General Character between Different Levels of Government (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "public_order"
+    "path": "general_public_service.transfer_general_character_between_dif_levels_of_gov.transfer_general_character_between_dif_levels_of_gov"
   },
   "Public Order and Safety (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "public_order.police_services__recurrent_expenditure.state_expenditure_to_support_police_services"
+    "path": "public_order_safety"
   },
   "Police Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "public_order.fire_protection_services__recurrent_expenditure"
+    "path": "public_order_safety.police_services__recurrent_expenditure"
   },
   "State Expenditure to Support Police Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "public_order.fire_protection_services__recurrent_expenditure.fire_protection_services"
+    "path": "public_order_safety.police_services__recurrent_expenditure.state_expenditure_to_support_police_services"
   },
   "Fire Protection Services (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "public_order.justice_law_courts__recurrent_expenditure"
+    "path": "public_order_safety.fire_protection_services__recurrent_expenditure.fire_protection_services"
   },
   "Justice & Law Courts (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs"
+    "path": "public_order_safety.justice_law_courts__recurrent_expenditure.justice_law_courts"
   },
   "Economic Affairs (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_commercial_affairs"
+    "path": "economic_affairs"
   },
   "General Economic, Commercial and Labour Affairs (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_labour_affairs"
+    "path": "economic_affairs.general_economic_commercial_labour_affairs"
   },
   "General Economic and Commercial Affairs (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__recurrent_expenditure"
+    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_commercial_affairs"
   },
   "General Labour Affairs (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__recurrent_expenditure.agriculture"
+    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_labour_affairs"
   },
   "Agriculture, Forestry, Fishing and Hunting (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__recurrent_expenditure.forestry"
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__recurrent_expenditure"
   },
   "Agriculture (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__recurrent_expenditure.fishing_and_hunting"
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__recurrent_expenditure.agriculture"
   },
   "Forestry (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.fuel_energy__recurrent_expenditure"
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__recurrent_expenditure.forestry"
   },
   "Fishing and Hunting (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.fuel_energy__recurrent_expenditure.coal_solid_mineral_fuel"
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__recurrent_expenditure.fishing_and_hunting"
   },
   "Fuel and Energy (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.fuel_energy__recurrent_expenditure.electricity"
+    "path": "economic_affairs.fuel_energy__recurrent_expenditure"
   },
   "Coal and Solid Mineral Fuel (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.fuel_energy__recurrent_expenditure.non_electric_energy"
+    "path": "economic_affairs.fuel_energy__recurrent_expenditure.coal_solid_mineral_fuel"
   },
   "Electricity (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.mining_manufacturing_construction__recurrent_expenditure"
+    "path": "economic_affairs.fuel_energy__recurrent_expenditure.electricity"
   },
   "Non Electricity Energy (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
-    "path": "economic_affairs.mining_manufacturing_construction__recurrent_expenditure.state_support_to_mining_resources_other_than_mineral_fuels"
+    "path": "economic_affairs.fuel_energy__recurrent_expenditure.non_electric_energy"
   },
   "Mining, Manufacturing and Construction (Recurrent Expenditure)": {
     "category": "exp_by_func_recurrent",
@@ -1333,135 +1333,135 @@
   },
   "General Public Service (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.executive_legislative_organ_financial_external"
+    "path": "general_public_service"
   },
   "Executive & Legislative Organ, Financial Affairs and External Affairs (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.executive_legislative_organ_financial_external.financial_fiscal_affairs"
+    "path": "general_public_service.executive_legislative_organ_financial_external"
   },
   "Executive Organ and Legislative Organs (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.foreign_economic_aid__capital_expenditure"
+    "path": "general_public_service.executive_legislative_organ_financial_external.executive_organ_and_legislative_organs"
   },
   "Financial and Fiscal Affairs (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.foreign_economic_aid__capital_expenditure.economic_aid_to_developing_countries_and_countries_in_transition"
+    "path": "general_public_service.executive_legislative_organ_financial_external.financial_fiscal_affairs"
   },
   "Foreign and Economic Aid (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.foreign_economic_aid__capital_expenditure.economic_aid_routed_through_international_organisations"
+    "path": "general_public_service.foreign_economic_aid__capital_expenditure"
   },
   "Economic Aid to Developing Countries and Countries in Transition (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.general_services__capital_expenditure"
+    "path": "general_public_service.foreign_economic_aid__capital_expenditure.economic_aid_to_developing_countries_and_countries_in_transition"
   },
   "Economic Aid routed through International Organisations (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.general_services__capital_expenditure.general_personnel_services"
+    "path": "general_public_service.foreign_economic_aid__capital_expenditure.economic_aid_routed_through_international_organisations"
   },
   "General Services (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.general_services__capital_expenditure.overall_planning_and_statistical_services"
+    "path": "general_public_service.general_services__capital_expenditure"
   },
   "General Personnel Services (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.general_services__capital_expenditure.other_general_services"
+    "path": "general_public_service.general_services__capital_expenditure.general_personnel_services"
   },
   "Overall Planning and Statistical Services (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.basic_research__capital_expenditure"
+    "path": "general_public_service.general_services__capital_expenditure.overall_planning_and_statistical_services"
   },
   "Other General Services (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.basic_research__capital_expenditure.basic_research"
+    "path": "general_public_service.general_services__capital_expenditure.other_general_services"
   },
   "Basic Research (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.rd_general_public_services__capital_expenditure"
+    "path": "general_public_service.basic_research__capital_expenditure"
   },
   "R&D General Public Services (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.general_public_servuces_nec__capital_expenditure"
+    "path": "general_public_service.rd_general_public_services__capital_expenditure"
   },
   "General Public Services N.E.C (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.public_debt_transactions__capital_expenditure"
+    "path": "general_public_service.general_public_servuces_nec__capital_expenditure.general_public_servuces_nec"
   },
   "Public Debt Transactions (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "gp_service.transfer_general_character_between_dif_levels_of_gov"
+    "path": "general_public_service.public_debt_transactions__capital_expenditure.public_debt_transactions"
   },
   "Transfer of a General Character between Different Levels of Government (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "public_order"
+    "path": "general_public_service.transfer_general_character_between_dif_levels_of_gov.transfer_general_character_between_dif_levels_of_gov"
   },
   "Public Order and Safety (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "public_order.police_services__capital_expenditure.state_expenditure_to_support_police_services"
+    "path": "public_order_safety"
   },
   "Police Services (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "public_order.fire_protection_services__capital_expenditure"
+    "path": "public_order_safety.police_services__capital_expenditure"
   },
   "State Expenditure to Support Police Services (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "public_order.fire_protection_services__capital_expenditure.fire_protection_services"
+    "path": "public_order_safety.police_services__capital_expenditure.state_expenditure_to_support_police_services"
   },
   "Fire Protection Services (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "public_order.justice_law_courts__capital_expenditure"
+    "path": "public_order_safety.fire_protection_services__capital_expenditure.fire_protection_services"
   },
   "Justice & Law Courts (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs"
+    "path": "public_order_safety.justice_law_courts__capital_expenditure.justice_law_courts"
   },
   "Economic Affairs (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_commercial_affairs"
+    "path": "economic_affairs"
   },
   "General Economic, Commercial and Labour Affairs (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_labour_affairs"
+    "path": "economic_affairs.general_economic_commercial_labour_affairs"
   },
   "General Economic and Commercial Affairs (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure"
+    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_commercial_affairs"
   },
   "General Labour Affairs (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.agriculture"
+    "path": "economic_affairs.general_economic_commercial_labour_affairs.general_economic_labour_affairs"
   },
   "Agriculture, Forestry, Fishing and Hunting (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.forestry"
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure"
   },
   "Agriculture (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.fishing_and_hunting"
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.agriculture"
   },
   "Forestry (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.fuel_energy__capital_expenditure"
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.forestry"
   },
   "Fishing and Hunting (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.fuel_energy__capital_expenditure.coal_solid_mineral_fuel"
+    "path": "economic_affairs.agriculture_forestry_fishing_hunting__capital_expenditure.fishing_and_hunting"
   },
   "Fuel and Energy (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.fuel_energy__capital_expenditure.electricity"
+    "path": "economic_affairs.fuel_energy__capital_expenditure"
   },
   "Coal and Solid Mineral Fuel (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.fuel_energy__capital_expenditure.non_electric_energy"
+    "path": "economic_affairs.fuel_energy__capital_expenditure.coal_solid_mineral_fuel"
   },
   "Electricity (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.mining_manufacturing_construction__capital_expenditure"
+    "path": "economic_affairs.fuel_energy__capital_expenditure.electricity"
   },
   "Non Electricity Energy (Capital Expenditure)": {
     "category": "exp_by_func_capital",
-    "path": "economic_affairs.mining_manufacturing_construction__capital_expenditure.state_support_to_mining_resources_other_than_mineral_fuels"
+    "path": "economic_affairs.fuel_energy__capital_expenditure.non_electric_energy"
   },
   "Mining, Manufacturing and Construction (Capital Expenditure)": {
     "category": "exp_by_func_capital",
