@@ -8,7 +8,24 @@ import * as XLSX from 'xlsx';
 
 @Injectable()
 export class BudgetService {
+  private mappingsCache: any = null;
+  private fetchCache = new Map<string, { timestamp: number; data: any }>();
+  private readonly CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes cache
+
   constructor(private readonly prisma: PrismaService) {}
+
+  private getMappings(): any {
+    if (!this.mappingsCache) {
+      const mappingsPath = require('path').join(
+        process.cwd(),
+        'src/field-mappings.json',
+      );
+      this.mappingsCache = JSON.parse(
+        require('fs').readFileSync(mappingsPath, 'utf8'),
+      );
+    }
+    return this.mappingsCache;
+  }
 
   async uploadAll(file: Express.Multer.File) {
     if (!file?.buffer) throw new BadRequestException('No file provided');
@@ -385,6 +402,13 @@ export class BudgetService {
         .filter(Boolean);
     }
 
+    const cacheKey = `fetch_${year}_${type}_${stateNames.slice().sort().join(',')}`;
+    const now = Date.now();
+    const cached = this.fetchCache.get(cacheKey);
+    if (cached && now - cached.timestamp < this.CACHE_TTL_MS) {
+      return cached.data;
+    }
+
     const states = await this.prisma.state.findMany();
     const stateMap = new Map<number, string>();
     const stateNameMap = new Map<string, number>();
@@ -417,54 +441,52 @@ export class BudgetService {
       targetStateIds = states.map((s) => s.id);
     }
 
-    // 2. Load mappings
-    const mappingsPath = require('path').join(
-      process.cwd(),
-      'src/field-mappings.json',
-    );
-    const mappings = JSON.parse(
-      require('fs').readFileSync(mappingsPath, 'utf8'),
-    ) as any;
+    // 2. Load cached mappings
+    const mappings = this.getMappings();
 
-    // 3. Fetch data from DB or sheet
+    // 3. Fetch items and DB records in parallel
     let records: { stateId: number; itemId: number; amount: number }[] = [];
+    let items: any[] = [];
 
     if (type === 'revised') {
+      items = await this.prisma.publicFinanceItem.findMany();
       records = await this.readSheetOnTheFly(`B${year}R`, stateNameMap);
-    } else if (type === 'actual') {
-      const data = await this.prisma.publicFinanceActual.findMany({
-        where: {
-          year,
-          stateId: { in: targetStateIds },
-        },
-      });
-      records = data.map((d) => ({
-        stateId: d.stateId,
-        itemId: d.itemId,
-        amount: d.amount.toNumber(),
-      }));
     } else {
-      // original budget
-      const data = await this.prisma.publicFinanceBudget.findMany({
-        where: {
-          year,
-          stateId: { in: targetStateIds },
-        },
-      });
-      records = data.map((d) => ({
+      const [itemsData, dbRecordsData] = await Promise.all([
+        this.prisma.publicFinanceItem.findMany(),
+        type === 'actual'
+          ? this.prisma.publicFinanceActual.findMany({
+              where: { year, stateId: { in: targetStateIds } },
+            })
+          : this.prisma.publicFinanceBudget.findMany({
+              where: { year, stateId: { in: targetStateIds } },
+            }),
+      ]);
+      items = itemsData;
+      records = dbRecordsData.map((d) => ({
         stateId: d.stateId,
         itemId: d.itemId,
         amount: d.amount.toNumber(),
       }));
     }
 
-    const items = await this.prisma.publicFinanceItem.findMany();
     const itemMap = new Map<number, string>(
       items.map((i) => [i.id, i.description]),
     );
     const descToCodeMap = new Map<string, string | null>(
       items.map((i) => [i.description, i.code]),
     );
+
+    // Group records by stateId for O(1) lookup
+    const recordsByStateMap = new Map<number, Array<{ stateId: number; itemId: number; amount: number }>>();
+    for (const r of records) {
+      let list = recordsByStateMap.get(r.stateId);
+      if (!list) {
+        list = [];
+        recordsByStateMap.set(r.stateId, list);
+      }
+      list.push(r);
+    }
 
     // 4. Construct response shape per state
     const result: any[] = [];
@@ -513,35 +535,55 @@ export class BudgetService {
             type,
           },
         ],
+        exp_by_programme_recurrent: [
+          {
+            state: stateName.toLowerCase().replace(/ /g, '_'),
+            year: String(year),
+            type,
+          },
+        ],
+        exp_by_programme_capital: [
+          {
+            state: stateName.toLowerCase().replace(/ /g, '_'),
+            year: String(year),
+            type,
+          },
+        ],
       };
 
       // Pre-initialize all paths from mappings to { value: 0, code: ... }
       for (const [itemDesc, mappingInfo] of Object.entries(mappings) as [string, any][]) {
+        if (!mappingInfo) continue;
         const { category, path } = mappingInfo;
+        if (!category || !path || typeof path !== 'string') continue;
         const targetObj = stateObj[category];
         if (!targetObj) continue;
 
         const code = descToCodeMap.get(itemDesc) || null;
         if (Array.isArray(targetObj)) {
-          this.setNestedProperty(targetObj[0], path, { value: 0, code });
+          if (targetObj[0]) {
+            this.setNestedProperty(targetObj[0], path, { value: 0, code });
+          }
         } else {
           this.setNestedProperty(targetObj, path, { value: 0, code });
         }
       }
 
-      const stateRecords = records.filter((r) => r.stateId === stateId);
+      const stateRecords = recordsByStateMap.get(stateId) || [];
       for (const record of stateRecords) {
         const itemDesc = itemMap.get(record.itemId);
         if (!itemDesc) continue;
         const mappingInfo = mappings[itemDesc];
-        if (!mappingInfo) continue;
+        if (!mappingInfo || !mappingInfo.category || !mappingInfo.path || typeof mappingInfo.path !== 'string') continue;
 
         const { category, path } = mappingInfo;
         const targetObj = stateObj[category];
         if (!targetObj) continue;
 
         if (Array.isArray(targetObj)) {
-          this.setNestedProperty(targetObj[0], path, { value: record.amount });
+          if (targetObj[0]) {
+            this.setNestedProperty(targetObj[0], path, { value: record.amount });
+          }
         } else {
           this.setNestedProperty(targetObj, path, { value: record.amount });
         }
@@ -550,12 +592,14 @@ export class BudgetService {
       result.push(stateObj);
     }
 
-    return {
+    const response = {
       success: true,
       data: {
         result,
       },
     };
+    this.fetchCache.set(cacheKey, { timestamp: Date.now(), data: response });
+    return response;
   }
 
   async fetchPi(yearStr: string, stateQuery?: string | string[]) {
@@ -572,6 +616,13 @@ export class BudgetService {
         .flatMap((s) => s.split(','))
         .map((s) => s.trim().toUpperCase())
         .filter(Boolean);
+    }
+
+    const cacheKey = `fetchPi_${year}_${stateNames.slice().sort().join(',')}`;
+    const now = Date.now();
+    const cached = this.fetchCache.get(cacheKey);
+    if (cached && now - cached.timestamp < this.CACHE_TTL_MS) {
+      return cached.data;
     }
 
     const states = await this.prisma.state.findMany();
@@ -774,12 +825,14 @@ export class BudgetService {
       }
     }
 
-    return {
+    const response = {
       success: true,
       data: {
         result: Array.from(stateObjects.values()),
       },
     };
+    this.fetchCache.set(cacheKey, { timestamp: Date.now(), data: response });
+    return response;
   }
 
   private async readSheetOnTheFly(
@@ -815,7 +868,30 @@ export class BudgetService {
     const records: any[] = [];
     for (const row of rawJson) {
       let description =
-        row['__EMPTY'] || row['ACTUAL'] || row['ORIGINAL BUDGET'];
+        row['REVISED BUDGET'] ||
+        row['REVISED'] ||
+        row['__EMPTY'] ||
+        row['ACTUAL'] ||
+        row['ORIGINAL BUDGET'];
+
+      if (!description) {
+        for (const [k, v] of Object.entries(row)) {
+          if (
+            k !== 'Code' &&
+            typeof v === 'string' &&
+            v.trim() &&
+            !stateNameMap.has(k.toUpperCase().trim()) &&
+            v !== 'Revised Budget' &&
+            v !== 'Original Budget' &&
+            v !== 'Actual' &&
+            v !== 'Budget'
+          ) {
+            description = v.trim();
+            break;
+          }
+        }
+      }
+
       if (!description) continue;
       description = String(description).trim();
       const itemId = itemMap.get(description);
@@ -826,7 +902,9 @@ export class BudgetService {
           key === 'Code' ||
           key === '__EMPTY' ||
           key === 'ACTUAL' ||
-          key === 'ORIGINAL BUDGET'
+          key === 'ORIGINAL BUDGET' ||
+          key === 'REVISED BUDGET' ||
+          key === 'REVISED'
         )
           continue;
         if (
@@ -834,6 +912,9 @@ export class BudgetService {
           value === '' ||
           value === 'Actual' ||
           value === 'ORIGINAL BUDGET' ||
+          value === 'Original Budget' ||
+          value === 'Revised Budget' ||
+          value === 'REVISED BUDGET' ||
           value === 'Budget'
         )
           continue;
@@ -867,6 +948,7 @@ export class BudgetService {
   }
 
   private setNestedProperty(obj: any, path: string, value: any) {
+    if (!obj || !path || typeof path !== 'string') return;
     const parts = path.split('.');
     let current = obj;
     for (let i = 0; i < parts.length - 1; i++) {
