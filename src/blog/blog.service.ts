@@ -7,23 +7,36 @@ import { v2 as cloudinary } from 'cloudinary';
 
 function extractLocalImages(markdown: string): string[] {
   if (!markdown) return [];
-  const regex = /!\[.*?\]\((.*?)\)/g;
-  const images: string[] = [];
+  const images = new Set<string>();
+
+  // 1. Match Markdown images: ![alt](url "optional title")
+  const mdRegex = /!\[.*?\]\(\s*([^\s\)]+)(?:\s+["'].*?["'])?\s*\)/g;
   let match;
-  while ((match = regex.exec(markdown)) !== null) {
-    const url = match[1];
+  while ((match = mdRegex.exec(markdown)) !== null) {
+    const url = match[1].replace(/["']/g, '').trim();
     if (url.includes('/blogs/') || url.includes('/blog/')) {
-      images.push(url);
+      images.add(url);
     }
   }
-  return images;
+
+  // 2. Match HTML <img> tags: <img ... src="url" ...>
+  const htmlRegex = /<img\s+[^>]*src=["']?([^"'\s>]+)["']?[^>]*>/gi;
+  while ((match = htmlRegex.exec(markdown)) !== null) {
+    const url = match[1].replace(/["']/g, '').trim();
+    if (url.includes('/blogs/') || url.includes('/blog/')) {
+      images.add(url);
+    }
+  }
+
+  return Array.from(images);
 }
 
 async function deleteCloudinaryImage(url: string): Promise<void> {
   if (!url) return;
-  if (url.includes('cloudinary.com')) {
+  const cleanUrl = url.replace(/["']/g, '').trim();
+  if (cleanUrl.includes('cloudinary.com')) {
     try {
-      const parts = url.split('/');
+      const parts = cleanUrl.split('/');
       const uploadIndex = parts.indexOf('upload');
       if (uploadIndex === -1) return;
 
@@ -45,18 +58,18 @@ async function deleteCloudinaryImage(url: string): Promise<void> {
       const publicId = remaining.join('/');
       await cloudinary.uploader.destroy(publicId);
     } catch (err) {
-      console.error(`Failed to delete Cloudinary image: ${url}`, err);
+      console.error(`Failed to delete Cloudinary image: ${cleanUrl}`, err);
     }
-  } else if (url.includes('/blogs/') || url.includes('/blog/')) {
-    const index = url.includes('/blogs/') ? url.indexOf('/blogs/') : url.indexOf('/blog/');
-    const relativePath = url.substring(index);
+  } else if (cleanUrl.includes('/blogs/') || cleanUrl.includes('/blog/')) {
+    const index = cleanUrl.includes('/blogs/') ? cleanUrl.indexOf('/blogs/') : cleanUrl.indexOf('/blog/');
+    const relativePath = cleanUrl.substring(index);
     const oldImagePath = path.join(process.cwd(), 'public', relativePath);
     try {
       if (fs.existsSync(oldImagePath)) {
         fs.unlinkSync(oldImagePath);
       }
     } catch (err) {
-      console.error(`Failed to delete local fallback image: ${url}`, err);
+      console.error(`Failed to delete local fallback image: ${cleanUrl}`, err);
     }
   }
 }
