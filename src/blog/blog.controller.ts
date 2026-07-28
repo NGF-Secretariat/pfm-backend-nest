@@ -5,6 +5,7 @@ import {
   Patch,
   Body,
   Post,
+  Delete,
   UseInterceptors,
   UploadedFile,
   BadRequestException,
@@ -49,5 +50,10 @@ export class BlogController {
   @Patch(':slug')
   update(@Param('slug') slug: string, @Body() updateData: any) {
     return this.blogService.update(slug, updateData);
+  }
+
+  @Delete(':slug')
+  remove(@Param('slug') slug: string) {
+    return this.blogService.remove(slug);
   }
 }

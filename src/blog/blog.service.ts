@@ -153,4 +153,31 @@ export class BlogService {
 
     return { success: true, data: updatedBlog };
   }
+
+  async remove(slug: string) {
+    const blog = await this.prisma.blogPost.findUnique({ where: { slug } });
+    if (!blog) {
+      throw new NotFoundException('Blog post not found');
+    }
+
+    // 1. Clean up cover image
+    if (blog.image) {
+      await deleteCloudinaryImage(blog.image);
+    }
+
+    // 2. Clean up inline body images
+    if (blog.content) {
+      const bodyImages = extractLocalImages(blog.content);
+      for (const img of bodyImages) {
+        await deleteCloudinaryImage(img);
+      }
+    }
+
+    // 3. Delete blog from database
+    await this.prisma.blogPost.delete({
+      where: { slug },
+    });
+
+    return { success: true, message: 'Blog post deleted successfully' };
+  }
 }
