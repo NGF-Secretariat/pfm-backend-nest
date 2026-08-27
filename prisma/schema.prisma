@@ -355,6 +355,7 @@ model BlogPost {
   title     String
   image     String
   date      String
+  author    String?  @default("NGF Secretariat")
   excerpt   String   @db.Text
   content   String   @db.Text
   createdAt DateTime @default(now())
