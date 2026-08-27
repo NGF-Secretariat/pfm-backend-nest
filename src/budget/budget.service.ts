@@ -8,6 +8,34 @@ import * as XLSX from 'xlsx';
 import * as fs from 'fs';
 import * as path from 'path';
 
+function normalizeStateKey(key: string): string {
+  if (!key) return '';
+  let norm = key
+    .toUpperCase()
+    .replace(/STATE/g, '')
+    .replace(/[-_]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (norm === 'CROSS RIVERS' || norm === 'CROSS RIVERS') norm = 'CROSS RIVER';
+  if (norm === 'AKWA IBOM') norm = 'AKWA IBOM';
+  return norm;
+}
+
+function normalizeItemDescription(desc: string): string {
+  if (!desc) return '';
+  return desc
+    .toLowerCase()
+    .replace(/\(recurrent expenditure\)/g, '')
+    .replace(/\(capital expenditure\)/g, '')
+    .replace(/federation accounts/g, 'federation revenue')
+    .replace(/other faac transfers/g, 'other federation revenues')
+    .replace(/share of vat/g, 'share of value added tax vat')
+    .replace(/state government of/g, 'state government share of')
+    .replace(/transfers-payment/g, 'transfers-payments')
+    .replace(/[^a-z0-9]/g, '')
+    .trim();
+}
+
 function parseNumberValue(val: any): number | null {
   if (val === null || val === undefined || val === '') return null;
   if (typeof val === 'number') return isNaN(val) ? null : val;
@@ -263,13 +291,17 @@ export class BudgetService {
 
     // Load states to memory map
     const dbStates = await this.prisma.state.findMany();
-    // Normalize mapping (e.g. "Cross Rivers" -> "CROSS RIVER")
     const stateMap = new Map<string, number>();
     for (const s of dbStates) {
       stateMap.set(s.name.toUpperCase().trim(), s.id);
-      // common variations
-      if (s.name === 'CROSS RIVER') stateMap.set('CROSS RIVERS', s.id);
-      if (s.name === 'AKWA IBOM') stateMap.set('AKWA-IBOM', s.id);
+      stateMap.set(normalizeStateKey(s.name), s.id);
+      if (s.name === 'CROSS RIVER') {
+        stateMap.set('CROSS RIVERS', s.id);
+        stateMap.set('CROSS-RIVERS', s.id);
+      }
+      if (s.name === 'AKWA IBOM') {
+        stateMap.set('AKWA-IBOM', s.id);
+      }
     }
 
     const itemMapToCreate = new Map<string, string | null>();
@@ -351,7 +383,8 @@ export class BudgetService {
         if (numValue === null) continue;
 
         const stateName = key.toUpperCase().trim();
-        const stateId = stateMap.get(stateName);
+        const normKey = normalizeStateKey(key);
+        const stateId = stateMap.get(normKey) || stateMap.get(stateName);
         if (!stateId) continue; // Not a state column
 
         chunkPayloads.push({
@@ -556,12 +589,27 @@ export class BudgetService {
       }));
     }
 
-    const itemMap = new Map<number, string>(
-      items.map((i) => [i.id, i.description]),
+    const normDescToMapping = new Map<string, any>();
+    for (const [desc, info] of Object.entries(mappings) as [string, any][]) {
+      const norm = normalizeItemDescription(desc);
+      if (norm && !normDescToMapping.has(norm)) {
+        normDescToMapping.set(norm, info);
+      }
+    }
+
+    const itemMap = new Map<number, any>(
+      items.map((i) => [i.id, i]),
     );
-    const descToCodeMap = new Map<string, string | null>(
-      items.map((i) => [i.description, i.code]),
-    );
+    const descToCodeMap = new Map<string, string | null>();
+    for (const i of items) {
+      if (i.code) {
+        descToCodeMap.set(i.description, i.code);
+        const norm = normalizeItemDescription(i.description);
+        if (norm && !descToCodeMap.has(norm)) {
+          descToCodeMap.set(norm, i.code);
+        }
+      }
+    }
 
     // Group records by stateId for O(1) lookup
     const recordsByStateMap = new Map<number, Array<{ stateId: number; itemId: number; amount: number }>>();
@@ -645,7 +693,8 @@ export class BudgetService {
         const targetObj = stateObj[category];
         if (!targetObj) continue;
 
-        const code = descToCodeMap.get(itemDesc) || null;
+        const normKey = normalizeItemDescription(itemDesc);
+        const code = descToCodeMap.get(itemDesc) || descToCodeMap.get(normKey) || null;
         if (Array.isArray(targetObj)) {
           if (targetObj[0]) {
             this.setNestedProperty(targetObj[0], path, { value: 0, code });
@@ -657,21 +706,53 @@ export class BudgetService {
 
       const stateRecords = recordsByStateMap.get(stateId) || [];
       for (const record of stateRecords) {
-        const itemDesc = itemMap.get(record.itemId);
-        if (!itemDesc) continue;
-        const mappingInfo = mappings[itemDesc];
+        const item = itemMap.get(record.itemId);
+        if (!item) continue;
+        const itemDesc = item.description;
+        let mappingInfo = mappings[itemDesc];
+        if (!mappingInfo) {
+          mappingInfo = normDescToMapping.get(normalizeItemDescription(itemDesc));
+        }
         if (!mappingInfo || !mappingInfo.category || !mappingInfo.path || typeof mappingInfo.path !== 'string') continue;
 
         const { category, path } = mappingInfo;
         const targetObj = stateObj[category];
         if (!targetObj) continue;
 
+        const normKey = normalizeItemDescription(itemDesc);
+        const code = item.code || descToCodeMap.get(itemDesc) || descToCodeMap.get(normKey) || null;
+
         if (Array.isArray(targetObj)) {
           if (targetObj[0]) {
-            this.setNestedProperty(targetObj[0], path, { value: record.amount });
+            this.setNestedProperty(targetObj[0], path, { value: record.amount, code });
           }
         } else {
-          this.setNestedProperty(targetObj, path, { value: record.amount });
+          this.setNestedProperty(targetObj, path, { value: record.amount, code });
+        }
+      }
+
+      // Fallback calculation for total_revenue (excluding opening balance) if missing or zero
+      const revEco = stateObj.revenue_by_economuc;
+      if (revEco && revEco.total_revenue_with_opening_balance) {
+        const withBalance =
+          typeof revEco.total_revenue_with_opening_balance === 'object'
+            ? revEco.total_revenue_with_opening_balance.value
+            : revEco.total_revenue_with_opening_balance;
+        const opening = revEco.opening_balance
+          ? typeof revEco.opening_balance === 'object'
+            ? revEco.opening_balance.value
+            : revEco.opening_balance
+          : 0;
+        const curTotRev = revEco.total_revenue
+          ? typeof revEco.total_revenue === 'object'
+            ? revEco.total_revenue.value
+            : revEco.total_revenue
+          : 0;
+
+        if ((!curTotRev || curTotRev === 0) && withBalance > 0) {
+          const computedTotRev = Math.max(0, withBalance - opening);
+          const code = descToCodeMap.get('Total Revenue') || '10000000';
+          revEco.total_revenue = { value: computedTotRev, code };
         }
       }
 
