@@ -8,6 +8,106 @@ import * as XLSX from 'xlsx';
 import * as fs from 'fs';
 import * as path from 'path';
 
+function parseNumberValue(val: any): number | null {
+  if (val === null || val === undefined || val === '') return null;
+  if (typeof val === 'number') return isNaN(val) ? null : val;
+  const str = String(val)
+    .replace(/,/g, '')
+    .replace(/%/g, '')
+    .replace(/\s+/g, '')
+    .trim();
+  if (!str) return null;
+  const num = Number(str);
+  return isNaN(num) ? null : num;
+}
+
+function evaluateCellFormula(
+  wb: XLSX.WorkBook | null,
+  currentSheetName: string,
+  cell: any,
+): number | null {
+  if (!cell) return null;
+  const directVal = parseNumberValue(cell.v);
+  if (directVal !== null && directVal !== 0) return directVal;
+
+  if (!cell.f || typeof cell.f !== 'string' || !wb) return directVal;
+
+  const f = cell.f.replace(/\[\d+\]/g, '').trim();
+
+  // 1. Division: Sheet1!Ref / Sheet2!Ref  or  'Sheet1'!Ref / 'Sheet2'!Ref
+  const divMatch = f.match(
+    /^'?([A-Za-z0-9 _-]+)'?!([A-Za-z0-9\$]+)\s*\/\s*'?([A-Za-z0-9 _-]+)'?!([A-Za-z0-9\$]+)$/,
+  );
+  if (divMatch) {
+    const [, s1, r1, s2, r2] = divMatch;
+    const v1 = getCellValueFromWorkbook(wb, s1, r1);
+    const v2 = getCellValueFromWorkbook(wb, s2, r2);
+    if (v1 !== null && v2 !== null && v2 !== 0) {
+      return v1 / v2;
+    }
+  }
+
+  // 2. Same sheet division: Ref / Ref
+  const sameSheetDivMatch = f.match(
+    /^([A-Za-z0-9\$]+)\s*\/\s*([A-Za-z0-9\$]+)$/,
+  );
+  if (sameSheetDivMatch) {
+    const [, r1, r2] = sameSheetDivMatch;
+    const v1 = getCellValueFromWorkbook(wb, currentSheetName, r1);
+    const v2 = getCellValueFromWorkbook(wb, currentSheetName, r2);
+    if (v1 !== null && v2 !== null && v2 !== 0) {
+      return v1 / v2;
+    }
+  }
+
+  // 3. SUM(ColRow1:ColRow2)
+  const sumMatch = f.match(/^SUM\(([A-Z]+)(\d+):([A-Z]+)(\d+)\)$/i);
+  if (sumMatch) {
+    const [, col1, row1, col2, row2] = sumMatch;
+    const normSheetName = wb.SheetNames.find(
+      (s) => s.trim().toUpperCase() === currentSheetName.trim().toUpperCase(),
+    );
+    if (normSheetName) {
+      const sheet = wb.Sheets[normSheetName];
+      if (sheet) {
+        let sum = 0;
+        const rStart = Math.min(parseInt(row1, 10), parseInt(row2, 10));
+        const rEnd = Math.max(parseInt(row1, 10), parseInt(row2, 10));
+        for (let r = rStart; r <= rEnd; r++) {
+          const cRef = `${col1}${r}`;
+          const cVal = parseNumberValue(sheet[cRef]?.v);
+          if (cVal !== null) sum += cVal;
+        }
+        return sum;
+      }
+    }
+  }
+
+  return directVal;
+}
+
+function getCellValueFromWorkbook(
+  wb: XLSX.WorkBook,
+  sheetName: string,
+  cellRef: string,
+): number | null {
+  const normSheetName = wb.SheetNames.find(
+    (s) => s.trim().toUpperCase() === sheetName.trim().toUpperCase(),
+  );
+  if (!normSheetName) return null;
+  const sheet = wb.Sheets[normSheetName];
+  if (!sheet) return null;
+  const cleanRef = cellRef.replace(/\$/g, '');
+  const cell = sheet[cleanRef];
+  if (!cell) return null;
+  const val = parseNumberValue(cell.v);
+  if (val !== null && val !== 0) return val;
+  if (cell.f) {
+    return evaluateCellFormula(wb, normSheetName, cell);
+  }
+  return val;
+}
+
 @Injectable()
 export class BudgetService {
   constructor(private readonly prisma: PrismaService) {}
@@ -247,8 +347,8 @@ export class BudgetService {
         )
           continue;
 
-        const numValue = Number(value);
-        if (isNaN(numValue)) continue;
+        const numValue = parseNumberValue(value);
+        if (numValue === null) continue;
 
         const stateName = key.toUpperCase().trim();
         const stateId = stateMap.get(stateName);
@@ -789,9 +889,17 @@ export class BudgetService {
           const colIndex = columnMap.get(stateId);
           let value = 0;
           if (colIndex !== undefined && colIndex < row.length) {
-            const rawVal = row[colIndex];
-            if (rawVal !== null && rawVal !== '' && !isNaN(Number(rawVal))) {
-              value = Number(rawVal);
+            const cellAddress = XLSX.utils.encode_cell({ r: rowIndex, c: colIndex });
+            const cell = sheet[cellAddress];
+            const evalVal = evaluateCellFormula(workbook, actualSheetName, cell);
+            if (evalVal !== null) {
+              value = evalVal;
+            } else {
+              const rawVal = row[colIndex];
+              const parsedVal = parseNumberValue(rawVal);
+              if (parsedVal !== null) {
+                value = parsedVal;
+              }
             }
           }
           const stateObj = stateObjects.get(stateId);
@@ -896,8 +1004,8 @@ export class BudgetService {
         )
           continue;
 
-        const numValue = Number(value);
-        if (isNaN(numValue)) continue;
+        const numValue = parseNumberValue(value);
+        if (numValue === null) continue;
 
         const stateName = key.toUpperCase().trim();
         let stateId = stateNameMap.get(stateName);
