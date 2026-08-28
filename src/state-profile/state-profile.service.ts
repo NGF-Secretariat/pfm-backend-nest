@@ -4,7 +4,7 @@ import * as xlsx from 'xlsx';
 
 @Injectable()
 export class StateProfileService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
   /**
    * Upload and parse the states.xlsx file
@@ -204,11 +204,10 @@ export class StateProfileService {
     actuals.forEach((a) => yearSet.add(a.year));
     budgets.forEach((b) => yearSet.add(b.year));
 
-    // Default to a common range if there's no data for the state yet
-    const years =
-      yearSet.size > 0
-        ? Array.from(yearSet).sort()
-        : [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+    // Include full range 2018-2026 in years list
+    const defaultRange = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+    defaultRange.forEach((y) => yearSet.add(y));
+    const years = Array.from(yearSet).sort((a, b) => a - b);
 
     const timeSeries = {
       original: {
@@ -297,14 +296,14 @@ export class StateProfileService {
       const actCap =
         capItems.length > 0
           ? actYear
-              .find((a) => capItems.some((i) => i.id === a.itemId))
-              ?.amount.toNumber() || 0
+            .find((a) => capItems.some((i) => i.id === a.itemId))
+            ?.amount.toNumber() || 0
           : 0;
       const budCap =
         capItems.length > 0
           ? budYear
-              .find((b) => capItems.some((i) => i.id === b.itemId))
-              ?.amount.toNumber() || 0
+            .find((b) => capItems.some((i) => i.id === b.itemId))
+            ?.amount.toNumber() || 0
           : 0;
       timeSeries.actual.capital.push({ year, value: actCap });
       timeSeries.original.capital.push({ year, value: budCap });
@@ -313,14 +312,14 @@ export class StateProfileService {
       const actPersVal =
         personnelItems.length > 0
           ? actYear
-              .find((a) => personnelItems.some((i) => i.id === a.itemId))
-              ?.amount.toNumber() || 0
+            .find((a) => personnelItems.some((i) => i.id === a.itemId))
+            ?.amount.toNumber() || 0
           : 0;
       const actOthVal =
         otherRecItems.length > 0
           ? actYear
-              .find((a) => otherRecItems.some((i) => i.id === a.itemId))
-              ?.amount.toNumber() || 0
+            .find((a) => otherRecItems.some((i) => i.id === a.itemId))
+            ?.amount.toNumber() || 0
           : 0;
       let actRecVal = actPersVal + actOthVal;
       if (actRecVal === 0 && totalRecItem) {
@@ -334,14 +333,14 @@ export class StateProfileService {
       const budPersVal =
         personnelItems.length > 0
           ? budYear
-              .find((b) => personnelItems.some((i) => i.id === b.itemId))
-              ?.amount.toNumber() || 0
+            .find((b) => personnelItems.some((i) => i.id === b.itemId))
+            ?.amount.toNumber() || 0
           : 0;
       const budOthVal =
         otherRecItems.length > 0
           ? budYear
-              .find((b) => otherRecItems.some((i) => i.id === b.itemId))
-              ?.amount.toNumber() || 0
+            .find((b) => otherRecItems.some((i) => i.id === b.itemId))
+            ?.amount.toNumber() || 0
           : 0;
       let budRecVal = budPersVal + budOthVal;
       if (budRecVal === 0 && totalRecItem) {
@@ -353,7 +352,10 @@ export class StateProfileService {
       timeSeries.original.recurrent.push({ year, value: budRecVal });
     }
 
-    return { success: true, data: { ...profile, timeSeries } };
+    const response = { success: true, data: { ...profile, timeSeries } };
+    // console.log(`[StateProfile] Response for ${slug} (including 2026):`, JSON.stringify(response, null, 2));
+    // console.log(`[StateProfile] Success for slug: ${slug}`);
+    return response;
   }
 
   async updateProfileBySlug(slug: string, updateData: any) {

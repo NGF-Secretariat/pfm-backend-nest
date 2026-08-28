@@ -308,7 +308,34 @@ export class BudgetService {
     for (const row of rawJson) {
       const code = row['Code'] ? String(row['Code']).trim() : null;
       let description =
-        row['__EMPTY'] || row['ACTUAL'] || row['ORIGINAL BUDGET'];
+        row['ORIGINAL BUDGET'] ||
+        row['REVISED BUDGET'] ||
+        row['REVISED'] ||
+        row['ACTUAL'] ||
+        row['__EMPTY'];
+
+      if (!description) {
+        for (const [k, v] of Object.entries(row)) {
+          if (
+            k !== 'Code' &&
+            k !== '__EMPTY_1' &&
+            k !== '__EMPTY_2' &&
+            typeof v === 'string' &&
+            v.trim() &&
+            !stateMap.has(normalizeStateKey(k)) &&
+            v !== 'Budget' &&
+            v !== 'Original Budget' &&
+            v !== 'Actual' &&
+            v !== 'REVENUE by Economic' &&
+            v !== 'EXPENDITURE by Function' &&
+            v !== 'EXPENDITURE by Administrative'
+          ) {
+            description = v.trim();
+            break;
+          }
+        }
+      }
+
       if (!description) continue;
       description = String(description).trim();
 
@@ -318,17 +345,16 @@ export class BudgetService {
       }
     }
 
-    const uniqueItemPromises = Array.from(itemMapToCreate.entries()).map(
-      ([description, code]) => {
-        return this.prisma.publicFinanceItem.upsert({
-          where: { description },
-          update: { code: code || undefined },
-          create: { code, description },
-        });
-      },
+    const uniqueItemsData = Array.from(itemMapToCreate.entries()).map(
+      ([description, code]) => ({
+        description,
+        code: code || undefined,
+      }),
     );
-
-    await this.prisma.$transaction(uniqueItemPromises);
+    await this.prisma.publicFinanceItem.createMany({
+      data: uniqueItemsData,
+      skipDuplicates: true,
+    });
 
     // Fetch items back for fast ID mapping
     const dbItems = await this.prisma.publicFinanceItem.findMany();
@@ -356,7 +382,34 @@ export class BudgetService {
 
     for (const row of rawJson) {
       let description =
-        row['__EMPTY'] || row['ACTUAL'] || row['ORIGINAL BUDGET'];
+        row['ORIGINAL BUDGET'] ||
+        row['REVISED BUDGET'] ||
+        row['REVISED'] ||
+        row['ACTUAL'] ||
+        row['__EMPTY'];
+
+      if (!description) {
+        for (const [k, v] of Object.entries(row)) {
+          if (
+            k !== 'Code' &&
+            k !== '__EMPTY_1' &&
+            k !== '__EMPTY_2' &&
+            typeof v === 'string' &&
+            v.trim() &&
+            !stateMap.has(normalizeStateKey(k)) &&
+            v !== 'Budget' &&
+            v !== 'Original Budget' &&
+            v !== 'Actual' &&
+            v !== 'REVENUE by Economic' &&
+            v !== 'EXPENDITURE by Function' &&
+            v !== 'EXPENDITURE by Administrative'
+          ) {
+            description = v.trim();
+            break;
+          }
+        }
+      }
+
       if (!description) continue;
       description = String(description).trim();
       const itemId = itemMap.get(description);
@@ -365,9 +418,8 @@ export class BudgetService {
       for (const [key, value] of Object.entries(row)) {
         if (
           key === 'Code' ||
-          key === '__EMPTY' ||
-          key === 'ACTUAL' ||
-          key === 'ORIGINAL BUDGET'
+          key === '__EMPTY_1' ||
+          key === '__EMPTY_2'
         )
           continue;
         if (
@@ -752,7 +804,8 @@ export class BudgetService {
         if ((!curTotRev || curTotRev === 0) && withBalance > 0) {
           const computedTotRev = Math.max(0, withBalance - opening);
           const code = descToCodeMap.get('Total Revenue') || '10000000';
-          revEco.total_revenue = { value: computedTotRev, code };
+          this.setNestedProperty(revEco, 'total_revenue.value', computedTotRev);
+          this.setNestedProperty(revEco, 'total_revenue.code', code);
         }
       }
 
