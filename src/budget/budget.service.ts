@@ -16,8 +16,15 @@ function normalizeStateKey(key: string): string {
     .replace(/[-_]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
-  if (norm === 'CROSS RIVERS' || norm === 'CROSS RIVERS') norm = 'CROSS RIVER';
-  if (norm === 'AKWA IBOM') norm = 'AKWA IBOM';
+  if (norm === 'CROSS RIVERS' || norm === 'CROSS-RIVERS') norm = 'CROSS RIVER';
+  if (norm === 'AKWA-IBOM') norm = 'AKWA IBOM';
+  if (
+    norm === 'NASARRAWA' ||
+    norm === 'NASSARAWA' ||
+    norm === 'NASSARRAWA'
+  ) {
+    norm = 'NASARAWA';
+  }
   return norm;
 }
 
@@ -301,6 +308,11 @@ export class BudgetService {
       }
       if (s.name === 'AKWA IBOM') {
         stateMap.set('AKWA-IBOM', s.id);
+      }
+      if (s.name === 'NASARAWA') {
+        stateMap.set('NASARRAWA', s.id);
+        stateMap.set('NASSARAWA', s.id);
+        stateMap.set('NASSARRAWA', s.id);
       }
     }
 
@@ -602,6 +614,12 @@ export class BudgetService {
             stateId = stateNameMap.get('CROSS RIVER');
           } else if (normalized === 'AKWA-IBOM') {
             stateId = stateNameMap.get('AKWA IBOM');
+          } else if (
+            normalized === 'NASARRAWA' ||
+            normalized === 'NASSARAWA' ||
+            normalized === 'NASSARRAWA'
+          ) {
+            stateId = stateNameMap.get('NASARAWA');
           }
         }
         if (stateId) {
@@ -859,6 +877,12 @@ export class BudgetService {
             stateId = stateNameMap.get('CROSS RIVER');
           } else if (normalized === 'AKWA-IBOM') {
             stateId = stateNameMap.get('AKWA IBOM');
+          } else if (
+            normalized === 'NASARRAWA' ||
+            normalized === 'NASSARAWA' ||
+            normalized === 'NASSARRAWA'
+          ) {
+            stateId = stateNameMap.get('NASARAWA');
           }
         }
         if (stateId) {
@@ -914,6 +938,13 @@ export class BudgetService {
           normalizedName === 'AKWA IBOM'
         ) {
           stateId = stateNameMap.get('AKWA IBOM');
+        } else if (
+          normalizedName === 'NASARRAWA' ||
+          normalizedName === 'NASSARAWA' ||
+          normalizedName === 'NASSARRAWA' ||
+          normalizedName === 'NASARAWA'
+        ) {
+          stateId = stateNameMap.get('NASARAWA');
         }
       }
       if (stateId) {
@@ -1152,6 +1183,12 @@ export class BudgetService {
             stateId = stateNameMap.get('CROSS RIVER');
           } else if (stateName === 'AKWA-IBOM') {
             stateId = stateNameMap.get('AKWA IBOM');
+          } else if (
+            stateName === 'NASARRAWA' ||
+            stateName === 'NASSARAWA' ||
+            stateName === 'NASSARRAWA'
+          ) {
+            stateId = stateNameMap.get('NASARAWA');
           }
         }
         if (!stateId) continue;

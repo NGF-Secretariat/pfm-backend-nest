@@ -96,7 +96,17 @@ export class LandingPageService {
     name: string,
     stateMap: Map<string, number>,
   ): number {
-    const id = stateMap.get(name.toUpperCase());
+    let clean = name.toUpperCase().trim();
+    if (
+      clean === 'NASARRAWA' ||
+      clean === 'NASSARAWA' ||
+      clean === 'NASSARRAWA'
+    ) {
+      clean = 'NASARAWA';
+    }
+    if (clean === 'CROSS RIVERS' || clean === 'CROSS-RIVERS') clean = 'CROSS RIVER';
+    if (clean === 'AKWA-IBOM') clean = 'AKWA IBOM';
+    const id = stateMap.get(clean);
     if (!id) throw new Error(`State not found: ${name}`);
     return id;
   }
