@@ -147,6 +147,18 @@ function getCellValueFromWorkbook(
 export class BudgetService {
   constructor(private readonly prisma: PrismaService) {}
 
+  private getMasterWorkbookPath(): string {
+    const candidates = [
+      'New Public Finance Database + 2018-2025 Indicators.xlsx',
+      'Public Finance Database (2018-2026) + Indicators.xlsx',
+    ];
+    for (const c of candidates) {
+      const p = path.join(process.cwd(), c);
+      if (fs.existsSync(p)) return p;
+    }
+    // fallback to the original expected path
+    return path.join(process.cwd(), candidates[1]);
+  }
   private getMappings(): any {
     const mappingsPath = path.join(process.cwd(), 'src/field-mappings.json');
     return JSON.parse(fs.readFileSync(mappingsPath, 'utf8'));
@@ -219,10 +231,7 @@ export class BudgetService {
 
     const targetSheetName = type === 'PI' ? `PI${year}` : `B${year}R`;
 
-    const workbookPath = path.join(
-      process.cwd(),
-      'Public Finance Database (2018-2026) + Indicators.xlsx',
-    );
+      const workbookPath = this.getMasterWorkbookPath();
     const workbook = XLSX.readFile(workbookPath);
 
     const uploadedWorkbook = XLSX.read(file.buffer, { type: 'buffer' });
@@ -250,7 +259,7 @@ export class BudgetService {
 
     let workbook: XLSX.WorkBook;
     try {
-      workbook = XLSX.readFile(filePath);
+        workbook = XLSX.readFile(filePath);
     } catch (error) {
       throw new BadRequestException(
         `Failed to read file from path: ${filePath}`,
