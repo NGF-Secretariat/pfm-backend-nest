@@ -31,6 +31,7 @@ model State {
 
   publicFinanceActuals   PublicFinanceActual[]
   publicFinanceBudgets   PublicFinanceBudget[]
+  performanceIndicators  PerformanceIndicator[]
 
   profile StateProfile?
 
@@ -295,6 +296,23 @@ model PublicFinanceBudget {
   @@unique([stateId, year, itemId])
   @@index([year])
   @@map("public_finance_budgets")
+}
+
+// ---------------------------------------------------------------------------
+// Performance Indicators (PI)
+// Stored as structured JSON per state + year using fields defined in src/pi-fields.json
+// ---------------------------------------------------------------------------
+model PerformanceIndicator {
+  id      Int    @id @default(autoincrement())
+  stateId Int
+  year    Int
+  data    Json
+
+  state   State  @relation(fields: [stateId], references: [id])
+
+  @@unique([stateId, year])
+  @@index([year])
+  @@map("performance_indicators")
 }
 
 // ---------------------------------------------------------------------------

@@ -1094,6 +1094,31 @@ export class BudgetService {
     return response;
   }
 
+  // New helper: persist fetched PI objects into DB for given year(s)
+  async persistPiYearObjects(years: number[] = []) {
+    const toRun = years.length > 0 ? years : Array.from({ length: 8 }, (_, i) => 2018 + i);
+    for (const y of toRun) {
+      const res = await this.fetchPi(String(y));
+      const items = res.data.result || [];
+      for (const obj of items) {
+        const stateSlug = obj.indicators.state || '';
+        const stateName = stateSlug.replace(/_/g, ' ').trim();
+        const state = await this.prisma.state.findFirst({ where: { name: { contains: stateName, mode: 'insensitive' } } });
+        if (!state) continue;
+        try {
+          await this.prisma.performanceIndicator.upsert({
+            where: { stateId_year: { stateId: state.id, year: y } },
+            update: { data: obj },
+            create: { stateId: state.id, year: y, data: obj },
+          });
+        } catch (err) {
+          this.logger.error('Failed to upsert PI', err?.message || String(err));
+        }
+      }
+    }
+    return { success: true };
+  }
+
   private async readSheetOnTheFly(
     sheetName: string,
     stateNameMap: Map<string, number>,
