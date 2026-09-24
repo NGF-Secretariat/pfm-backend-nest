@@ -1112,7 +1112,7 @@ export class BudgetService {
             create: { stateId: state.id, year: y, data: obj },
           });
         } catch (err) {
-          this.logger.error('Failed to upsert PI', err?.message || String(err));
+          console.error('Failed to upsert PI', err?.message || String(err));
         }
       }
     }
