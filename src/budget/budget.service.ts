@@ -148,15 +148,19 @@ export class BudgetService {
   constructor(private readonly prisma: PrismaService) {}
 
   private getMasterWorkbookPath(): string {
+    // Allow deploys to specify the workbook location explicitly
+    const envPath = process.env.MASTER_WORKBOOK_PATH;
+    if (envPath && fs.existsSync(envPath)) return envPath;
+
     const candidates = [
       'New Public Finance Database + 2018-2025 Indicators.xlsx',
-      'Public Finance Database (2018-2026) + Indicators.xlsx',
     ];
     for (const c of candidates) {
       const p = path.join(process.cwd(), c);
       if (fs.existsSync(p)) return p;
     }
-    // fallback to the original expected path
+
+    // If none found, return an indicative path (used for error messages by callers)
     return path.join(process.cwd(), candidates[1]);
   }
   private getMappings(): any {
@@ -903,10 +907,12 @@ export class BudgetService {
     }
 
     // 2. Load the excel workbook for PI
-    const workbookPath = path.join(
-      process.cwd(),
-      'Public Finance Database (2018-2026) + Indicators.xlsx',
-    );
+    const workbookPath = this.getMasterWorkbookPath();
+    if (!fs.existsSync(workbookPath)) {
+      throw new BadRequestException(
+        `No performance indicator workbook found at ${workbookPath}. Set MASTER_WORKBOOK_PATH to the workbook location in production.`,
+      );
+    }
     const workbook = XLSX.readFile(workbookPath);
 
     const sheetNamePattern = `PI${year}`;
@@ -1123,10 +1129,8 @@ export class BudgetService {
     sheetName: string,
     stateNameMap: Map<string, number>,
   ) {
-    const workbookPath = path.join(
-      process.cwd(),
-      'Public Finance Database (2018-2026) + Indicators.xlsx',
-    );
+    const workbookPath = this.getMasterWorkbookPath();
+    if (!fs.existsSync(workbookPath)) return [];
     const workbook = XLSX.readFile(workbookPath);
 
     const yearMatch = sheetName.match(/\d{4}/);
