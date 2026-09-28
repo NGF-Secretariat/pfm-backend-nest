@@ -1,6 +1,8 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateLandingPageDto } from './dto/create-landing-page.dto';
 import { UpdateLandingPageDto } from './dto/update-landing-page.dto';
+import * as fs from 'fs';
+import * as path from 'path';
 import * as XLSX from 'xlsx';
 import { PrismaService } from 'src/prisma/prisma.service';
 
@@ -29,6 +31,8 @@ interface GroupedFiscalResponse {
 
 @Injectable()
 export class LandingPageService {
+  private lastUploadedWorkbook: XLSX.WorkBook | null = null;
+
   constructor(private readonly prisma: PrismaService) {}
 
   create(createLandingPageDto: CreateLandingPageDto) {
@@ -55,12 +59,34 @@ export class LandingPageService {
     if (!file?.buffer) throw new BadRequestException('No file provided');
 
     const workbook = XLSX.read(file.buffer, { type: 'buffer' });
+    this.lastUploadedWorkbook = workbook;
+
     const data: Record<string, any[]> = {};
 
     for (const sheetName of workbook.SheetNames) {
       data[sheetName] = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {
         defval: null,
         raw: true,
+      });
+    }
+
+    const a2025Sheet = workbook.Sheets['A2025'];
+    if (a2025Sheet) {
+      const rawRows = XLSX.utils.sheet_to_json(a2025Sheet, {
+        header: 1,
+        raw: true,
+        blankrows: false,
+      }) as any[][];
+
+      const abiaRow = rawRows.find(
+        (row) => String(row[0] ?? '').trim().toLowerCase() === 'abia',
+      );
+
+      console.log('[A2025 debug]', {
+        cellC5: a2025Sheet['C5']?.v ?? null,
+        cellA5: a2025Sheet['A5']?.v ?? null,
+        abiaRow,
+        row5: rawRows[4] ?? null,
       });
     }
 
@@ -610,20 +636,217 @@ export class LandingPageService {
     };
   }
 
+  private normalizeStateName(name: string): string {
+    return String(name ?? '')
+      .trim()
+      .replace(/\s+/g, ' ')
+      .replace(/-/g, ' ')
+      .toUpperCase();
+  }
+
+  private parseNumber(value: unknown): number | null {
+    if (value == null || value === '') return null;
+    if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+
+    const cleaned = String(value)
+      .trim()
+      .replace(/[$,%\s]/g, '')
+      .replace(/,/g, '');
+
+    const parsed = Number(cleaned);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+
+  private formatMapAmount(value: number | null): string {
+    if (value == null) return '0';
+    return String(value);
+  }
+
+  private getWorkbookFromDisk(): XLSX.WorkBook | null {
+    const candidates = [
+      path.resolve(process.cwd(), 'New Public Finance Database + 2018-2025 Indicators.xlsx'),
+      path.resolve(process.cwd(), 'PF-Site Landing Page Dataset 2026.xlsx'),
+    ];
+
+    for (const candidate of candidates) {
+      if (!fs.existsSync(candidate)) continue;
+
+      try {
+        const buffer = fs.readFileSync(candidate);
+        return XLSX.read(buffer, { type: 'buffer' });
+      } catch (error) {
+        console.error('[Workbook read]', error);
+      }
+    }
+
+    return null;
+  }
+
+  private getLatestAWorkbookSheet(workbook: XLSX.WorkBook | null): {
+    sheet: XLSX.WorkSheet | null;
+    year: number;
+  } {
+    if (!workbook) {
+      return { sheet: null, year: 2025 };
+    }
+
+    const sheetNames = workbook.SheetNames.filter((name) => /^A\d{4}$/i.test(name));
+    if (sheetNames.length === 0) {
+      return { sheet: null, year: 2025 };
+    }
+
+    const ordered = [...sheetNames].sort((a, b) => {
+      const yearA = parseInt(a.replace(/^A/i, ''), 10) || 0;
+      const yearB = parseInt(b.replace(/^A/i, ''), 10) || 0;
+      return yearB - yearA;
+    });
+
+    const selected = ordered[0];
+    const year = parseInt(selected.replace(/^A/i, ''), 10) || 2025;
+
+    return {
+      sheet: workbook.Sheets[selected] ?? null,
+      year,
+    };
+  }
+
+  private async extractA2025StateValuesFromWorkbook() {
+    const sheet = this.lastUploadedWorkbook?.Sheets?.['A2025'];
+    if (!sheet) return [];
+
+    const rows = XLSX.utils.sheet_to_json(sheet, {
+      header: 1,
+      raw: false,
+      blankrows: false,
+    }) as any[][];
+
+    const headerIndex = rows.findIndex((row) =>
+      String(row?.[0] ?? '').trim().toLowerCase() === 'code',
+    );
+
+    const stateRow = rows[headerIndex >= 0 ? headerIndex : 0] ?? [];
+    const stateColumns = new Map<number, string>();
+
+    stateRow.forEach((cell, index) => {
+      const stateName = String(cell ?? '').trim();
+      if (!stateName || stateName.toLowerCase() === 'code') return;
+      stateColumns.set(index, stateName);
+    });
+
+    const revenueRowIndex = rows.findIndex((row) => {
+      const rowCode = String(row?.[0] ?? '').trim();
+      const rowLabel = String(row?.[1] ?? '').trim().toLowerCase();
+      return rowCode === '10000000' && rowLabel.includes('revenue');
+    });
+
+    const revenueRow = rows[revenueRowIndex >= 0 ? revenueRowIndex : 0] ?? [];
+    if (stateColumns.size === 0 || revenueRow.length === 0) return [];
+
+    const dbStates = await this.prisma.state.findMany();
+    const dbStateMap = new Map(
+      dbStates.map((state) => [this.normalizeStateName(state.name), state.id]),
+    );
+
+    const values: Array<{
+      stateId: number;
+      stateName: string;
+      year: number;
+      amount: string;
+    }> = [];
+
+    for (const [columnIndex, stateName] of stateColumns.entries()) {
+      const amount = this.parseNumber(revenueRow[columnIndex]);
+      if (amount == null) continue;
+
+      const normalizedStateName = this.normalizeStateName(stateName);
+      const matchedStateId = dbStateMap.get(normalizedStateName) ?? columnIndex + 1;
+
+      // console.log('[A2025 revenue row]', {
+      //   stateName,
+      //   columnIndex,
+      //   amount,
+      //   matchedStateId,
+      // });
+
+      values.push({
+        stateId: matchedStateId,
+        stateName: this.normalizeStateName(stateName),
+        year: 2025,
+        amount: this.formatMapAmount(amount),
+      });
+    }
+
+    return values;
+  }
+
   async actualMapBudget() {
+    const workbook = this.lastUploadedWorkbook ?? this.getWorkbookFromDisk();
+    const latestSheet = this.getLatestAWorkbookSheet(workbook);
+    const sheet = latestSheet.sheet;
+    const selectedYear = latestSheet.year;
+    let result: Array<{
+      stateId: number;
+      stateName: string;
+      year: number;
+      amount: string;
+    }> = [];
+
+    if (sheet) {
+      const rows = XLSX.utils.sheet_to_json(sheet, {
+        header: 1,
+        raw: false,
+        blankrows: false,
+      }) as any[][];
+
+      const headerRow = rows.find(
+        (row) => String(row?.[0] ?? '').trim().toLowerCase() === 'code',
+      ) ?? rows[0] ?? [];
+
+      const revenueRowIndex = rows.findIndex((row) => {
+        const code = String(row?.[0] ?? '').trim();
+        const label = String(row?.[1] ?? '').trim().toLowerCase();
+        return code === '10000000' && label.includes('revenue');
+      });
+
+      const revenueRow = rows[revenueRowIndex] ?? [];
+      const dbStateMap = new Map(
+        (await this.prisma.state.findMany({
+          select: { id: true, name: true },
+        })).map((state) => [this.normalizeStateName(state.name), state.id]),
+      );
+
+      for (let columnIndex = 2; columnIndex < headerRow.length; columnIndex += 1) {
+        const stateName = String(headerRow[columnIndex] ?? '').trim();
+        if (!stateName) continue;
+
+        const amount = this.parseNumber(revenueRow[columnIndex]);
+        if (amount == null) continue;
+
+        result.push({
+          stateId: dbStateMap.get(this.normalizeStateName(stateName)) ?? columnIndex,
+          stateName: this.normalizeStateName(stateName),
+          year: selectedYear,
+          amount: this.formatMapAmount(amount),
+        });
+      }
+
+      // console.log('[A-year revenue row]', { source: 'excel', selectedYear, result });
+      return result;
+    }
+
     const actualRevenues = await this.prisma.actualRevenue.aggregate({
       _max: {
         year: true,
       },
     });
 
-    const year = actualRevenues._max.year;
+    const year = actualRevenues._max.year ?? new Date().getFullYear();
 
     const states = await this.prisma.state.findMany({
       include: {
         actualRevenues: {
           where: {
-            year: year!,
+            year,
           },
           select: {
             amount: true,
@@ -632,12 +855,15 @@ export class LandingPageService {
       },
     });
 
-    return states.map((state) => ({
+    result = states.map((state) => ({
       stateId: state.id,
-      stateName: state.name,
+      stateName: this.normalizeStateName(state.name),
       year,
-      amount: state.actualRevenues[0]?.amount ?? null,
+      amount: this.formatMapAmount(state.actualRevenues[0]?.amount?.toNumber() ?? null),
     }));
+
+    // console.log('[A2025 revenue row]', { source: 'db-fallback', result });
+    return result;
   }
 
   async expenditureRevenueTimeseries() {
