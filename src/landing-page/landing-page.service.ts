@@ -4,6 +4,7 @@ import { UpdateLandingPageDto } from './dto/update-landing-page.dto';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as XLSX from 'xlsx';
+import { Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 interface StateFiscalGroup {
@@ -33,7 +34,7 @@ interface GroupedFiscalResponse {
 export class LandingPageService {
   private lastUploadedWorkbook: XLSX.WorkBook | null = null;
 
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   create(createLandingPageDto: CreateLandingPageDto) {
     return 'This action adds a new landingPage';
@@ -53,6 +54,166 @@ export class LandingPageService {
 
   remove(id: number) {
     return `This action removes a #${id} landingPage`;
+  }
+
+  private async persistLatestWorkbookTimeSeriesToDb(
+    workbook: XLSX.WorkBook | null,
+  ): Promise<void> {
+    if (!workbook) return;
+
+    const latestOriginal = this.getLatestSheetByPrefix(workbook, 'B');
+    const latestActual = this.getLatestSheetByPrefix(workbook, 'A');
+
+    const originalRevenue = this.sumStateSeriesFromLatestWorkbookSheet(
+      latestOriginal.sheet,
+      '10000000',
+      'revenue',
+      latestOriginal.year,
+    );
+    const originalExpenditure = this.sumStateSeriesFromLatestWorkbookSheet(
+      latestOriginal.sheet,
+      '20000000',
+      'expenditure',
+      latestOriginal.year,
+    );
+    const actualRevenue = this.sumStateSeriesFromLatestWorkbookSheet(
+      latestActual.sheet,
+      '10000000',
+      'revenue',
+      latestActual.year,
+    );
+    const actualExpenditure = this.sumStateSeriesFromLatestWorkbookSheet(
+      latestActual.sheet,
+      '20000000',
+      'expenditure',
+      latestActual.year,
+    );
+
+    const entries: Array<{
+      year: number;
+      originalRevenue?: number | null;
+      originalExpenditure?: number | null;
+      actualRevenue?: number | null;
+      actualExpenditure?: number | null;
+    }> = [];
+
+    if (latestOriginal.year != null) {
+      entries.push({
+        year: latestOriginal.year,
+        originalRevenue: originalRevenue?.revenue ?? null,
+        originalExpenditure: originalExpenditure?.expenditure ?? null,
+      });
+    }
+
+    if (latestActual.year != null) {
+      entries.push({
+        year: latestActual.year,
+        actualRevenue: actualRevenue?.revenue ?? null,
+        actualExpenditure: actualExpenditure?.expenditure ?? null,
+      });
+    }
+
+    for (const entry of entries) {
+      const existing = await this.prisma.nationalAggregate.findUnique({
+        where: { year: entry.year },
+      });
+
+      const payload = {
+        originalRevenue: entry.originalRevenue != null ? new Prisma.Decimal(entry.originalRevenue) : existing?.originalRevenue ?? null,
+        originalExpenditure: entry.originalExpenditure != null ? new Prisma.Decimal(entry.originalExpenditure) : existing?.originalExpenditure ?? null,
+        actualRevenue: entry.actualRevenue != null ? new Prisma.Decimal(entry.actualRevenue) : existing?.actualRevenue ?? null,
+        actualExpenditure: entry.actualExpenditure != null ? new Prisma.Decimal(entry.actualExpenditure) : existing?.actualExpenditure ?? null,
+      };
+
+      await this.prisma.nationalAggregate.upsert({
+        where: { year: entry.year },
+        update: payload,
+        create: {
+          year: entry.year,
+          originalRevenue: payload.originalRevenue,
+          originalExpenditure: payload.originalExpenditure,
+          actualRevenue: payload.actualRevenue,
+          actualExpenditure: payload.actualExpenditure,
+        },
+      });
+    }
+  }
+
+  private async persistLatestWorkbookZonalBreakdownToDb(
+    workbook: XLSX.WorkBook | null,
+  ): Promise<void> {
+    if (!workbook) return;
+
+    const latestA = this.getLatestSheetByPrefix(workbook, 'A');
+    const sheet = latestA.sheet;
+    const year = latestA.year;
+
+    if (!sheet || year == null) return;
+
+    const rows = XLSX.utils.sheet_to_json(sheet, {
+      header: 1,
+      raw: false,
+      blankrows: false,
+    }) as any[][];
+
+    const headerRow = rows[0] ?? [];
+    const stateStartIndex = headerRow.findIndex(
+      (cell) => String(cell ?? '').trim().toUpperCase() === 'ABIA',
+    );
+    const stateEndIndex = headerRow.findIndex(
+      (cell) => String(cell ?? '').trim().toUpperCase() === 'ZAMFARA',
+    );
+
+    if (stateStartIndex < 0 || stateEndIndex < 0 || stateEndIndex < stateStartIndex) {
+      return;
+    }
+
+    const rowIndex = rows.findIndex((row) => {
+      const code = String(row?.[0] ?? '').trim();
+      const label = String(row?.[1] ?? '').trim().toLowerCase();
+      return code === '20000000' && label.includes('expenditure');
+    });
+
+    if (rowIndex < 0) return;
+
+    const expenditureRow = rows[rowIndex] ?? [];
+    const states = await this.prisma.state.findMany({
+      include: { zone: true },
+    });
+
+    const stateMap = new Map(
+      states.map((state) => [this.normalizeStateName(state.name), state]),
+    );
+
+    for (let columnIndex = stateStartIndex; columnIndex <= stateEndIndex; columnIndex += 1) {
+      const stateName = String(headerRow[columnIndex] ?? '').trim();
+      if (!stateName) continue;
+
+      const amount = this.parseNumber(expenditureRow[columnIndex]);
+      if (amount == null) continue;
+
+      const state = stateMap.get(this.normalizeStateName(stateName));
+      if (!state || !state.zoneId) continue;
+
+      await this.prisma.zoneOriginalBudget.upsert({
+        where: {
+          zoneId_stateName_year: {
+            zoneId: state.zoneId,
+            stateName: state.name,
+            year,
+          },
+        },
+        update: {
+          originalBudget: new Prisma.Decimal(amount),
+        },
+        create: {
+          zoneId: state.zoneId,
+          stateName: state.name,
+          year,
+          originalBudget: new Prisma.Decimal(amount),
+        },
+      });
+    }
   }
 
   async uploadFile(file: Express.Multer.File) {
@@ -112,6 +273,9 @@ export class LandingPageService {
       ),
       this.upsertGeoPolOriginalExp(data['Geo_Pol_Original_Exp']),
     ]);
+
+    await this.persistLatestWorkbookTimeSeriesToDb(workbook);
+    await this.persistLatestWorkbookZonalBreakdownToDb(workbook);
 
     return { message: 'Upload successful', sheets: workbook.SheetNames };
   }
@@ -662,6 +826,84 @@ export class LandingPageService {
     return String(value);
   }
 
+  private getLatestSheetByPrefix(
+    workbook: XLSX.WorkBook | null,
+    prefix: string,
+  ): { sheet: XLSX.WorkSheet | null; year: number | null } {
+    if (!workbook) {
+      return { sheet: null, year: null };
+    }
+
+    const sheetNames = workbook.SheetNames.filter((name) =>
+      new RegExp(`^${prefix}\\d{4}$`, 'i').test(name),
+    );
+
+    if (sheetNames.length === 0) {
+      return { sheet: null, year: null };
+    }
+
+    const selected = [...sheetNames].sort((a, b) => {
+      const yearA = parseInt(a.replace(new RegExp(`^${prefix}`, 'i'), ''), 10) || 0;
+      const yearB = parseInt(b.replace(new RegExp(`^${prefix}`, 'i'), ''), 10) || 0;
+      return yearB - yearA;
+    })[0];
+
+    return {
+      sheet: workbook.Sheets[selected] ?? null,
+      year: parseInt(selected.replace(new RegExp(`^${prefix}`, 'i'), ''), 10) || null,
+    };
+  }
+
+  private sumStateSeriesFromLatestWorkbookSheet(
+    sheet: XLSX.WorkSheet | null,
+    rowCode: string,
+    rowLabelContains: string,
+    year: number | null,
+  ): { year: number; expenditure: number; revenue: number } | null {
+    if (!sheet || year == null) return null;
+
+    const rows = XLSX.utils.sheet_to_json(sheet, {
+      header: 1,
+      raw: false,
+      blankrows: false,
+    }) as any[][];
+
+    const headerRow = rows[0] ?? [];
+    const stateStartIndex = headerRow.findIndex(
+      (cell) => String(cell ?? '').trim().toUpperCase() === 'ABIA',
+    );
+    const stateEndIndex = headerRow.findIndex(
+      (cell) => String(cell ?? '').trim().toUpperCase() === 'ZAMFARA',
+    );
+
+    if (stateStartIndex < 0 || stateEndIndex < 0 || stateEndIndex < stateStartIndex) {
+      return null;
+    }
+
+    const rowIndex = rows.findIndex((row) => {
+      const code = String(row?.[0] ?? '').trim();
+      const label = String(row?.[1] ?? '').trim().toLowerCase();
+      return code === rowCode && label.includes(rowLabelContains.toLowerCase());
+    });
+
+    if (rowIndex < 0) return null;
+
+    const row = rows[rowIndex] ?? [];
+    let total = 0;
+
+    for (let columnIndex = stateStartIndex; columnIndex <= stateEndIndex; columnIndex += 1) {
+      const value = this.parseNumber(row[columnIndex]);
+      if (value == null) continue;
+      total += value;
+    }
+
+    return {
+      year,
+      expenditure: rowCode === '20000000' ? total : 0,
+      revenue: rowCode === '10000000' ? total : 0,
+    };
+  }
+
   private getWorkbookFromDisk(): XLSX.WorkBook | null {
     const candidates = [
       path.resolve(process.cwd(), 'New Public Finance Database + 2018-2025 Indicators.xlsx'),
@@ -867,6 +1109,12 @@ export class LandingPageService {
   }
 
   async expenditureRevenueTimeseries() {
+    const workbook = this.lastUploadedWorkbook ?? this.getWorkbookFromDisk();
+
+    if (workbook) {
+      await this.persistLatestWorkbookTimeSeriesToDb(workbook);
+    }
+
     const aggregates = await this.prisma.nationalAggregate.findMany({
       orderBy: { year: 'asc' },
     });
@@ -882,7 +1130,7 @@ export class LandingPageService {
       expenditure: agg.actualExpenditure?.toNumber() ?? 0,
       revenue: agg.actualRevenue?.toNumber() ?? 0,
     }));
-
+    // console.log('[expenditureRevenueTimeseries]', { original, actual });
     return {
       success: true,
       data: {
@@ -895,6 +1143,11 @@ export class LandingPageService {
   }
 
   async zonalBreakdown() {
+    const workbook = this.lastUploadedWorkbook ?? this.getWorkbookFromDisk();
+    if (workbook) {
+      await this.persistLatestWorkbookZonalBreakdownToDb(workbook);
+    }
+
     const zoneBudgets = await this.prisma.zoneOriginalBudget.findMany({
       include: { zone: true },
     });
