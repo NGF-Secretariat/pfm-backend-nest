@@ -276,6 +276,7 @@ export class LandingPageService {
 
     await this.persistLatestWorkbookTimeSeriesToDb(workbook);
     await this.persistLatestWorkbookZonalBreakdownToDb(workbook);
+    await this.persistLatestWorkbookDistributionToDb(workbook);
 
     return { message: 'Upload successful', sheets: workbook.SheetNames };
   }
@@ -1308,11 +1309,130 @@ export class LandingPageService {
     await Promise.all(promises);
   }
 
+  private async persistLatestWorkbookDistributionToDb(
+    workbook: XLSX.WorkBook | null,
+  ): Promise<void> {
+    if (!workbook) return;
+
+    const latestB = this.getLatestSheetByPrefix(workbook, 'B');
+    const sheet = latestB.sheet;
+    const year = latestB.year;
+    if (!sheet || year == null) return;
+
+    const rows = XLSX.utils.sheet_to_json(sheet, {
+      header: 1,
+      raw: false,
+      blankrows: false,
+    }) as any[][];
+
+    const headerRow = rows[0] ?? [];
+    const stateStartIndex = headerRow.findIndex(
+      (cell) => String(cell ?? '').trim().toUpperCase() === 'ABIA',
+    );
+    const stateEndIndex = headerRow.findIndex(
+      (cell) => String(cell ?? '').trim().toUpperCase() === 'ZAMFARA',
+    );
+
+    if (stateStartIndex < 0 || stateEndIndex < 0 || stateEndIndex < stateStartIndex) {
+      return;
+    }
+
+    const targetCodes = new Set(['701','703','708','709','704','705','706','707','710']);
+
+    // Aggregate totals per code (sum duplicates)
+    const totalsByCode = new Map<string, { recurrent: number; capital: number; total: number; label?: string }>();
+
+    for (const row of rows) {
+      const code = String(row?.[0] ?? '').trim();
+      if (!targetCodes.has(code)) continue;
+
+      const label = String(row?.[1] ?? '').trim();
+
+      // Some sheets provide Recurrent/Capital in known columns; try to read if present
+      let recurrent = 0;
+      let capital = 0;
+      let total = 0;
+
+      // If columns named exist (we're using positional headerRow offsets)
+      for (let col = stateStartIndex; col <= stateEndIndex; col += 1) {
+        const val = this.parseNumber(row[col]);
+        if (val == null) continue;
+        total += val;
+      }
+
+      // If sheet provides separate recurrent/capital columns (try common indexes)
+      const recurVal = this.parseNumber(row['Recurrent '] ?? row['Recurrent'] ?? row[2]);
+      const capVal = this.parseNumber(row['Capital'] ?? row[3]);
+      if (recurVal != null) recurrent = recurVal;
+      if (capVal != null) capital = capVal;
+
+      const existing = totalsByCode.get(code);
+      if (!existing) {
+        totalsByCode.set(code, { recurrent, capital, total, label });
+      } else {
+        existing.recurrent += recurrent;
+        existing.capital += capital;
+        existing.total += total;
+        if (!existing.label) existing.label = label;
+      }
+    }
+
+    // Map sheet labels to function enum keys where possible
+    const codeToFunction: Record<string, string> = {
+      '701': 'GENERAL_PUBLIC_SERVICE',
+      '703': 'PUBLIC_ORDER_AND_SAFETY',
+      '708': 'ECONOMIC_AFFAIRS',
+      '709': 'ENVIRONMENTAL_PROTECTION',
+      '704': 'HOUSING_AND_COMMUNITY_AMENITIES',
+      '705': 'HEALTH',
+      '706': 'RECREATION_AND_CULTURE',
+      '707': 'EDUCATION',
+      '710': 'SOCIAL_PROTECTION',
+    };
+
+    const promises: any[] = [];
+    for (const [code, vals] of totalsByCode.entries()) {
+      const fn = codeToFunction[code] ?? 'OTHER';
+      const totalDec = vals.total;
+      const recurrentDec = vals.recurrent ?? 0;
+      const capitalDec = vals.capital ?? 0;
+
+      promises.push(
+        this.prisma.expenditureByFunction.upsert({
+          where: { year_function: { year, function: fn as any } },
+          update: {
+            total: new Prisma.Decimal(totalDec),
+            recurrent: new Prisma.Decimal(recurrentDec),
+            capital: new Prisma.Decimal(capitalDec),
+          },
+          create: {
+            year,
+            function: fn as any,
+            total: new Prisma.Decimal(totalDec),
+            recurrent: new Prisma.Decimal(recurrentDec),
+            capital: new Prisma.Decimal(capitalDec),
+          },
+        }),
+      );
+    }
+
+    if (promises.length > 0) await this.prisma.$transaction(promises);
+  }
+
   // Removed duplicate upsertExpenditureByFunction
 
   async distributionGraph(): Promise<any> {
+    // Prefer the latest year present in the DB; fall back to the latest B-sheet on disk or 2026
+    const agg = await this.prisma.expenditureByFunction.aggregate({ _max: { year: true } });
+    let year = agg._max.year ?? null;
+    if (year == null) {
+      const workbook = this.lastUploadedWorkbook ?? this.getWorkbookFromDisk();
+      const latestB = this.getLatestSheetByPrefix(workbook, 'B');
+      year = latestB.year ?? 2026;
+    }
+
     const data = await this.prisma.expenditureByFunction.findMany({
-      where: { year: 2026 },
+      where: { year },
       orderBy: { total: 'desc' },
     });
 
@@ -1323,6 +1443,7 @@ export class LandingPageService {
       total: item.total.toNumber(),
     }));
 
+    // console.log('[distributionGraph]', { result });
     return {
       success: true,
       data: {
