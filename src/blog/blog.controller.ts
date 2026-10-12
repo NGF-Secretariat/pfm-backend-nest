@@ -10,6 +10,7 @@ import {
   UploadedFile,
   BadRequestException,
   Req,
+  Query,
 } from '@nestjs/common';
 import { BlogService } from './blog.service';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -38,8 +39,13 @@ export class BlogController {
   }
 
   @Get()
-  findAll() {
-    return this.blogService.findAll();
+  findAll(
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+    @Query('search') search?: string,
+    @Query('all') all?: string,
+  ) {
+    return this.blogService.findAll({ page, limit, search, all });
   }
 
   @Get(':slug')

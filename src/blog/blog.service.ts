@@ -175,12 +175,56 @@ export class BlogService {
     });
   }
 
-  async findAll() {
+  async findAll(query?: {
+    page?: number | string;
+    limit?: number | string;
+    search?: string;
+    all?: boolean | string;
+  }) {
     return this.executeWithRetry(async () => {
-      const blogs = await this.prisma.blogPost.findMany({
-        orderBy: { createdAt: 'desc' },
-      });
-      return { success: true, data: blogs };
+      const isFetchAll =
+        query?.limit === 'all' ||
+        query?.limit === -1 ||
+        query?.all === true ||
+        query?.all === 'true';
+
+      const pageNum = Math.max(1, Number(query?.page) || 1);
+      const limitNum = Math.max(1, Number(query?.limit) || 20);
+
+      const search = query?.search?.trim();
+      const where: any = search
+        ? {
+            OR: [
+              { title: { contains: search, mode: 'insensitive' } },
+              { excerpt: { contains: search, mode: 'insensitive' } },
+              { author: { contains: search, mode: 'insensitive' } },
+            ],
+          }
+        : {};
+
+      const [total, blogs] = await Promise.all([
+        this.prisma.blogPost.count({ where }),
+        this.prisma.blogPost.findMany({
+          where,
+          orderBy: { createdAt: 'desc' },
+          ...(isFetchAll ? {} : { skip: (pageNum - 1) * limitNum, take: limitNum }),
+        }),
+      ]);
+
+      const totalPages = isFetchAll ? 1 : Math.ceil(total / limitNum);
+
+      return {
+        success: true,
+        data: blogs,
+        pagination: {
+          total,
+          page: isFetchAll ? 1 : pageNum,
+          limit: isFetchAll ? total : limitNum,
+          totalPages,
+          hasNextPage: isFetchAll ? false : pageNum < totalPages,
+          hasPrevPage: isFetchAll ? false : pageNum > 1,
+        },
+      };
     });
   }
 
