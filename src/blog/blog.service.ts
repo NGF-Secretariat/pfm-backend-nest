@@ -178,7 +178,7 @@ export class BlogService {
   async findAll() {
     return this.executeWithRetry(async () => {
       const blogs = await this.prisma.blogPost.findMany({
-        orderBy: { createdAt: 'asc' },
+        orderBy: { createdAt: 'desc' },
       });
       return { success: true, data: blogs };
     });
